@@ -114,7 +114,6 @@
     flex: unset;
     align-self: stretch;
   }
-  .imageIcon1,
   .text {
     align-self: stretch;
     width: auto;
@@ -124,5 +123,7 @@
   }
   .imageIcon1 {
     flex: 1;
+    height: auto;
+    width: 100%;
   }
 }

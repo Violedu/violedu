@@ -71,8 +71,6 @@
   .title {
     align-self: stretch;
     width: auto;
-  }
-  .title {
     align-items: center;
     justify-content: center;
   }

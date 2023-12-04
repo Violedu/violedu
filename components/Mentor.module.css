@@ -149,7 +149,6 @@
   .introTitle {
     text-align: center;
   }
-  .imageIcon,
   .title {
     align-self: stretch;
     width: auto;
@@ -160,6 +159,8 @@
   }
   .imageIcon {
     flex: 1;
+    height: auto;
+    width: 100%;
   }
   .mentorText,
   .mentorTextParent {

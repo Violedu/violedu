@@ -77,7 +77,6 @@
     align-items: center;
     justify-content: center;
   }
-  .imageIcon,
   .text,
   .title {
     align-self: stretch;
@@ -85,6 +84,8 @@
   }
   .imageIcon {
     flex: 1;
+    height: auto;
+    width: 100%;
   }
   .knowledge {
     flex-direction: column;

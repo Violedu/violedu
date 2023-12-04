@@ -79,8 +79,8 @@
     flex: 1;
   }
   .video {
-    align-self: stretch;
-    width: auto;
     flex: 1;
+    height: auto;
+    width: 100%;
   }
 }
