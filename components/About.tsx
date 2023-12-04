@@ -13,7 +13,7 @@ const About: NextPage = () => {
           </b>
         </div>
         <img className={styles.imageIcon} alt="" src="image@2x.png" />
-        <video className={styles.video} controls>
+        <video className={styles.video} controls poster="video_poster_1.PNG">
           <source src="pexels-c-technical-7095746_(2160p).mp4" />
         </video>
       </div>

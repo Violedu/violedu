@@ -10,7 +10,7 @@ const Testemonials: NextPage = () => {
           <b className={styles.introTitle}>What They Say.</b>
         </div>
         <img className={styles.imageIcon} alt="" src="image@2x.png" />
-        <video className={styles.video} controls>
+        <video className={styles.video} controls poster="video_poster_2.PNG">
           <source src="pexels-mart-production-8471228_(720p) (1).mp4" />
         </video>
         <div className={styles.circles}>
