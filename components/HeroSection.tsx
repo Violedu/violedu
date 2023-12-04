@@ -31,7 +31,7 @@ const HeroSection: NextPage = () => {
             <div className={styles.requestALesson}>Request a Lesson</div>
           </button>
         </div>
-        <img className={styles.imageIcon} alt="" src="./image-1@2x.png" />
+        <img className={styles.imageIcon} alt="" src="image-1@2x.png" />
       </div>
     </div>
   );

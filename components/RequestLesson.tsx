@@ -40,7 +40,7 @@ const RequestLesson: NextPage = () => {
         </b>
       </div>
       <div className={styles.content}>
-        <img className={styles.imageIcon} alt="" src="./image@2x.png" />
+        <img className={styles.imageIcon} alt="" src="image@2x.png" />
         <div className={styles.frame}>
           <div className={styles.box}>
             <div className={styles.forms}>

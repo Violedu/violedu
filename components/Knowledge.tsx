@@ -24,7 +24,7 @@ const Knowledge: NextPage = () => {
           </div>
         </div>
       </div>
-      <img className={styles.imageIcon} alt="" src="./image2@2x.png" />
+      <img className={styles.imageIcon} alt="" src="image2@2x.png" />
     </div>
   );
 };

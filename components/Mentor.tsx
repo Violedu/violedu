@@ -8,7 +8,7 @@ const Mentor: NextPage = () => {
         <b className={styles.introTitle}>Work With Kalina.</b>
       </div>
       <div className={styles.frame}>
-        <img className={styles.imageIcon} alt="" src="./image8@2x.png" />
+        <img className={styles.imageIcon} alt="" src="image8@2x.png" />
         <div className={styles.text}>
           <div
             className={styles.mentorText}
@@ -28,7 +28,7 @@ const Mentor: NextPage = () => {
                     <img
                       className={styles.iconinstagram}
                       alt=""
-                      src="./iconinstagram.svg"
+                      src="iconinstagram.svg"
                     />
                   </div>
                   <div className={styles.footerText}>Instagram</div>
@@ -44,7 +44,7 @@ const Mentor: NextPage = () => {
                     <img
                       className={styles.iconyoutube}
                       alt=""
-                      src="./iconyoutube.svg"
+                      src="iconyoutube.svg"
                     />
                   </div>
                   <div className={styles.footerText}>YouTube</div>

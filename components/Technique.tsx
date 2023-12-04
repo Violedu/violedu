@@ -13,7 +13,7 @@ const Technique: NextPage = () => {
           <p className={styles.precisionAndAwareness}>Every Note.</p>
         </b>
       </div>
-      <img className={styles.imageIcon} alt="" src="./image1@2x.png" />
+      <img className={styles.imageIcon} alt="" src="image1@2x.png" />
       <div className={styles.text}>
         <div className={styles.leftTextBox}>
           A stable instrumental technique is the ground upon which a musician´s
