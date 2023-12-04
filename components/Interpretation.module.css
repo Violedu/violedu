@@ -1,0 +1,128 @@
+.whiteBgIcon {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 48px;
+  flex-shrink: 0;
+}
+.introTitle,
+.title {
+  display: flex;
+  align-items: center;
+}
+.introTitle {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  line-height: 48px;
+  justify-content: center;
+}
+.title {
+  width: 495px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.thereIsOften {
+  margin: 0;
+}
+.thereIsOftenContainer {
+  flex: 1;
+  position: relative;
+  line-height: 28px;
+  font-weight: 300;
+}
+.text,
+.top {
+  display: flex;
+}
+.text {
+  width: 969px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-13xl);
+  text-align: left;
+  font-size: var(--font-size-lgi-2);
+  color: var(--color-black);
+}
+.top {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-37xl);
+  z-index: 0;
+}
+.imageIcon {
+  position: absolute;
+  margin: 0 !important;
+  bottom: 45px;
+  left: calc(50% - 559px);
+  width: 186px;
+  height: 173px;
+  object-fit: cover;
+  z-index: 1;
+}
+.imageIcon1 {
+  position: relative;
+  border-radius: 17.28px;
+  width: 971px;
+  height: 471px;
+  object-fit: cover;
+  z-index: 2;
+}
+.frame,
+.interpretation {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame {
+  background-color: var(--color-whitesmoke);
+  overflow: hidden;
+  padding: var(--padding-53xl) var(--padding-5xl);
+  position: relative;
+  gap: var(--gap-13xl);
+}
+.interpretation {
+  text-align: center;
+  font-size: var(--font-size-29xl);
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-21xl);
+  }
+  .title {
+    align-self: stretch;
+    width: auto;
+  }
+  .thereIsOftenContainer {
+    font-size: var(--font-size-base);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .introTitle {
+    text-align: center;
+    flex: 1;
+  }
+  .thereIsOftenContainer {
+    flex: unset;
+    align-self: stretch;
+  }
+  .imageIcon1,
+  .text {
+    align-self: stretch;
+    width: auto;
+  }
+  .text {
+    flex-direction: column;
+  }
+  .imageIcon1 {
+    flex: 1;
+  }
+}

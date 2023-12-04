@@ -1,0 +1,14 @@
+.formIcon {
+  position: relative;
+  width: 3000px;
+  height: 552px;
+  z-index: 2;
+}
+.whiteSection {
+  width: 3000px;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}

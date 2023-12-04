@@ -1,0 +1,146 @@
+.introTitle {
+  position: relative;
+  line-height: 48px;
+}
+.title {
+  width: 969px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.imageIcon {
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-base-8);
+  max-width: 100%;
+  overflow: hidden;
+  height: 376.2px;
+  object-fit: cover;
+}
+.liveText {
+  align-self: stretch;
+  position: relative;
+  line-height: 28px;
+  font-weight: 300;
+}
+.requestALesson {
+  position: relative;
+  font-weight: 500;
+}
+.requestALesson:hover {
+  color: var(--color-steelblue);
+}
+.linkChild {
+  position: relative;
+  width: 8.3px;
+  height: 10.6px;
+}
+.link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+  font-size: var(--font-size-base);
+  color: var(--color-cornflowerblue);
+}
+.link,
+.link:hover {
+  cursor: pointer;
+}
+.topContent,
+.topText {
+  display: flex;
+  align-items: flex-start;
+}
+.topText {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-xl);
+}
+.topContent {
+  width: 967px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.imageIcon1 {
+  flex: 1;
+  position: relative;
+  border-radius: 17.19px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 385px;
+  object-fit: cover;
+}
+.bottomContent {
+  width: 969px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.inPersonAndOnline,
+.options {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-53xl);
+  font-size: var(--font-size-lgi-2);
+  color: var(--color-black);
+}
+.inPersonAndOnline {
+  padding: var(--padding-53xl) var(--padding-5xl);
+  gap: var(--gap-37xl);
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-21xl);
+  }
+  .liveText {
+    font-size: var(--font-size-base);
+  }
+  .requestALesson {
+    font-size: var(--font-size-mini);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .introTitle {
+    text-align: center;
+  }
+  .title {
+    align-self: stretch;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .imageIcon,
+  .topText {
+    flex: unset;
+    align-self: stretch;
+  }
+  .topContent {
+    align-self: stretch;
+    width: auto;
+    flex-direction: column;
+  }
+  .imageIcon1 {
+    flex: unset;
+    align-self: stretch;
+  }
+  .bottomContent {
+    align-self: stretch;
+    width: auto;
+    flex-direction: column;
+  }
+}

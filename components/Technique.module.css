@@ -1,0 +1,88 @@
+.precisionAndAwareness {
+  margin: 0;
+}
+.introTitle {
+  flex: 1;
+  position: relative;
+  line-height: 48px;
+}
+.title {
+  width: 970px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.imageIcon {
+  position: relative;
+  border-radius: 17.33px;
+  width: 970px;
+  height: 468px;
+  object-fit: cover;
+}
+.leftTextBox {
+  flex: 1;
+  position: relative;
+  line-height: 28px;
+  font-weight: 300;
+}
+.text {
+  width: 970px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-13xl);
+  font-size: var(--font-size-lgi-2);
+  color: var(--color-black);
+}
+.technique {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-53xl) var(--padding-5xl);
+  gap: var(--gap-37xl);
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-21xl);
+  }
+  .leftTextBox {
+    font-size: var(--font-size-base);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .introTitle {
+    text-align: center;
+  }
+  .imageIcon,
+  .title {
+    align-self: stretch;
+    width: auto;
+  }
+  .title {
+    align-items: center;
+    justify-content: center;
+  }
+  .imageIcon {
+    flex: 1;
+  }
+  .leftTextBox {
+    flex: unset;
+    align-self: stretch;
+  }
+  .text {
+    align-self: stretch;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}

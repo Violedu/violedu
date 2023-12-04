@@ -1,0 +1,44 @@
+.introTitle {
+  position: relative;
+  line-height: 40px;
+}
+.background,
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.title {
+  width: 1170px;
+  justify-content: flex-start;
+}
+.background {
+  align-self: stretch;
+  background-color: var(--color-gray-200);
+  height: 179px;
+  justify-content: center;
+  padding: 0 var(--padding-5xl);
+  box-sizing: border-box;
+}
+.whiteBg {
+  align-self: stretch;
+  position: relative;
+  background-color: var(--color-white);
+  height: 48px;
+}
+.introTestemonials {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-13xl);
+  }
+}

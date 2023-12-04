@@ -1,0 +1,44 @@
+.whiteBg {
+  align-self: stretch;
+  position: relative;
+  background-color: var(--color-white);
+  height: 48px;
+}
+.introTitle {
+  position: relative;
+  line-height: 40px;
+}
+.title {
+  width: 1170px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.background,
+.introMentor {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.background {
+  background-color: var(--color-gray-200);
+  height: 179px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-5xl);
+  box-sizing: border-box;
+}
+.introMentor {
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-13xl);
+  }
+}
