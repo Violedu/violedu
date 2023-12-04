@@ -68,7 +68,8 @@
   .introTitle {
     text-align: center;
   }
-  .title {
+  .title,
+  .video {
     align-self: stretch;
     width: auto;
   }
@@ -78,7 +79,5 @@
   }
   .video {
     flex: 1;
-    height: 100%;
-    width: auto;
   }
 }
