@@ -5,7 +5,7 @@ const RequestFooter: NextPage = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.logo}>
-        <img className={styles.logoIcon} alt="" src="/logo1.svg" />
+        <img className={styles.logoIcon} alt="" src="./logo1.svg" />
       </div>
       <div className={styles.info}>
         <div className={styles.top}>
@@ -24,7 +24,7 @@ const RequestFooter: NextPage = () => {
                   <img
                     className={styles.iconyoutube}
                     alt=""
-                    src="/iconyoutube1.svg"
+                    src="./iconyoutube1.svg"
                   />
                 </div>
                 <div className={styles.footerText}>YouTube</div>
@@ -34,7 +34,7 @@ const RequestFooter: NextPage = () => {
                   <img
                     className={styles.iconinstagram}
                     alt=""
-                    src="/iconinstagram1.svg"
+                    src="./iconinstagram1.svg"
                   />
                 </div>
                 <div className={styles.footerText}>Instagram</div>
@@ -44,7 +44,7 @@ const RequestFooter: NextPage = () => {
                   <img
                     className={styles.iconfacebook}
                     alt=""
-                    src="/iconfacebook.svg"
+                    src="./iconfacebook.svg"
                   />
                 </div>
                 <div className={styles.footerText}>Facebook</div>

@@ -69,7 +69,7 @@ const Footer: NextPage<FooterType> = ({
         <img
           className={styles.logoIcon}
           alt=""
-          src="/logo1.svg"
+          src="./logo1.svg"
           onClick={onLogoClick}
           style={logoIconStyle}
         />
@@ -113,7 +113,7 @@ const Footer: NextPage<FooterType> = ({
                   <img
                     className={styles.iconyoutube}
                     alt=""
-                    src="/iconyoutube1.svg"
+                    src="./iconyoutube1.svg"
                   />
                 </div>
                 <div className={styles.footerText}>YouTube</div>
@@ -127,7 +127,7 @@ const Footer: NextPage<FooterType> = ({
                   <img
                     className={styles.iconinstagram}
                     alt=""
-                    src="/iconinstagram1.svg"
+                    src="./iconinstagram1.svg"
                   />
                 </div>
                 <div className={styles.footerText}>Instagram</div>
@@ -141,7 +141,7 @@ const Footer: NextPage<FooterType> = ({
                   <img
                     className={styles.iconfacebook}
                     alt=""
-                    src="/iconfacebook.svg"
+                    src="./iconfacebook.svg"
                   />
                 </div>
                 <div className={styles.footerText}>Facebook</div>
