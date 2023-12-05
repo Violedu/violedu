@@ -9,10 +9,7 @@ const Interpretation: NextPage = () => {
         <div className={styles.top}>
           <div className={styles.title}>
             <div className={styles.introTitle}>
-              <span className={styles.introTitleTxtContainer}>
-                <p className={styles.uncoverTheStory}>{`Interpretation. `}</p>
-                <p className={styles.uncoverTheStory}>Uncover The Story.</p>
-              </span>
+              Interpretation. Uncover The Story.
             </div>
           </div>
           <div className={styles.text}>

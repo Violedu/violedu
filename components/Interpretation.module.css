@@ -6,12 +6,6 @@
   height: 48px;
   flex-shrink: 0;
 }
-.uncoverTheStory {
-  margin: 0;
-}
-.introTitleTxtContainer {
-  line-break: anywhere;
-}
 .introTitle,
 .title {
   display: flex;
@@ -23,6 +17,7 @@
   position: relative;
   line-height: 60px;
   font-weight: 800;
+  justify-content: center;
 }
 .title {
   width: 495px;
@@ -98,8 +93,6 @@
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-weight: 800;
-    font-family: var(--font-inter);
     font-size: var(--font-size-5xl);
     line-height: 40px;
   }
