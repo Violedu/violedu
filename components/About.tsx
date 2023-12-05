@@ -5,12 +5,12 @@ const About: NextPage = () => {
   return (
     <div className={styles.about}>
       <div className={styles.whiteBg} />
-      <div className={styles.frame}>
+      <div className={styles.frame} data-scroll-to="frameContainer">
         <div className={styles.title}>
-          <b className={styles.introTitle}>
+          <div className={styles.introTitle}>
             <p className={styles.fromIntermediate}>From Intermediate</p>
             <p className={styles.fromIntermediate}>To Advanced.</p>
-          </b>
+          </div>
         </div>
         <img className={styles.imageIcon} alt="" src="image@2x.png" />
         <video className={styles.video} controls poster="video_poster_1.PNG">

@@ -6,9 +6,9 @@ const Knowledge: NextPage = () => {
     <div className={styles.knowledge}>
       <div className={styles.text}>
         <div className={styles.title}>
-          <b className={styles.introTitle}>
+          <div className={styles.introTitle}>
             Knowledge. Deepen Your Understanding.
-          </b>
+          </div>
         </div>
         <div className={styles.paragraph}>
           <div className={styles.text1}>

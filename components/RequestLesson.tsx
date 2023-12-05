@@ -26,7 +26,7 @@ const RequestLesson: NextPage = () => {
   return (
     <div className={styles.requestlesson}>
       <div className={styles.title}>
-        <b className={styles.introTitle}>
+        <div className={styles.introTitle}>
           <p className={styles.secureYourSpot}>
             <span className={styles.secureYour}>{`Secure Your `}</span>
             <span className={styles.spot}>Spot</span>
@@ -37,7 +37,7 @@ const RequestLesson: NextPage = () => {
             <span className={styles.spot}>Today</span>
             <span className={styles.secureYour}>.</span>
           </p>
-        </b>
+        </div>
       </div>
       <div className={styles.content}>
         <img className={styles.imageIcon} alt="" src="image@2x.png" />

@@ -7,7 +7,8 @@
 .introTitle {
   flex: 1;
   position: relative;
-  line-height: 48px;
+  line-height: 60px;
+  font-weight: 800;
 }
 .title {
   flex-direction: row;
@@ -19,7 +20,7 @@
 .text1 {
   flex: 1;
   position: relative;
-  line-height: 28px;
+  line-height: 30px;
   font-weight: 300;
 }
 .paragraph {
@@ -28,7 +29,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-lgi-2);
+  font-size: var(--font-size-lg);
 }
 .text {
   width: 438px;
@@ -36,7 +37,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: var(--gap-37xl);
+  gap: var(--gap-21xl);
 }
 .imageIcon {
   position: relative;
@@ -53,19 +54,29 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-53xl) var(--padding-5xl);
-  gap: var(--gap-13xl);
+  padding: var(--padding-101xl) var(--padding-5xl);
+  gap: var(--gap-11xl);
   text-align: left;
-  font-size: var(--font-size-29xl);
+  font-size: var(--font-size-23xl);
   color: var(--color-white);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-21xl);
+    font-size: var(--font-size-5xl);
+    line-height: 40px;
   }
   .text1 {
     font-size: var(--font-size-base);
+    line-height: 28px;
+  }
+  .text {
+    gap: var(--gap-11xl);
+  }
+  .knowledge {
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-81xl);
+    box-sizing: border-box;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -89,5 +100,7 @@
   }
   .knowledge {
     flex-direction: column;
+    padding-top: var(--padding-61xl);
+    box-sizing: border-box;
   }
 }

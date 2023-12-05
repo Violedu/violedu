@@ -5,13 +5,13 @@ const Technique: NextPage = () => {
   return (
     <div className={styles.technique}>
       <div className={styles.title}>
-        <b className={styles.introTitle}>
+        <div className={styles.introTitle}>
           <p className={styles.precisionAndAwareness}>Technique.</p>
           <p className={styles.precisionAndAwareness}>
-            Precision and Awareness in
+            Precision and Awareness
           </p>
-          <p className={styles.precisionAndAwareness}>Every Note.</p>
-        </b>
+          <p className={styles.precisionAndAwareness}>in Every Note.</p>
+        </div>
       </div>
       <img className={styles.imageIcon} alt="" src="image1@2x.png" />
       <div className={styles.text}>

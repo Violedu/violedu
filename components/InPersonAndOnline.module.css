@@ -1,6 +1,7 @@
 .introTitle {
   position: relative;
-  line-height: 48px;
+  line-height: 60px;
+  font-weight: 800;
 }
 .title {
   width: 969px;
@@ -21,7 +22,7 @@
 .liveText {
   align-self: stretch;
   position: relative;
-  line-height: 28px;
+  line-height: 30px;
   font-weight: 300;
 }
 .requestALesson {
@@ -92,26 +93,34 @@
   align-items: center;
   justify-content: flex-start;
   gap: var(--gap-53xl);
-  font-size: var(--font-size-lgi-2);
+  font-size: var(--font-size-lg);
   color: var(--color-black);
 }
 .inPersonAndOnline {
   padding: var(--padding-53xl) var(--padding-5xl);
-  gap: var(--gap-37xl);
+  gap: var(--gap-21xl);
   text-align: left;
-  font-size: var(--font-size-29xl);
+  font-size: var(--font-size-23xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-21xl);
+    font-size: var(--font-size-5xl);
+    line-height: 40px;
   }
   .liveText {
     font-size: var(--font-size-base);
+    line-height: 28px;
   }
   .requestALesson {
     font-size: var(--font-size-mini);
+  }
+  .options {
+    gap: var(--gap-31xl);
+  }
+  .inPersonAndOnline {
+    gap: var(--gap-11xl);
   }
 }
 @media screen and (max-width: 1024px) {

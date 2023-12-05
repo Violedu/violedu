@@ -15,9 +15,12 @@ const InPersonAndOnline: NextPage = () => {
   }, [router]);
 
   return (
-    <div className={styles.inPersonAndOnline}>
+    <div
+      className={styles.inPersonAndOnline}
+      data-scroll-to="inPersonAndOnline"
+    >
       <div className={styles.title}>
-        <b className={styles.introTitle}>In Person And Online.</b>
+        <div className={styles.introTitle}>In Person And Online.</div>
       </div>
       <div className={styles.options}>
         <div className={styles.topContent}>

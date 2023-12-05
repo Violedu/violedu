@@ -10,7 +10,8 @@
 .introTitle {
   flex: 1;
   position: relative;
-  line-height: 56px;
+  line-height: 55px;
+  font-weight: 800;
 }
 .title {
   align-self: stretch;
@@ -80,7 +81,7 @@
 }
 .submitRequest {
   position: relative;
-  font-size: var(--font-size-lgi-2);
+  font-size: var(--font-size-lg);
   font-weight: 500;
   font-family: var(--font-inter);
   color: var(--color-white);
@@ -133,10 +134,10 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  padding: var(--padding-37xl) var(--padding-5xl) var(--padding-53xl);
+  padding: 0 var(--padding-5xl);
   position: relative;
   text-align: left;
-  font-size: var(--font-size-lgi-2);
+  font-size: var(--font-size-lg);
   color: var(--color-black);
 }
 .requestlesson {
@@ -144,25 +145,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding: 0 0 var(--padding-53xl);
+  gap: var(--gap-41xl);
   text-align: center;
-  font-size: var(--font-size-29xl);
+  font-size: var(--font-size-32xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-21xl);
+    font-size: var(--font-size-15xl);
+    line-height: 44px;
   }
   .title {
     align-self: stretch;
     width: auto;
   }
-  .personalInformation,
-  .submitRequest {
+  .personalInformation {
     font-size: var(--font-size-base);
+  }
+  .submitRequest {
+    font-size: var(--font-size-lg);
   }
   .frame {
     flex: 1;
+  }
+  .requestlesson {
+    gap: var(--gap-21xl);
+  }
+}
+@media screen and (max-width: 430px) {
+  .submitRequest {
+    font-size: var(--font-size-base);
   }
 }
 @media screen and (max-width: 1024px) {

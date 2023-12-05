@@ -8,13 +8,6 @@ const RequestFooter: NextPage = () => {
         <img className={styles.logoIcon} alt="" src="logo1.svg" />
       </div>
       <div className={styles.info}>
-        <div className={styles.top}>
-          <div className={styles.menu}>
-            <a className={styles.about}>About</a>
-            <a className={styles.about}>Learning Path</a>
-            <a className={styles.about}>Mentor</a>
-          </div>
-        </div>
         <div className={styles.infoBottomRight}>
           <div className={styles.socials}>
             <b className={styles.title}>Socials</b>
@@ -76,12 +69,12 @@ const RequestFooter: NextPage = () => {
         </div>
       </div>
       <div className={styles.bottomInfo}>
-        <div className={styles.copyright}>
+        <div className={styles.footerText}>
           © 2024 — Copyright All Rights reserved
         </div>
         <div className={styles.termsAndPrivacy}>
-          <a className={styles.about}>Terms</a>
-          <a className={styles.about}>Privacy</a>
+          <a className={styles.terms}>Terms</a>
+          <a className={styles.terms}>Privacy</a>
         </div>
       </div>
     </div>

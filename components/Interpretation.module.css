@@ -6,6 +6,12 @@
   height: 48px;
   flex-shrink: 0;
 }
+.uncoverTheStory {
+  margin: 0;
+}
+.introTitleTxtContainer {
+  line-break: anywhere;
+}
 .introTitle,
 .title {
   display: flex;
@@ -15,8 +21,8 @@
   align-self: stretch;
   flex: 1;
   position: relative;
-  line-height: 48px;
-  justify-content: center;
+  line-height: 60px;
+  font-weight: 800;
 }
 .title {
   width: 495px;
@@ -24,9 +30,6 @@
   justify-content: flex-start;
 }
 .thereIsOften {
-  margin: 0;
-}
-.thereIsOftenContainer {
   flex: 1;
   position: relative;
   line-height: 28px;
@@ -51,7 +54,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: var(--gap-37xl);
+  gap: var(--gap-21xl);
   z-index: 0;
 }
 .imageIcon {
@@ -85,24 +88,31 @@
   overflow: hidden;
   padding: var(--padding-53xl) var(--padding-5xl);
   position: relative;
-  gap: var(--gap-13xl);
+  gap: var(--gap-21xl);
 }
 .interpretation {
   text-align: center;
-  font-size: var(--font-size-29xl);
+  font-size: var(--font-size-23xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-21xl);
+    font-weight: 800;
+    font-family: var(--font-inter);
+    font-size: var(--font-size-5xl);
+    line-height: 40px;
   }
   .title {
     align-self: stretch;
     width: auto;
   }
-  .thereIsOftenContainer {
+  .thereIsOften {
     font-size: var(--font-size-base);
+  }
+  .frame,
+  .top {
+    gap: var(--gap-11xl);
   }
 }
 @media screen and (max-width: 1024px) {
@@ -110,7 +120,7 @@
     text-align: center;
     flex: 1;
   }
-  .thereIsOftenContainer {
+  .thereIsOften {
     flex: unset;
     align-self: stretch;
   }

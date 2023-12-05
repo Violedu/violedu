@@ -21,10 +21,10 @@ const Offers: NextPage = () => {
   return (
     <div className={styles.offers} data-scroll-to="offersContainer">
       <div className={styles.title}>
-        <b className={styles.introTitle}>
+        <div className={styles.introTitle}>
           <p className={styles.chooseTheLearning}>Choose The Learning Path</p>
           <p className={styles.chooseTheLearning}>That Fits Your Needs.</p>
-        </b>
+        </div>
       </div>
       <div className={styles.offers1}>
         <div className={styles.single}>

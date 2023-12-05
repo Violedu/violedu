@@ -3,9 +3,9 @@ import styles from "./Mentor.module.css";
 
 const Mentor: NextPage = () => {
   return (
-    <div className={styles.mentor}>
+    <div className={styles.mentor} data-scroll-to="mentorContainer">
       <div className={styles.title}>
-        <b className={styles.introTitle}>Work With Kalina.</b>
+        <div className={styles.introTitle}>Work With Kalina.</div>
       </div>
       <div className={styles.frame}>
         <img className={styles.imageIcon} alt="" src="image8@2x.png" />

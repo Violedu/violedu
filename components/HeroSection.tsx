@@ -15,10 +15,10 @@ const HeroSection: NextPage = () => {
       <div className={styles.heroSection1}>
         <div className={styles.actionCall}>
           <div className={styles.text}>
-            <b className={styles.title}>
+            <div className={styles.title}>
               <p className={styles.stepUp}>{`Step Up `}</p>
               <p className={styles.stepUp}>Your Next Performance.</p>
-            </b>
+            </div>
             <div className={styles.paragraph}>
               Unlock your path to an advanced level of playing. Get guidance
               that will help you step up the potential of your next performance.

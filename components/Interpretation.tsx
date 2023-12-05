@@ -8,25 +8,23 @@ const Interpretation: NextPage = () => {
       <div className={styles.frame}>
         <div className={styles.top}>
           <div className={styles.title}>
-            <b className={styles.introTitle}>
-              Interpretation. Uncover The Story.
-            </b>
+            <div className={styles.introTitle}>
+              <span className={styles.introTitleTxtContainer}>
+                <p className={styles.uncoverTheStory}>{`Interpretation. `}</p>
+                <p className={styles.uncoverTheStory}>Uncover The Story.</p>
+              </span>
+            </div>
           </div>
           <div className={styles.text}>
-            <div className={styles.thereIsOftenContainer}>
-              <p className={styles.thereIsOften}>
-                There is often a concern among young musicians: "Am I allowed to
-                have my own interpretation?"
-              </p>
-              <p className={styles.thereIsOften}>
-                The answer is yes, of course, and you definitely should! This is
-                the way to express your own intelligence, humor, wisdom, and
-                everything that you are in your playing. The key to truly
-                uncovering your story, however, is to have the skill and
-                knowledge to do so.
-              </p>
+            <div className={styles.thereIsOften}>
+              There is often a concern among young musicians: "Am I allowed to
+              have my own interpretation?" The answer is yes, of course, and you
+              definitely should! This is the way to express your own
+              intelligence, humor, wisdom, and everything that you are in your
+              playing. The key to truly uncovering your story, however, is to
+              have the skill and knowledge to do so.
             </div>
-            <div className={styles.thereIsOftenContainer}>
+            <div className={styles.thereIsOften}>
               That means to work on your technical skills with awareness and
               precision so you can "say" exactly what you mean. And to
               continuously feed your curiosity with knowledge about what already

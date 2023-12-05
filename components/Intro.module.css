@@ -1,6 +1,6 @@
 .introTitle {
   position: relative;
-  line-height: 40px;
+  line-height: 50px;
 }
 .introAbout,
 .title {
@@ -20,12 +20,16 @@
   padding: 0 var(--padding-5xl);
   box-sizing: border-box;
   text-align: left;
-  font-size: var(--font-size-21xl);
+  font-size: var(--font-size-19xl);
   color: var(--color-white);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-13xl);
+    font-size: var(--font-size-3xl);
+    line-height: 35px;
+  }
+  .introAbout {
+    height: 120px;
   }
 }

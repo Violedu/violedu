@@ -26,9 +26,7 @@ const Main: NextPage = () => {
   }, []);
 
   const onAboutClick = useCallback(() => {
-    const anchor = document.querySelector(
-      "[data-scroll-to='introAboutContainer']"
-    );
+    const anchor = document.querySelector("[data-scroll-to='frameContainer']");
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
@@ -36,7 +34,7 @@ const Main: NextPage = () => {
 
   const onLearningPathClick = useCallback(() => {
     const anchor = document.querySelector(
-      "[data-scroll-to='introLearningPath']"
+      "[data-scroll-to='inPersonAndOnline']"
     );
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
@@ -44,9 +42,7 @@ const Main: NextPage = () => {
   }, []);
 
   const onMentorClick = useCallback(() => {
-    const anchor = document.querySelector(
-      "[data-scroll-to='introMentorContainer']"
-    );
+    const anchor = document.querySelector("[data-scroll-to='mentorContainer']");
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
