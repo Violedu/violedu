@@ -172,7 +172,7 @@
 }
 @media screen and (max-width: 430px) {
   .introTitle {
-    font-size: var(--font-size-15xl);
+    font-size: var(--font-size-21xl);
   }
   .submitRequest {
     font-size: var(--font-size-base);

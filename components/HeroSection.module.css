@@ -99,7 +99,7 @@
 }
 @media screen and (max-width: 430px) {
   .title {
-    font-size: var(--font-size-15xl);
+    font-size: var(--font-size-21xl);
   }
   .requestALesson {
     font-size: var(--font-size-base);

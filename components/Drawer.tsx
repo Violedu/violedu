@@ -84,7 +84,7 @@ const Drawer: NextPage<DrawerType> = ({ onClose }) => {
               About
             </a>
             <div className={styles.menuChild} />
-            <a className={styles.about} onClick={onLearningPathClick}>
+            <a className={styles.learningPath} onClick={onLearningPathClick}>
               Learning Path
             </a>
             <div className={styles.menuChild} />

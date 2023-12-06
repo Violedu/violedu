@@ -18,27 +18,22 @@
   font-weight: 800;
 }
 .price,
-.topText {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.text {
+  position: relative;
+  flex-shrink: 0;
 }
 .price {
-  position: relative;
   font-size: var(--font-size-15xl);
   letter-spacing: -1px;
   font-weight: 300;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 80px;
   height: 41px;
-  flex-shrink: 0;
-}
-.topText {
-  flex-direction: column;
-  gap: var(--gap-6xl);
 }
 .text {
-  position: relative;
   font-size: var(--font-size-sm);
   font-weight: 500;
   font-family: var(--font-inter);
@@ -46,7 +41,6 @@
   text-align: left;
   display: inline-block;
   width: 116px;
-  flex-shrink: 0;
 }
 .button,
 .top {
@@ -105,20 +99,28 @@
   width: 225px;
   height: 1px;
 }
-.title2 {
+.title3 {
+  flex: 1;
   position: relative;
   letter-spacing: 0.08px;
   line-height: 26.76px;
   display: flex;
   align-items: center;
-  width: 90.2px;
   height: 19px;
-  flex-shrink: 0;
+}
+.suitable,
+.title2 {
+  display: flex;
+  align-items: flex-start;
+}
+.title2 {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-3xs);
 }
 .suitable {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
   padding: var(--padding-3xs);
   font-size: var(--font-size-sm-3);
@@ -155,7 +157,7 @@
   gap: var(--gap-35xl);
 }
 .price1,
-.title3 {
+.title4 {
   position: relative;
   letter-spacing: -2.07px;
 }
@@ -289,24 +291,23 @@
     font-size: var(--font-size-15xl);
   }
   .price {
-    font-size: var(--font-size-5xl);
+    font-size: var(--font-size-9xl);
   }
-  .top,
-  .topText {
-    gap: var(--gap-sm);
+  .top {
+    gap: var(--gap-lg);
   }
   .single {
     width: 300px;
     height: 618px;
     gap: var(--gap-6xl);
   }
-  .title3 {
+  .title4 {
     font-weight: 800;
     font-family: var(--font-inter);
     font-size: var(--font-size-15xl);
   }
   .price1 {
-    font-size: var(--font-size-5xl);
+    font-size: var(--font-size-9xl);
   }
   .intensive,
   .mastery {

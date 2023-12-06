@@ -1,3 +1,9 @@
+.deepenYourUnderstanding {
+  margin: 0;
+}
+.introTitleTxtContainer {
+  line-break: anywhere;
+}
 .introTitle,
 .title {
   align-self: stretch;
@@ -12,9 +18,6 @@
 .title {
   flex-direction: row;
   justify-content: flex-start;
-}
-.curiosityAndConstant {
-  margin: 0;
 }
 .text1 {
   flex: 1;

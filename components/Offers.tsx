@@ -29,10 +29,8 @@ const Offers: NextPage = () => {
       <div className={styles.offers1}>
         <div className={styles.single}>
           <div className={styles.top}>
-            <div className={styles.topText}>
-              <div className={styles.title1}>Single</div>
-              <div className={styles.price}>80 €</div>
-            </div>
+            <div className={styles.title1}>Single</div>
+            <div className={styles.price}>80 €</div>
             <button className={styles.button} onClick={onButtonClick}>
               <div className={styles.text}>Request a lesson</div>
             </button>
@@ -64,7 +62,9 @@ const Offers: NextPage = () => {
             </div>
             <div className={styles.textChild} />
             <div className={styles.suitableText}>
-              <div className={styles.title2}>Suitable for</div>
+              <div className={styles.title2}>
+                <div className={styles.title3}>Suitable for</div>
+              </div>
               <div className={styles.suitable}>
                 <div className={styles.line}>
                   <img className={styles.icon} alt="" src="icon.svg" />
@@ -84,10 +84,8 @@ const Offers: NextPage = () => {
         </div>
         <div className={styles.intensive}>
           <div className={styles.top}>
-            <div className={styles.topText}>
-              <b className={styles.title3}>Intensive</b>
-              <div className={styles.price1}>295 €</div>
-            </div>
+            <b className={styles.title4}>Intensive</b>
+            <div className={styles.price1}>295 €</div>
             <button className={styles.button} onClick={onButton1Click}>
               <div className={styles.text}>Request a lesson</div>
             </button>
@@ -137,7 +135,9 @@ const Offers: NextPage = () => {
             </div>
             <div className={styles.textChild} />
             <div className={styles.suitableText}>
-              <div className={styles.title2}>Suitable for</div>
+              <div className={styles.title2}>
+                <div className={styles.title3}>Suitable for</div>
+              </div>
               <div className={styles.suitable}>
                 <div className={styles.line}>
                   <img className={styles.icon} alt="" src="icon.svg" />
@@ -157,10 +157,8 @@ const Offers: NextPage = () => {
         </div>
         <div className={styles.mastery}>
           <div className={styles.top}>
-            <div className={styles.topText}>
-              <b className={styles.title3}>Mastery</b>
-              <div className={styles.price1}>595 €</div>
-            </div>
+            <b className={styles.title4}>Mastery</b>
+            <div className={styles.price1}>595 €</div>
             <button className={styles.button} onClick={onButton2Click}>
               <div className={styles.text}>Request a lesson</div>
             </button>
@@ -206,7 +204,9 @@ const Offers: NextPage = () => {
             </div>
             <div className={styles.textChild} />
             <div className={styles.suitableText}>
-              <div className={styles.title2}>Suitable for</div>
+              <div className={styles.title2}>
+                <div className={styles.title3}>Suitable for</div>
+              </div>
               <div className={styles.suitable}>
                 <div className={styles.line}>
                   <img className={styles.icon} alt="" src="icon.svg" />
