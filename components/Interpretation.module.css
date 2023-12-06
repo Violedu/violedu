@@ -15,7 +15,6 @@
   align-self: stretch;
   flex: 1;
   position: relative;
-  line-height: 60px;
   font-weight: 800;
   justify-content: center;
 }
@@ -87,14 +86,13 @@
 }
 .interpretation {
   text-align: center;
-  font-size: var(--font-size-23xl);
+  font-size: var(--font-size-29xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
-    line-height: 44px;
   }
   .title {
     align-self: stretch;

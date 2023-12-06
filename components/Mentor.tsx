@@ -3,7 +3,7 @@ import styles from "./Mentor.module.css";
 
 const Mentor: NextPage = () => {
   return (
-    <div className={styles.mentor} data-scroll-to="mentorContainer">
+    <div className={styles.mentor}>
       <div className={styles.title}>
         <div className={styles.introTitle}>Work With Kalina.</div>
       </div>

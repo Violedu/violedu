@@ -3,7 +3,6 @@
 }
 .introTitle {
   position: relative;
-  line-height: 60px;
   font-weight: 800;
 }
 .title {
@@ -16,26 +15,26 @@
 .title1 {
   position: relative;
   letter-spacing: -2.07px;
-  line-height: 50.47px;
+  font-weight: 800;
 }
 .price,
 .topText {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .price {
   position: relative;
-  font-size: 33.18px;
-  letter-spacing: -1.31px;
-  line-height: 41.37px;
+  font-size: var(--font-size-15xl);
+  letter-spacing: -1px;
   font-weight: 300;
+  text-align: center;
   width: 80px;
   height: 41px;
   flex-shrink: 0;
 }
 .topText {
   flex-direction: column;
-  justify-content: center;
   gap: var(--gap-6xl);
 }
 .text {
@@ -155,11 +154,14 @@
   box-sizing: border-box;
   gap: var(--gap-35xl);
 }
-.price1 {
+.price1,
+.title3 {
   position: relative;
-  font-size: 33.18px;
-  letter-spacing: -1.31px;
-  line-height: 41.37px;
+  letter-spacing: -2.07px;
+}
+.price1 {
+  font-size: var(--font-size-15xl);
+  letter-spacing: -1px;
   font-weight: 300;
 }
 .text3 {
@@ -217,7 +219,6 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  font-size: 47.78px;
   color: var(--color-gray-400);
 }
 .imageIcon {
@@ -278,20 +279,40 @@
   padding: var(--padding-53xl) var(--padding-5xl);
   gap: var(--gap-21xl);
   text-align: left;
-  font-size: var(--font-size-23xl);
+  font-size: var(--font-size-29xl);
   color: var(--color-white);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
-  .introTitle {
+  .introTitle,
+  .title1 {
     font-size: var(--font-size-15xl);
-    line-height: 44px;
   }
-  .intensive,
-  .mastery,
+  .price {
+    font-size: var(--font-size-5xl);
+  }
+  .top,
+  .topText {
+    gap: var(--gap-sm);
+  }
   .single {
     width: 300px;
     height: 618px;
+    gap: var(--gap-6xl);
+  }
+  .title3 {
+    font-weight: 800;
+    font-family: var(--font-inter);
+    font-size: var(--font-size-15xl);
+  }
+  .price1 {
+    font-size: var(--font-size-5xl);
+  }
+  .intensive,
+  .mastery {
+    width: 300px;
+    height: 618px;
+    gap: var(--gap-6xl);
   }
   .garanteeText {
     font-size: var(--font-size-lg);

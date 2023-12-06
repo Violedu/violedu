@@ -33,7 +33,9 @@ const NavBar: NextPage = () => {
   }, []);
 
   const onMentorClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='mentorContainer']");
+    const anchor = document.querySelector(
+      "[data-scroll-to='introMentorContainer']"
+    );
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }

@@ -5,7 +5,7 @@ const About: NextPage = () => {
   return (
     <div className={styles.about}>
       <div className={styles.whiteBg} />
-      <div className={styles.frame} data-scroll-to="frameContainer">
+      <div className={styles.frame}>
         <div className={styles.title}>
           <div className={styles.introTitle}>
             <p className={styles.fromIntermediate}>From Intermediate</p>

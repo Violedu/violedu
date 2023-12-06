@@ -1,12 +1,11 @@
 .whiteBg {
   align-self: stretch;
-  position: relative;
   background-color: var(--color-white);
   height: 48px;
 }
-.introTitle {
+.introTitle,
+.whiteBg {
   position: relative;
-  line-height: 50px;
 }
 .title {
   width: 1170px;
@@ -33,14 +32,13 @@
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-  font-size: var(--font-size-19xl);
+  font-size: var(--font-size-15xl);
   color: var(--color-white);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-3xl);
-    line-height: 35px;
+    font-size: var(--font-size-5xl);
   }
   .background {
     height: 120px;

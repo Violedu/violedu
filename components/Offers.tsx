@@ -30,7 +30,7 @@ const Offers: NextPage = () => {
         <div className={styles.single}>
           <div className={styles.top}>
             <div className={styles.topText}>
-              <b className={styles.title1}>Single</b>
+              <div className={styles.title1}>Single</div>
               <div className={styles.price}>80 €</div>
             </div>
             <button className={styles.button} onClick={onButtonClick}>
@@ -85,7 +85,7 @@ const Offers: NextPage = () => {
         <div className={styles.intensive}>
           <div className={styles.top}>
             <div className={styles.topText}>
-              <b className={styles.title1}>Intensive</b>
+              <b className={styles.title3}>Intensive</b>
               <div className={styles.price1}>295 €</div>
             </div>
             <button className={styles.button} onClick={onButton1Click}>
@@ -158,7 +158,7 @@ const Offers: NextPage = () => {
         <div className={styles.mastery}>
           <div className={styles.top}>
             <div className={styles.topText}>
-              <b className={styles.title1}>Mastery</b>
+              <b className={styles.title3}>Mastery</b>
               <div className={styles.price1}>595 €</div>
             </div>
             <button className={styles.button} onClick={onButton2Click}>

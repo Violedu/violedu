@@ -1,6 +1,5 @@
 .introTitle {
   position: relative;
-  line-height: 60px;
   font-weight: 800;
 }
 .title {
@@ -123,14 +122,13 @@
   padding: var(--padding-53xl) var(--padding-5xl);
   gap: var(--gap-21xl);
   text-align: left;
-  font-size: var(--font-size-23xl);
+  font-size: var(--font-size-29xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
-    line-height: 44px;
   }
   .mentorText,
   .mentorText1 {

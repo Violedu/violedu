@@ -1,6 +1,5 @@
 .introTitle {
   position: relative;
-  line-height: 50px;
 }
 .background,
 .title {
@@ -33,14 +32,13 @@
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  font-size: var(--font-size-19xl);
+  font-size: var(--font-size-15xl);
   color: var(--color-white);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-3xl);
-    line-height: 35px;
+    font-size: var(--font-size-5xl);
   }
   .background {
     height: 120px;

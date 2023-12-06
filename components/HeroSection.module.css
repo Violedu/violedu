@@ -4,7 +4,6 @@
 .title {
   flex: 1;
   position: relative;
-  line-height: 55px;
   font-weight: 800;
 }
 .paragraph,
@@ -14,8 +13,8 @@
 }
 .paragraph {
   position: relative;
-  font-size: var(--font-size-3xl);
-  line-height: 36px;
+  font-size: var(--font-size-xl);
+  line-height: 34px;
 }
 .text {
   display: flex;
@@ -77,18 +76,17 @@
   justify-content: center;
   padding: 0 var(--padding-5xl);
   text-align: left;
-  font-size: var(--font-size-32xl);
+  font-size: var(--font-size-33xl);
   color: var(--color-gray-300);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .title {
-    font-size: var(--font-size-23xl);
-    line-height: 60px;
+    font-size: var(--font-size-29xl);
   }
   .paragraph {
-    font-size: var(--font-size-xl);
-    line-height: 32px;
+    font-size: var(--font-size-lg);
+    line-height: 28px;
   }
   .actionCall {
     flex: unset;
@@ -100,6 +98,9 @@
   }
 }
 @media screen and (max-width: 430px) {
+  .title {
+    font-size: var(--font-size-15xl);
+  }
   .requestALesson {
     font-size: var(--font-size-base);
   }

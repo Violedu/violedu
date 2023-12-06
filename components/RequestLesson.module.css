@@ -10,7 +10,6 @@
 .introTitle {
   flex: 1;
   position: relative;
-  line-height: 55px;
   font-weight: 800;
 }
 .title {
@@ -137,7 +136,7 @@
   padding: 0 var(--padding-5xl);
   position: relative;
   text-align: left;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   color: var(--color-black);
 }
 .requestlesson {
@@ -148,22 +147,19 @@
   padding: 0 0 var(--padding-53xl);
   gap: var(--gap-41xl);
   text-align: center;
-  font-size: var(--font-size-32xl);
+  font-size: var(--font-size-33xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-23xl);
-    line-height: 60px;
+    font-size: var(--font-size-29xl);
   }
   .title {
     align-self: stretch;
     width: auto;
   }
-  .personalInformation {
-    font-size: var(--font-size-base);
-  }
+  .personalInformation,
   .submitRequest {
     font-size: var(--font-size-lg);
   }
@@ -175,6 +171,9 @@
   }
 }
 @media screen and (max-width: 430px) {
+  .introTitle {
+    font-size: var(--font-size-15xl);
+  }
   .submitRequest {
     font-size: var(--font-size-base);
   }
