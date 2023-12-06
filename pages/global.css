@@ -15,7 +15,7 @@ body {
   --font-size-xl: 20px;
   --font-size-base: 16px;
   --font-size-23xl: 42px;
-  --font-size-5xl: 24px;
+  --font-size-15xl: 34px;
   --font-size-19xl: 38px;
   --font-size-3xl: 22px;
   --font-size-lg: 18px;
@@ -24,9 +24,7 @@ body {
   --font-size-28xl-8: 47.8px;
   --font-size-mini: 15px;
   --font-size-lgi-2: 19.2px;
-  --font-size-7xl: 26px;
   --font-size-32xl: 51px;
-  --font-size-15xl: 34px;
 
   /* Colors */
   --color-white: #fff;

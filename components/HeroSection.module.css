@@ -83,8 +83,8 @@
 }
 @media screen and (max-width: 744px) {
   .title {
-    font-size: var(--font-size-15xl);
-    line-height: 44px;
+    font-size: var(--font-size-23xl);
+    line-height: 60px;
   }
   .paragraph {
     font-size: var(--font-size-xl);

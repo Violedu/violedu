@@ -106,8 +106,8 @@
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-5xl);
-    line-height: 40px;
+    font-size: var(--font-size-15xl);
+    line-height: 44px;
   }
   .liveText {
     font-size: var(--font-size-base);
@@ -115,6 +115,9 @@
   }
   .requestALesson {
     font-size: var(--font-size-mini);
+  }
+  .topText {
+    gap: var(--gap-3xs);
   }
   .options {
     gap: var(--gap-31xl);

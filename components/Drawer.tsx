@@ -58,9 +58,7 @@ const Drawer: NextPage<DrawerType> = ({ onClose }) => {
   }, []);
 
   const onMentorClick = useCallback(() => {
-    const anchor = document.querySelector(
-      "[data-scroll-to='introMentorContainer']"
-    );
+    const anchor = document.querySelector("[data-scroll-to='mentorContainer']");
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }

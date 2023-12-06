@@ -15,7 +15,9 @@ const NavBar: NextPage = () => {
   }, []);
 
   const onAboutClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='frameContainer']");
+    const anchor = document.querySelector(
+      "[data-scroll-to='introAboutContainer']"
+    );
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
@@ -23,7 +25,7 @@ const NavBar: NextPage = () => {
 
   const onLearningPathClick = useCallback(() => {
     const anchor = document.querySelector(
-      "[data-scroll-to='inPersonAndOnline']"
+      "[data-scroll-to='introLearningPath']"
     );
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });

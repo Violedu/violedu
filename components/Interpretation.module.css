@@ -93,8 +93,8 @@
 }
 @media screen and (max-width: 744px) {
   .introTitle {
-    font-size: var(--font-size-5xl);
-    line-height: 40px;
+    font-size: var(--font-size-15xl);
+    line-height: 44px;
   }
   .title {
     align-self: stretch;
