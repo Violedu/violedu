@@ -3,6 +3,8 @@ import { useCallback } from "react";
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
 import WhiteSection from "../components/WhiteSection";
+import SmallWhiteSection from "../components/SmallWhiteSection";
+import ActionCall from "../components/ActionCall";
 import Intro from "../components/Intro";
 import About from "../components/About";
 import Technique from "../components/Technique";
@@ -57,6 +59,8 @@ const Main: NextPage = () => {
       <NavBar />
       <HeroSection />
       <WhiteSection />
+      <SmallWhiteSection />
+      <ActionCall />
       <Intro introTitle="Dive into a new way of performing." />
       <About />
       <Technique />
