@@ -4,6 +4,7 @@
 .title {
   flex: 1;
   position: relative;
+  line-height: 40px;
   font-weight: 800;
 }
 .paragraph,
@@ -62,7 +63,7 @@
   display: none;
   padding: 0 0 var(--padding-15xl);
   text-align: center;
-  font-size: var(--font-size-21xl);
+  font-size: var(--font-size-15xl);
   color: var(--color-gray-300);
   font-family: var(--font-inter);
 }
