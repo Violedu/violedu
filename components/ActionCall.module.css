@@ -56,12 +56,11 @@
 }
 .actionCall1 {
   display: flex;
-  padding: 0 var(--padding-5xl);
-  gap: var(--gap-lg);
+  padding: 0 var(--padding-5xl) var(--padding-53xl);
+  gap: var(--gap-11xl);
 }
 .actionCall {
   display: none;
-  padding: 0 0 var(--padding-15xl);
   text-align: center;
   font-size: var(--font-size-15xl);
   color: var(--color-gray-300);

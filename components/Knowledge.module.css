@@ -1,22 +1,16 @@
 .deepenYourUnderstanding {
   margin: 0;
 }
-.introTitleTxtContainer {
-  line-break: anywhere;
-}
-.introTitle,
-.title {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-}
 .introTitle {
   flex: 1;
   position: relative;
   font-weight: 800;
 }
 .title {
+  width: 436px;
+  display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
 }
 .text1 {
@@ -43,8 +37,8 @@
 }
 .imageIcon {
   position: relative;
-  border-radius: 16.11px;
-  width: 498px;
+  border-radius: var(--br-xl);
+  width: 506.2px;
   height: 780px;
   object-fit: cover;
 }
@@ -57,7 +51,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--padding-101xl) var(--padding-5xl);
-  gap: var(--gap-11xl);
+  gap: var(--gap-21xl);
   text-align: left;
   font-size: var(--font-size-29xl);
   color: var(--color-white);
@@ -80,10 +74,16 @@
     box-sizing: border-box;
   }
 }
+@media screen and (max-width: 430px) {
+  .imageIcon {
+    flex: 1;
+    align-self: stretch;
+    height: auto;
+  }
+}
 @media screen and (max-width: 1024px) {
   .introTitle {
     text-align: center;
-    flex: 1;
   }
   .title {
     align-items: center;
@@ -95,9 +95,7 @@
     width: auto;
   }
   .imageIcon {
-    flex: 1;
-    height: auto;
-    width: 100%;
+    height: 780px;
   }
   .knowledge {
     flex-direction: column;

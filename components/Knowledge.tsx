@@ -7,12 +7,10 @@ const Knowledge: NextPage = () => {
       <div className={styles.text}>
         <div className={styles.title}>
           <div className={styles.introTitle}>
-            <span className={styles.introTitleTxtContainer}>
-              <p className={styles.deepenYourUnderstanding}>Knowledge.</p>
-              <p className={styles.deepenYourUnderstanding}>
-                Deepen Your Understanding.
-              </p>
-            </span>
+            <p className={styles.deepenYourUnderstanding}>Knowledge.</p>
+            <p className={styles.deepenYourUnderstanding}>
+              Deepen Your Understanding.
+            </p>
           </div>
         </div>
         <div className={styles.paragraph}>

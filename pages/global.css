@@ -21,7 +21,6 @@ body {
   --font-size-sm-3: 13.3px;
   --font-size-9xl: 28px;
   --font-size-mini: 15px;
-  --font-size-lgi-2: 19.2px;
   --font-size-33xl: 52px;
   --font-size-21xl: 40px;
 
@@ -85,7 +84,6 @@ body {
   --padding-101xl: 120px;
   --padding-81xl: 100px;
   --padding-61xl: 80px;
-  --padding-15xl: 34px;
   --padding-33xl: 52px;
 
   /* Border radiuses */
@@ -96,7 +94,7 @@ body {
   --br-11xl: 30px;
   --br-mid-2: 17.2px;
   --br-base-8: 16.8px;
-  --br-base-1: 16.1px;
+  --br-xl: 20px;
   --br-26xl: 45px;
   --br-3xs: 10px;
 }

@@ -7,43 +7,49 @@
   font-weight: 800;
 }
 .title {
-  width: 970px;
+  width: 436px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
-.imageIcon {
-  position: relative;
-  border-radius: 17.33px;
-  width: 970px;
-  height: 468px;
-  object-fit: cover;
-}
-.leftTextBox {
+.text1 {
   flex: 1;
   position: relative;
   line-height: 30px;
   font-weight: 300;
 }
-.text {
-  width: 970px;
+.paragraph {
+  align-self: stretch;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: var(--gap-13xl);
   font-size: var(--font-size-lg);
-  color: var(--color-black);
+}
+.text {
+  width: 438px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+}
+.imageIcon {
+  position: relative;
+  border-radius: var(--br-xl);
+  width: 498px;
+  height: 780px;
+  object-fit: cover;
 }
 .technique {
   align-self: stretch;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: var(--padding-53xl) var(--padding-5xl);
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-101xl) var(--padding-5xl);
   gap: var(--gap-21xl);
   text-align: left;
   font-size: var(--font-size-29xl);
@@ -54,15 +60,26 @@
   .introTitle {
     font-size: var(--font-size-15xl);
   }
-  .leftTextBox {
+  .text1 {
     font-size: var(--font-size-base);
     line-height: 28px;
   }
-  .technique {
+  .technique,
+  .text {
     gap: var(--gap-11xl);
-    padding-top: var(--padding-53xl);
-    padding-bottom: var(--padding-53xl);
+  }
+  .technique {
+    flex-direction: column;
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-81xl);
     box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 430px) {
+  .imageIcon {
+    align-self: stretch;
+    width: auto;
+    flex: 1;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -70,32 +87,24 @@
     text-align: center;
   }
   .title {
-    align-self: stretch;
-    width: auto;
-  }
-  .title {
     align-items: center;
     justify-content: center;
   }
-  .imageIcon {
-    flex: 1;
-    height: auto;
-    width: 100%;
-  }
-  .leftTextBox {
-    flex: unset;
-    align-self: stretch;
-  }
-  .text {
+  .imageIcon,
+  .text,
+  .title {
     align-self: stretch;
     width: auto;
+  }
+  .imageIcon {
+    height: 780px;
+  }
+  .technique {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-  }
-  .technique {
-    padding-top: var(--padding-53xl);
-    padding-bottom: var(--padding-53xl);
+    padding-top: var(--padding-61xl);
+    padding-bottom: var(--padding-101xl);
     box-sizing: border-box;
   }
 }
