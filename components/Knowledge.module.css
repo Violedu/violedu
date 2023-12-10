@@ -38,7 +38,7 @@
 .imageIcon {
   position: relative;
   border-radius: var(--br-xl);
-  width: 506.2px;
+  width: 498px;
   height: 780px;
   object-fit: cover;
 }
@@ -76,9 +76,9 @@
 }
 @media screen and (max-width: 430px) {
   .imageIcon {
-    flex: 1;
     align-self: stretch;
-    height: auto;
+    width: auto;
+    flex: 1;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -89,6 +89,7 @@
     align-items: center;
     justify-content: center;
   }
+  .imageIcon,
   .text,
   .title {
     align-self: stretch;
