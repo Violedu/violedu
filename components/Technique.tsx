@@ -37,7 +37,7 @@ const Technique: NextPage = () => {
           </div>
         </div>
       </div>
-      <img className={styles.imageIcon} alt="" src="/image1@2x.png" />
+      <img className={styles.imageIcon} alt="" src="image1@2x.png" />
     </div>
   );
 };
