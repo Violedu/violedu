@@ -23,9 +23,9 @@ const Interpretation: NextPage = () => {
             </div>
           </div>
         </div>
-        <img className={styles.imageIcon} alt="" src="/image3@2x.png" />
+        <img className={styles.imageIcon} alt="" src="image3@2x.png" />
       </div>
-      <img className={styles.whiteBgIcon} alt="" src="/white-bg.svg" />
+      <img className={styles.whiteBgIcon} alt="" src="white-bg.svg" />
     </div>
   );
 };
