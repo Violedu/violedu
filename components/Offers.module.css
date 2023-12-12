@@ -254,7 +254,7 @@
 }
 .garantee {
   flex-direction: row;
-  align-items: center;
+  justify-content: center;
 }
 .imageIcon1 {
   position: relative;

@@ -17,27 +17,16 @@ const Technique: NextPage = () => {
         </div>
         <div className={styles.paragraph}>
           <div className={styles.text1}>
-            <p className={styles.precisionAndAwareness}>
-              A stable instrumental technique is the ground upon which a
-              musician´s self-confidence is built. The fine-tuned
-              synchronization of controlled bow and left-hand technique, high
-              sensitivity to intonation and sound quality, and feeling
-              comfortable in your own body and mind are what lead you to play at
-              an advanced level.
-            </p>
-            <p className={styles.precisionAndAwareness}>&nbsp;</p>
-            <p className={styles.precisionAndAwareness}>
-              Mastering technique not only ensures precision but also empowers
-              you to guide your own musical journey with purpose and grace. This
-              is why my goal is for my students to achieve their full potential
-              in the fundamental components in order to enjoy the process of
-              successfully performing their own musical ideas with conviction
-              and elegance.
-            </p>
+            A stable instrumental technique is the ground upon which a
+            musician´s self-confidence is built. The fine-tuned synchronization
+            of controlled bow and left-hand technique, high sensitivity to
+            intonation and sound quality, and feeling comfortable in your own
+            body and mind are what lead you to play at an advanced level.
           </div>
         </div>
       </div>
-      <img className={styles.imageIcon} alt="" src="image1@2x.png" />
+      <img className={styles.imageIcon} alt="" src="/image@2x.png" />
+      <img className={styles.imageIcon1} alt="" src="/image1@2x.png" />
     </div>
   );
 };

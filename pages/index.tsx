@@ -7,8 +7,8 @@ import SmallWhiteSection from "../components/SmallWhiteSection";
 import ActionCall from "../components/ActionCall";
 import Intro from "../components/Intro";
 import About from "../components/About";
-import Technique from "../components/Technique";
 import Knowledge from "../components/Knowledge";
+import Technique from "../components/Technique";
 import Interpretation from "../components/Interpretation";
 import InPersonAndOnline from "../components/InPersonAndOnline";
 import Offers from "../components/Offers";
@@ -63,8 +63,8 @@ const Main: NextPage = () => {
       <ActionCall />
       <Intro introTitle="Dive into a new way of performing." />
       <About />
-      <Technique />
       <Knowledge />
+      <Technique />
       <Interpretation />
       <Intro introTitle="Taylor your learning path." />
       <InPersonAndOnline />
