@@ -20,7 +20,7 @@ const RequestLesson: NextPage = () => {
   const router = useRouter();
 
   const onButtonClick = useCallback(() => {
-    router.push("/");
+    router.push("/violedu");
   }, [router]);
 
   return (
