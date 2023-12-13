@@ -290,6 +290,7 @@
   .introTitle,
   .title1 {
     font-size: var(--font-size-15xl);
+    line-height: 40px;
   }
   .price {
     font-size: var(--font-size-9xl);
