@@ -13,7 +13,7 @@ const Testemonials: NextPage = () => {
           className={styles.video}
           controls
           controlsList="nodownload"
-          poster="video_poster_2.PNG"
+          poster="/violedu/video_poster_2.PNG"
         >
           <source src="/violedu/pexels-mart-production-8471228_(720p) (1).mp4" />
         </video>
