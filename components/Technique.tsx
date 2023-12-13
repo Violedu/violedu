@@ -4,7 +4,6 @@ import styles from "./Technique.module.css";
 const Technique: NextPage = () => {
   return (
     <div className={styles.technique}>
-
       <div className={styles.text}>
         <div className={styles.title}>
           <div className={styles.introTitle}>
@@ -25,8 +24,8 @@ const Technique: NextPage = () => {
           </div>
         </div>
       </div>
-      <img className={styles.imageIcon} alt="" src="image@2x.png" />
-      <img className={styles.imageIcon1} alt="" src="image1@2x.png" />
+      <img className={styles.imageIcon} alt="" src="/violedu/image@2x.png" />
+      <img className={styles.imageIcon1} alt="" src="/violedu/image1@2x.png" />
     </div>
   );
 };

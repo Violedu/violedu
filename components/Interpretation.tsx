@@ -4,7 +4,6 @@ import styles from "./Interpretation.module.css";
 const Interpretation: NextPage = () => {
   return (
     <div className={styles.interpretation}>
-
       <div className={styles.frame}>
         <div className={styles.text}>
           <div className={styles.title}>
@@ -23,9 +22,9 @@ const Interpretation: NextPage = () => {
             </div>
           </div>
         </div>
-        <img className={styles.imageIcon} alt="" src="image3@2x.png" />
+        <img className={styles.imageIcon} alt="" src="/violedu/image3@2x.png" />
       </div>
-      <img className={styles.whiteBgIcon} alt="" src="white-bg.svg" />
+      <img className={styles.whiteBgIcon} alt="" src="/violedu/white-bg.svg" />
     </div>
   );
 };

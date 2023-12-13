@@ -38,23 +38,23 @@ const Offers: NextPage = () => {
           <div className={styles.text1}>
             <div className={styles.features}>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>45 min session</div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   In-depth work on a musical section
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Study material recommendation
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Personalized exercise plan
                 </div>
@@ -67,13 +67,13 @@ const Offers: NextPage = () => {
               </div>
               <div className={styles.suitable}>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Advanced technique training
                   </div>
                 </div>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Troubleshooting specific issues
                   </div>
@@ -93,41 +93,41 @@ const Offers: NextPage = () => {
           <div className={styles.text3}>
             <div className={styles.features}>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>4 x 45 min session</div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   2 x feedback on recorded video
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Guidance for effective practice
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Theory and composition review
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Extensive work on a musical piece
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Study material recommendation
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Personalized exercise plan
                 </div>
@@ -140,13 +140,13 @@ const Offers: NextPage = () => {
               </div>
               <div className={styles.suitable}>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Advanced technique training
                   </div>
                 </div>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Preparation for auditions or recitals
                   </div>
@@ -166,37 +166,37 @@ const Offers: NextPage = () => {
           <div className={styles.text5}>
             <div className={styles.features}>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>8 x 45 min session</div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   4 x feedback on recorded video
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Extensive work on a musical piece
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>Progress tracking</div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>Mock auditions</div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Study material recommendation
                 </div>
               </div>
               <div className={styles.line}>
-                <img className={styles.icon} alt="" src="icon.svg" />
+                <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                 <div className={styles.minSession}>
                   Personalized exercise plan
                 </div>
@@ -209,25 +209,25 @@ const Offers: NextPage = () => {
               </div>
               <div className={styles.suitable}>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Development of versatile repertoire
                   </div>
                 </div>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Long-term skill development
                   </div>
                 </div>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     In-depth rewiew of musical works
                   </div>
                 </div>
                 <div className={styles.line}>
-                  <img className={styles.icon} alt="" src="icon.svg" />
+                  <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
                     Preparation for recitals or auditions
                   </div>
@@ -239,7 +239,11 @@ const Offers: NextPage = () => {
       </div>
       <div className={styles.info}>
         <div className={styles.garantee}>
-          <img className={styles.imageIcon} alt="" src="image6@2x.png" />
+          <img
+            className={styles.imageIcon}
+            alt=""
+            src="/violedu/image6@2x.png"
+          />
           <div className={styles.text6}>
             <div className={styles.garanteeText}>Money Back Garantee</div>
             <div className={styles.garanteeTitle}>
@@ -249,7 +253,11 @@ const Offers: NextPage = () => {
           </div>
         </div>
         <div className={styles.garantee}>
-          <img className={styles.imageIcon1} alt="" src="image7@2x.png" />
+          <img
+            className={styles.imageIcon1}
+            alt=""
+            src="/violedu/image7@2x.png"
+          />
           <div className={styles.text6}>
             <div className={styles.garanteeText}>Free Assessment Session</div>
             <div className={styles.garanteeTitle}>

@@ -21,7 +21,11 @@ const InPersonAndOnline: NextPage = () => {
       </div>
       <div className={styles.options}>
         <div className={styles.topContent}>
-          <img className={styles.imageIcon} alt="" src="image4@2x.png" />
+          <img
+            className={styles.imageIcon}
+            alt=""
+            src="/violedu/image4@2x.png"
+          />
           <div className={styles.topText}>
             <div className={styles.liveText}>
               Engaging in face-to-face sessions held in Stuttgart, Germany,
@@ -32,12 +36,20 @@ const InPersonAndOnline: NextPage = () => {
               <div className={styles.requestALesson}>
                 Request a Lesson In Person
               </div>
-              <img className={styles.linkChild} alt="" src="vector-5.svg" />
+              <img
+                className={styles.linkChild}
+                alt=""
+                src="/violedu/vector-5.svg"
+              />
             </a>
           </div>
         </div>
         <div className={styles.bottomContent}>
-          <img className={styles.imageIcon1} alt="" src="image5@2x.png" />
+          <img
+            className={styles.imageIcon1}
+            alt=""
+            src="/violedu/image5@2x.png"
+          />
           <div className={styles.topText}>
             <div className={styles.liveText}>
               Experience the convenience and flexibility of learning online.
@@ -47,7 +59,11 @@ const InPersonAndOnline: NextPage = () => {
               <div className={styles.requestALesson}>
                 Request a Lesson Online
               </div>
-              <img className={styles.linkChild} alt="" src="vector-5.svg" />
+              <img
+                className={styles.linkChild}
+                alt=""
+                src="/violedu/vector-5.svg"
+              />
             </a>
           </div>
         </div>

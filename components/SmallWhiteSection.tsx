@@ -4,7 +4,7 @@ import styles from "./SmallWhiteSection.module.css";
 const SmallWhiteSection: NextPage = () => {
   return (
     <div className={styles.smallWhiteSection}>
-      <img className={styles.formIcon} alt="" src="rectangle-41.svg" />
+      <img className={styles.formIcon} alt="" src="/violedu/rectangle-41.svg" />
     </div>
   );
 };
