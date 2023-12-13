@@ -57,6 +57,7 @@
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
+    line-height: 40px;
   }
   .title {
     align-self: stretch;
@@ -72,8 +73,8 @@
     flex: 1;
   }
   .video {
+    align-self: stretch;
+    width: auto;
     flex: 1;
-    height: auto;
-    width: 100%;
   }
 }

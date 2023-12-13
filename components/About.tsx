@@ -12,14 +12,9 @@ const About: NextPage = () => {
             <p className={styles.fromIntermediate}>To Advanced.</p>
           </div>
         </div>
-        <img className={styles.imageIcon} alt="" src="/violedu/image@2x.png" />
-        <video
-          className={styles.video}
-          controls
-          controlsList="nodownload"
-          poster="/violedu/video_poster_1.PNG"
-        >
-          <source src="/violedu/pexels-c-technical-7095746_(2160p).mp4" />
+        <img className={styles.imageIcon} alt="" src="/image@2x.png" />
+        <video className={styles.video} controls>
+          <source src="/pexels-c-technical-7095746_(2160p).mp4" />
         </video>
       </div>
     </div>
