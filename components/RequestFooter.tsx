@@ -1,11 +1,24 @@
 import type { NextPage } from "next";
+import { useCallback } from "react";
+import { useRouter } from "next/router";
 import styles from "./RequestFooter.module.css";
 
 const RequestFooter: NextPage = () => {
+  const router = useRouter();
+
+  const onLogoImageClick = useCallback(() => {
+    router.push("/");
+  }, [router]);
+
   return (
     <div className={styles.footer}>
       <div className={styles.logo}>
-        <img className={styles.logoIcon} alt="" src="/violedu/logo1.svg" />
+        <img
+          className={styles.logoIcon}
+          alt=""
+          src="/violedu/logo1.svg"
+          onClick={onLogoImageClick}
+        />
       </div>
       <div className={styles.info}>
         <div className={styles.infoBottomRight}>
