@@ -16,7 +16,7 @@ const RequestNavBar: NextPage = () => {
         <img
           className={styles.logoIcon}
           alt=""
-          src="/logo2.svg"
+          src="/violedu/logo2.svg"
           onClick={onLogoImageClick}
         />
       </div>

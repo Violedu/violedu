@@ -73,7 +73,6 @@
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
-    line-height: 40px;
   }
   .text1 {
     font-size: var(--font-size-base);
@@ -120,4 +119,5 @@
     padding-top: var(--padding-61xl);
     box-sizing: border-box;
   }
+
 }

@@ -62,7 +62,6 @@
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
-    line-height: 40px;
   }
   .frame {
     gap: var(--gap-11xl);
@@ -75,17 +74,16 @@
   .introTitle {
     text-align: center;
   }
-  .title,
-  .video {
+  .title {
     align-self: stretch;
     width: auto;
-  }
-  .title {
     align-items: center;
     justify-content: center;
   }
   .video {
     flex: 1;
+    height: auto;
+    width: 100%;
   }
   .frame {
     padding-top: var(--padding-53xl);

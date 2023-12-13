@@ -8,9 +8,14 @@ const Testemonials: NextPage = () => {
         <div className={styles.title}>
           <div className={styles.introTitle}>What They Say.</div>
         </div>
-        <img className={styles.imageIcon} alt="" src="/image@2x.png" />
-        <video className={styles.video} controls>
-          <source src="/pexels-mart-production-8471228_(720p) (1).mp4" />
+        <img className={styles.imageIcon} alt="" src="/violedu/image@2x.png" />
+        <video
+          className={styles.video}
+          controls
+          controlsList="nodownload"
+          poster="/violedu/video_poster_2.PNG"
+        >
+          <source src="/violedu/pexels-mart-production-8471228_(720p) (1).mp4" />
         </video>
       </div>
     </div>

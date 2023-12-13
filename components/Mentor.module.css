@@ -129,7 +129,6 @@
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
-    line-height: 40px;
   }
   .mentorText,
   .mentorText1 {
@@ -157,7 +156,6 @@
   .introTitle {
     text-align: center;
   }
-  .imageIcon,
   .title {
     align-self: stretch;
     width: auto;
@@ -168,6 +166,8 @@
   }
   .imageIcon {
     flex: 1;
+    height: auto;
+    width: 100%;
   }
   .mentorText,
   .mentorTextParent {
