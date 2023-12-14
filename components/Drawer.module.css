@@ -34,10 +34,6 @@
   color: inherit;
   cursor: pointer;
 }
-.menu,
-.text {
-  flex-shrink: 0;
-}
 .menu {
   display: flex;
   flex-direction: column;
@@ -55,6 +51,7 @@
   display: inline-block;
   width: 117px;
   height: 17px;
+  flex-shrink: 0;
 }
 .button,
 .navBar,

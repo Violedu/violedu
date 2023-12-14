@@ -70,7 +70,6 @@
   position: relative;
   width: 15.6px;
   height: 15.6px;
-  object-fit: cover;
 }
 .minSession {
   position: relative;
@@ -109,26 +108,19 @@
   align-items: center;
   height: 19px;
 }
-.line4,
+.suitable,
 .title2 {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  align-items: flex-start;
 }
 .title2 {
   align-self: stretch;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
   padding: 0 0 0 var(--padding-3xs);
 }
-.line4 {
-  flex-shrink: 0;
-  align-items: center;
-  gap: var(--gap-3xs);
-}
 .suitable {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
   padding: var(--padding-3xs);
   font-size: var(--font-size-sm-3);
@@ -261,7 +253,6 @@
   gap: var(--gap-base);
 }
 .garantee {
-  flex-shrink: 0;
   flex-direction: row;
   justify-content: center;
 }
@@ -294,40 +285,6 @@
   font-size: var(--font-size-29xl);
   color: var(--color-white);
   font-family: var(--font-inter);
-}
-@media screen and (max-width: 1024px) {
-  .introTitle {
-    text-align: center;
-  }
-  .title {
-    align-self: stretch;
-    width: auto;
-    align-items: center;
-    justify-content: center;
-  }
-  .intensive,
-  .mastery {
-    height: 722px;
-  }
-  .offers1 {
-    width: auto;
-    align-self: unset;
-    flex-direction: column;
-    gap: var(--gap-13xl);
-    align-items: flex-end;
-    justify-content: flex-start;
-  }
-  .garantee,
-  .info {
-    align-self: stretch;
-  }
-  .garantee {
-    flex: unset;
-  }
-  .info {
-    width: auto;
-    flex-direction: column;
-  }
 }
 @media screen and (max-width: 744px) {
   .introTitle,
@@ -369,5 +326,39 @@
   }
   .offers {
     gap: var(--gap-11xl);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .introTitle {
+    text-align: center;
+  }
+  .title {
+    align-self: stretch;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .intensive,
+  .mastery {
+    height: 722px;
+  }
+  .offers1 {
+    width: auto;
+    align-self: unset;
+    flex-direction: column;
+    gap: var(--gap-13xl);
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  .garantee,
+  .info {
+    align-self: stretch;
+  }
+  .garantee {
+    flex: unset;
+  }
+  .info {
+    width: auto;
+    flex-direction: column;
   }
 }

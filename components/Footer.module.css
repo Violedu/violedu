@@ -28,7 +28,6 @@
   align-items: flex-start;
 }
 .menu {
-  flex-shrink: 0;
   justify-content: flex-start;
   gap: var(--gap-29xl);
 }
@@ -49,7 +48,6 @@
   height: 18px;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover;
 }
 .icon {
   width: 28px;
@@ -69,7 +67,6 @@
 }
 .youtube {
   text-decoration: none;
-  flex-shrink: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -87,11 +84,9 @@
   height: 21px;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover;
 }
 .instagram {
   text-decoration: none;
-  flex-shrink: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -105,11 +100,9 @@
   height: 16px;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover;
 }
 .socials,
 .socials1 {
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -137,7 +130,6 @@
   color: var(--color-white);
 }
 .location {
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -152,7 +144,6 @@
   width: 146px;
 }
 .list {
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -164,7 +155,6 @@
   color: var(--color-white);
 }
 .contactUs {
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -189,7 +179,6 @@
   color: var(--color-dimgray);
 }
 .list1 {
-  flex-shrink: 0;
   flex-direction: row;
   justify-content: flex-start;
   gap: var(--gap-xl);
@@ -201,7 +190,6 @@
   align-items: flex-start;
 }
 .languages {
-  flex-shrink: 0;
   flex-direction: column;
   justify-content: flex-start;
   padding: var(--padding-5xl);
@@ -238,7 +226,6 @@
   cursor: pointer;
 }
 .termsAndPrivacy {
-  flex-shrink: 0;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -270,17 +257,17 @@
   color: var(--color-white);
   font-family: var(--font-inter);
 }
-@media screen and (max-width: 1024px) {
-  .info {
-    align-self: stretch;
-    width: auto;
-    gap: var(--gap-29xl);
-  }
-}
 @media screen and (max-width: 430px) {
   .infoBottomRight {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .info {
+    align-self: stretch;
+    width: auto;
+    gap: var(--gap-29xl);
   }
 }

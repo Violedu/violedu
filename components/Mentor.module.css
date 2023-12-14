@@ -34,7 +34,6 @@
   height: 20.8px;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover;
 }
 .icon {
   width: 27.7px;
@@ -73,7 +72,6 @@
   height: 17.8px;
   overflow: hidden;
   flex-shrink: 0;
-  object-fit: cover;
 }
 .footerText {
   position: relative;
@@ -128,6 +126,33 @@
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
+  .mentorText,
+  .mentorText1 {
+    line-height: 28px;
+  }
+  .footerText,
+  .mentorText,
+  .mentorText1 {
+    font-size: var(--font-size-base);
+  }
+  .mentor {
+    gap: var(--gap-11xl);
+  }
+}
+@media screen and (max-width: 430px) {
+  .buttons {
+    flex-direction: column;
+  }
+  .mentorTextParent {
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
 @media screen and (max-width: 1024px) {
   .introTitle {
     text-align: center;
@@ -157,32 +182,5 @@
   .text {
     align-self: stretch;
     width: auto;
-  }
-}
-@media screen and (max-width: 744px) {
-  .introTitle {
-    font-size: var(--font-size-15xl);
-    line-height: 40px;
-  }
-  .mentorText,
-  .mentorText1 {
-    line-height: 28px;
-  }
-  .footerText,
-  .mentorText,
-  .mentorText1 {
-    font-size: var(--font-size-base);
-  }
-  .mentor {
-    gap: var(--gap-11xl);
-  }
-}
-@media screen and (max-width: 430px) {
-  .buttons {
-    flex-direction: column;
-  }
-  .mentorTextParent {
-    align-items: center;
-    justify-content: flex-start;
   }
 }

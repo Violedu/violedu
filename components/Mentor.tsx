@@ -20,7 +20,7 @@ const Mentor: NextPage = () => {
             <div className={styles.buttons}>
               <a
                 className={styles.button}
-                href="https://www.instagram.com/mitevakalina/"
+                href="https://www.google.com"
                 target="_blank"
               >
                 <div className={styles.instagram}>
@@ -36,7 +36,7 @@ const Mentor: NextPage = () => {
               </a>
               <a
                 className={styles.button}
-                href="https://www.youtube.com/@kalinamiteva5965"
+                href="https://www.google.com"
                 target="_blank"
               >
                 <div className={styles.instagram}>

@@ -78,9 +78,9 @@ const Main: NextPage = () => {
         onAbout1Click={onAboutClick}
         onLearningPath1Click={onLearningPathClick}
         onMentor1Click={onMentorClick}
-        youtubeHref="https://www.youtube.com/@Violedu-dm3uk"
+        youtubeHref="https://www.google.com"
         youtubeTarget="_blank"
-        instagramHref="https://www.instagram.com/violedugrp/"
+        instagramHref="https://www.google.com"
         instagramTarget="_blank"
         facebookHref="https://www.google.com"
         facebookTarget="_blank"

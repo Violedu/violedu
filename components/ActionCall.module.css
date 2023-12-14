@@ -66,17 +66,17 @@
   color: var(--color-gray-300);
   font-family: var(--font-inter);
 }
-@media screen and (max-width: 1024px) {
-  .paragraph,
-  .title {
-    text-align: center;
-  }
-}
 @media screen and (max-width: 430px) {
   .requestALesson {
     font-size: var(--font-size-base);
   }
   .actionCall {
     display: flex;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .paragraph,
+  .title {
+    text-align: center;
   }
 }
