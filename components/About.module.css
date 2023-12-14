@@ -59,18 +59,6 @@
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
-@media screen and (max-width: 744px) {
-  .introTitle {
-    font-size: var(--font-size-15xl);
-    line-height: 40px;
-  }
-  .frame {
-    gap: var(--gap-11xl);
-    padding-top: var(--padding-53xl);
-    padding-bottom: var(--padding-53xl);
-    box-sizing: border-box;
-  }
-}
 @media screen and (max-width: 1024px) {
   .introTitle {
     text-align: center;
@@ -87,6 +75,18 @@
     width: 100%;
   }
   .frame {
+    padding-top: var(--padding-53xl);
+    padding-bottom: var(--padding-53xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
+  .frame {
+    gap: var(--gap-11xl);
     padding-top: var(--padding-53xl);
     padding-bottom: var(--padding-53xl);
     box-sizing: border-box;

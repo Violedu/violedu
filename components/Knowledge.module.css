@@ -57,6 +57,29 @@
   color: var(--color-white);
   font-family: var(--font-inter);
 }
+@media screen and (max-width: 1024px) {
+  .introTitle {
+    text-align: center;
+  }
+  .title {
+    align-items: center;
+    justify-content: center;
+  }
+  .imageIcon,
+  .text,
+  .title {
+    align-self: stretch;
+    width: auto;
+  }
+  .imageIcon {
+    height: 780px;
+  }
+  .knowledge {
+    flex-direction: column;
+    padding-top: var(--padding-61xl);
+    box-sizing: border-box;
+  }
+}
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);
@@ -83,28 +106,5 @@
     align-self: stretch;
     height: auto;
     max-height: 376px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .introTitle {
-    text-align: center;
-  }
-  .title {
-    align-items: center;
-    justify-content: center;
-  }
-  .imageIcon,
-  .text,
-  .title {
-    align-self: stretch;
-    width: auto;
-  }
-  .imageIcon {
-    height: 780px;
-  }
-  .knowledge {
-    flex-direction: column;
-    padding-top: var(--padding-61xl);
-    box-sizing: border-box;
   }
 }

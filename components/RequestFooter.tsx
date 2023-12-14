@@ -25,7 +25,11 @@ const RequestFooter: NextPage = () => {
           <div className={styles.socials}>
             <b className={styles.title}>Socials</b>
             <div className={styles.socials1}>
-              <a className={styles.youtube}>
+              <a
+                className={styles.youtube}
+                href="https://www.youtube.com/@Violedu-dm3uk"
+                target="_blank"
+              >
                 <div className={styles.icon}>
                   <img
                     className={styles.iconyoutube}
@@ -35,7 +39,11 @@ const RequestFooter: NextPage = () => {
                 </div>
                 <div className={styles.footerText}>YouTube</div>
               </a>
-              <a className={styles.instagram}>
+              <a
+                className={styles.instagram}
+                href="https://www.instagram.com/violedugrp/"
+                target="_blank"
+              >
                 <div className={styles.icon}>
                   <img
                     className={styles.iconinstagram}
@@ -45,7 +53,11 @@ const RequestFooter: NextPage = () => {
                 </div>
                 <div className={styles.footerText}>Instagram</div>
               </a>
-              <a className={styles.youtube}>
+              <a
+                className={styles.youtube}
+                href="https://www.google.com"
+                target="_blank"
+              >
                 <div className={styles.icon}>
                   <img
                     className={styles.iconfacebook}
@@ -82,7 +94,7 @@ const RequestFooter: NextPage = () => {
         </div>
       </div>
       <div className={styles.bottomInfo}>
-        <div className={styles.footerText}>
+        <div className={styles.copyright}>
           © 2024 — Copyright All Rights reserved
         </div>
         <div className={styles.termsAndPrivacy}>

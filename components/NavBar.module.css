@@ -17,6 +17,10 @@
 .about:hover {
   color: var(--color-dimgray);
 }
+.menu,
+.text {
+  flex-shrink: 0;
+}
 .menu {
   display: flex;
   flex-direction: row;
@@ -34,7 +38,6 @@
   display: inline-block;
   width: 117px;
   height: 17px;
-  flex-shrink: 0;
 }
 .button,
 .hamburgerMenuChild {
@@ -64,8 +67,26 @@
   width: 45px;
   height: 45px;
 }
+.groupChild,
+.groupInner,
+.groupItem {
+  position: absolute;
+  top: -0.9px;
+  left: -0.9px;
+  border-top: 1.8px solid var(--color-white);
+  box-sizing: border-box;
+  width: 29px;
+  height: 1.8px;
+}
+.groupInner,
+.groupItem {
+  top: 6.3px;
+}
+.groupInner {
+  top: 13.5px;
+}
 .hamburgerMenu,
-.hamburgerMenuItem {
+.lineParent {
   position: absolute;
   top: 16.4px;
   left: 9px;
@@ -104,6 +125,7 @@
   flex-direction: row;
 }
 .navBar2 {
+  flex-shrink: 0;
   align-items: baseline;
   justify-content: center;
   gap: var(--gap-17xl);
@@ -114,6 +136,7 @@
 }
 .navBar1 {
   width: 1170px;
+  flex-shrink: 0;
   justify-content: space-between;
 }
 .navBar {
@@ -125,11 +148,6 @@
   font-size: var(--font-size-base);
   color: var(--color-gray-300);
   font-family: var(--font-inter);
-}
-@media screen and (max-width: 744px) {
-  .button {
-    display: none;
-  }
 }
 @media screen and (max-width: 1024px) {
   .button,
@@ -148,5 +166,10 @@
     padding-left: var(--padding-5xl);
     padding-right: var(--padding-5xl);
     box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 744px) {
+  .button {
+    display: none;
   }
 }

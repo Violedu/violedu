@@ -54,6 +54,7 @@
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
+
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-15xl);

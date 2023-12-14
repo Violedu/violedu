@@ -33,8 +33,9 @@
 }
 .linkChild {
   position: relative;
-  width: 8.3px;
-  height: 10.6px;
+  width: 6px;
+  height: 9px;
+  object-fit: cover;
 }
 .link {
   text-decoration: none;
@@ -103,28 +104,6 @@
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
-@media screen and (max-width: 744px) {
-  .introTitle {
-    font-size: var(--font-size-15xl);
-    line-height: 40px;
-  }
-  .liveText {
-    font-size: var(--font-size-base);
-    line-height: 28px;
-  }
-  .requestALesson {
-    font-size: var(--font-size-mini);
-  }
-  .topText {
-    gap: var(--gap-3xs);
-  }
-  .options {
-    gap: var(--gap-31xl);
-  }
-  .inPersonAndOnline {
-    gap: var(--gap-11xl);
-  }
-}
 @media screen and (max-width: 1024px) {
   .introTitle {
     text-align: center;
@@ -153,5 +132,27 @@
     align-self: stretch;
     width: auto;
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
+  .liveText {
+    font-size: var(--font-size-base);
+    line-height: 28px;
+  }
+  .requestALesson {
+    font-size: var(--font-size-mini);
+  }
+  .topText {
+    gap: var(--gap-3xs);
+  }
+  .options {
+    gap: var(--gap-31xl);
+  }
+  .inPersonAndOnline {
+    gap: var(--gap-11xl);
   }
 }
