@@ -10,6 +10,7 @@ import About from "../components/About";
 import Knowledge from "../components/Knowledge";
 import Technique from "../components/Technique";
 import Interpretation from "../components/Interpretation";
+import IntroLearningPath from "../components/IntroLearningPath";
 import InPersonAndOnline from "../components/InPersonAndOnline";
 import Offers from "../components/Offers";
 import IntroMentor from "../components/IntroMentor";
@@ -66,7 +67,7 @@ const Main: NextPage = () => {
       <Knowledge />
       <Technique />
       <Interpretation />
-      <Intro introTitle="Taylor your learning path." />
+      <IntroLearningPath />
       <InPersonAndOnline />
       <Offers />
       <IntroMentor />
