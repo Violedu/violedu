@@ -1,0 +1,33 @@
+.introTitle {
+  position: relative;
+}
+.introLearningPath,
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.title {
+  width: 1170px;
+  justify-content: flex-start;
+}
+.introLearningPath {
+  align-self: stretch;
+  background-color: var(--color-gray-200);
+  height: 179px;
+  justify-content: center;
+  padding: 0 var(--padding-5xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-15xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-5xl);
+  }
+  .introLearningPath {
+    height: 120px;
+  }
+}
