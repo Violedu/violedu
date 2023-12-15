@@ -84,13 +84,6 @@ const RequestFooter: NextPage = () => {
               </div>
             </div>
           </div>
-          <div className={styles.languages}>
-            <b className={styles.location1}>Languages</b>
-            <div className={styles.list1}>
-              <button className={styles.en}>En</button>
-              <button className={styles.en}>De</button>
-            </div>
-          </div>
         </div>
       </div>
       <div className={styles.bottomInfo}>
