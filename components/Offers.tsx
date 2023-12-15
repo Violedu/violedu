@@ -148,7 +148,7 @@ const Offers: NextPage = () => {
                 <div className={styles.line}>
                   <img className={styles.icon} alt="" src="/violedu/icon.svg" />
                   <div className={styles.minSession}>
-                    Preparation for auditions or recitals
+                    Preparation for recitals or auditions
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@ const Offers: NextPage = () => {
               </div>
               <div className={styles.line}>
                 <img className={styles.icon} alt="" src="/violedu/icon.svg" />
-                <div className={styles.minSession}>Mock auditions</div>
+                <div className={styles.minSession}>Mock recitals or auditions</div>
               </div>
               <div className={styles.line}>
                 <img className={styles.icon} alt="" src="/violedu/icon.svg" />
