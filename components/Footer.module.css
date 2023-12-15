@@ -39,8 +39,6 @@
 .title {
   position: relative;
   line-height: 16px;
-  display: inline-block;
-  width: 85px;
 }
 .iconyoutube {
   position: relative;
@@ -271,3 +269,36 @@
     gap: var(--gap-29xl);
   }
 }
+
+  @media screen and (max-width: 430px) {
+    .socials {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  
+    .stuttgartGermany {
+      text-align: center;
+    }
+  
+    .location {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  
+    .contactUs {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  
+    .languages {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  
+    .infoBottomRight {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  
