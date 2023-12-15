@@ -120,7 +120,6 @@
     align-items: center;
     justify-content: flex-start;
     padding-top: var(--padding-61xl);
-    padding-bottom: var(--padding-101xl);
     box-sizing: border-box;
   }
 }
