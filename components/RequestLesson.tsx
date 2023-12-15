@@ -79,7 +79,7 @@ const RequestLesson: NextPage = () => {
                 <TextField
                   className={styles.name}
                   color="primary"
-                  label="Country"
+                  label="Country of Residence"
                   required={true}
                   variant="outlined"
                 />
