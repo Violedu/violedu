@@ -16,7 +16,7 @@ const TermsNavBar: NextPage = () => {
         <img
           className={styles.logoIcon}
           alt=""
-          src="/violedu/logo21.svg"
+          src="/violedu/logo2.svg"
           onClick={onLogoImageClick}
         />
       </div>
