@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
-import { useMemo, type CSSProperties } from "react";
+import { useMemo, type CSSProperties, useCallback } from "react";
+import { useRouter } from "next/router";
 import styles from "./Footer.module.css";
 
 type FooterType = {
@@ -63,6 +64,15 @@ const Footer: NextPage<FooterType> = ({
     };
   }, [mentorCursor]);
 
+  const router = useRouter();
+
+  const onTermsClick = useCallback(() => {
+    router.push("/Terms");
+  }, [router]);
+
+  const onPrivacyClick = useCallback(() => {
+    router.push("/Privacy");
+  }, [router]);
   return (
     <div className={styles.footer}>
       <div className={styles.logo}>
@@ -170,8 +180,12 @@ const Footer: NextPage<FooterType> = ({
           © 2024 — Copyright All Rights reserved
         </div>
         <div className={styles.termsAndPrivacy}>
-          <a className={styles.terms}>Terms</a>
-          <a className={styles.terms}>Privacy</a>
+          <a className={styles.about} onClick={onTermsClick}>
+            Terms
+          </a>
+          <a className={styles.about} onClick={onPrivacyClick}>
+            Privacy
+          </a>
         </div>
       </div>
     </div>

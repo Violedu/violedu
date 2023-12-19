@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
-import styles from "./RequestFooter.module.css";
+import styles from "./PrivacyFooter.module.css";
 
-const RequestFooter: NextPage = () => {
+const PrivacyFooter: NextPage = () => {
   const router = useRouter();
 
   const onLogoImageClick = useCallback(() => {
@@ -15,8 +15,11 @@ const RequestFooter: NextPage = () => {
   }, [router]);
 
   const onPrivacyClick = useCallback(() => {
-    router.push("/Privacy");
-  }, [router]);
+    const anchor = document.querySelector("[data-scroll-to='navBar']");
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start" });
+    }
+  }, []);
 
   return (
     <div className={styles.footer}>
@@ -24,7 +27,7 @@ const RequestFooter: NextPage = () => {
         <img
           className={styles.logoIcon}
           alt=""
-          src="/violedu/logo1.svg"
+          src="/violedu/logo11.svg"
           onClick={onLogoImageClick}
         />
       </div>
@@ -42,7 +45,7 @@ const RequestFooter: NextPage = () => {
                   <img
                     className={styles.iconyoutube}
                     alt=""
-                    src="/violedu/iconyoutube1.svg"
+                    src="/violedu/iconyoutube2@2x.png"
                   />
                 </div>
                 <div className={styles.footerText}>YouTube</div>
@@ -56,7 +59,7 @@ const RequestFooter: NextPage = () => {
                   <img
                     className={styles.iconinstagram}
                     alt=""
-                    src="/violedu/iconinstagram1.svg"
+                    src="/violedu/iconinstagram@2x.png"
                   />
                 </div>
                 <div className={styles.footerText}>Instagram</div>
@@ -70,7 +73,7 @@ const RequestFooter: NextPage = () => {
                   <img
                     className={styles.iconfacebook}
                     alt=""
-                    src="/violedu/iconfacebook.svg"
+                    src="/violedu/iconfacebook@2x.png"
                   />
                 </div>
                 <div className={styles.footerText}>Facebook</div>
@@ -78,14 +81,14 @@ const RequestFooter: NextPage = () => {
             </div>
           </div>
           <div className={styles.location}>
-            <b className={styles.location1}>Location</b>
+            <b className={styles.title}>Location</b>
             <div className={styles.stuttgartGermany}>
               <p className={styles.stuttgart}>70499, Stuttgart</p>
               <p className={styles.stuttgart}>Germany</p>
             </div>
           </div>
           <div className={styles.contactUs}>
-            <b className={styles.location1}>Contact Us</b>
+            <b className={styles.title}>Contact Us</b>
             <div className={styles.list}>
               <div className={styles.contactvioleducom}>
                 contact@violedu.com
@@ -111,4 +114,4 @@ const RequestFooter: NextPage = () => {
   );
 };
 
-export default RequestFooter;
+export default PrivacyFooter;

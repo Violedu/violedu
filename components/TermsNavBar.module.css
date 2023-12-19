@@ -1,0 +1,35 @@
+.logoIcon {
+  position: relative;
+  width: 162px;
+  height: 30.4px;
+}
+.logoIcon,
+.logoIcon:hover {
+  cursor: pointer;
+}
+.navBar,
+.navBar1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navBar1 {
+  width: 1170px;
+  justify-content: flex-start;
+}
+.navBar {
+  align-self: stretch;
+  background-color: var(--color-whitesmoke);
+  height: 164px;
+  justify-content: center;
+  padding: var(--padding-5xl);
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1024px) {
+  .navBar {
+    gap: var(--gap-0);
+    padding-left: var(--padding-5xl);
+    padding-right: var(--padding-5xl);
+    box-sizing: border-box;
+  }
+}
