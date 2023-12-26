@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-violedu-dev-175653-authRole",
+      "UnauthRoleArn": "arn:aws:iam::099358406189:role/amplify-violedu-dev-175653-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::099358406189:role/amplify-violedu-dev-175653-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-violedu-dev-175653-deployment",
+      "UnauthRoleName": "amplify-violedu-dev-175653-unauthRole",
+      "StackName": "amplify-violedu-dev-175653",
+      "StackId": "arn:aws:cloudformation:eu-central-1:099358406189:stack/amplify-violedu-dev-175653/c8d1a030-a40f-11ee-9b05-0a707e36de45",
+      "AmplifyAppId": "d2mm1hthva4wur"
+    }
+  }
+}
