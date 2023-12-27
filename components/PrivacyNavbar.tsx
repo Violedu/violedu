@@ -16,7 +16,7 @@ const PrivacyNavbar: NextPage = () => {
         <img
           className={styles.logoIcon}
           alt=""
-          src="/violedu/logo2.svg"
+          src="/logo2.svg"
           onClick={onLogoImageClick}
         />
       </div>

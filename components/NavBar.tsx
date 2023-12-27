@@ -63,7 +63,7 @@ const NavBar: NextPage = () => {
           <img
             className={styles.logoIcon}
             alt=""
-            src="/violedu/logo.svg"
+            src="/logo.svg"
             onClick={onLogoImageClick}
           />
           <div className={styles.navBar2}>
@@ -88,7 +88,7 @@ const NavBar: NextPage = () => {
                   <img
                     className={styles.hamburgerMenuItem}
                     alt=""
-                    src="/violedu/group-4.svg"
+                    src="/group-4.svg"
                   />
                 </button>
               </div>
