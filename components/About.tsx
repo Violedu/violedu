@@ -17,7 +17,7 @@ const About: NextPage = () => {
           className={styles.video}
           controls
           controlsList="nodownload"
-          poster="/violedu/video_poster_1.PNG"
+          poster="/video_poster_1.PNG"
         >
           <source src="/pexels-c-technical-7095746_(2160p).mp4" />
         </video>
