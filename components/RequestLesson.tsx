@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
+import { useState } from "react";
 import {
   TextField,
   InputAdornment,
@@ -19,9 +20,100 @@ import styles from "./RequestLesson.module.css";
 const RequestLesson: NextPage = () => {
   const router = useRouter();
 
-  const onButtonClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    age: "",
+    yearsOfPlaying: "",
+    countryOfResidence: "",
+    teachingMethod: "",
+    learningPath: "",
+    agreeToTerms: false,
+  });
+
+  const [errors, setErrors] = useState({
+    fullName: false,
+    email: false,
+    age: false,
+    yearsOfPlaying: false,
+    countryOfResidence: false,
+    teachingMethod: false,
+    learningPath: false,
+    agreeToTerms: false,
+  });
+
+  const onInputChange = (field: string, value: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: field === "agreeToTerms" ? !prevData[field] : value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [field]: false,
+    }));
+  };
+
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isInteger = (value: string) => Number.isInteger(Number(value));
+
+    const newErrors = {
+      fullName: formData.fullName === "",
+      email: !formData.email || !emailRegex.test(formData.email),
+      age: formData.age === "" || !isInteger(formData.age),
+      yearsOfPlaying:
+        formData.yearsOfPlaying === "" || !isInteger(formData.yearsOfPlaying),
+      countryOfResidence: formData.countryOfResidence === "",
+      teachingMethod: formData.teachingMethod === "",
+      learningPath: formData.learningPath === "",
+      agreeToTerms: !formData.agreeToTerms,
+    };
+
+    setErrors(newErrors);
+
+    return Object.values(newErrors).every((error) => !error);
+  };
+
+  const onButtonClick = async () => {
+    if (validateForm()) {
+      try {
+        const apiUrl =
+          "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
+
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            age: Number(formData.age),
+            yearsOfPlaying: Number(formData.yearsOfPlaying),
+            countryOfResidence: formData.countryOfResidence,
+            teachingMethod: formData.teachingMethod,
+            learningPath: formData.learningPath,
+          }),
+        });
+
+        if (response.ok) {
+          // Handle successful response (e.g., redirect to a success page)
+          router.push("/");
+        } else {
+          // Handle error response
+          console.error(
+            "API request failed:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Error during API request:", error);
+      }
+    } else {
+      // Handle validation errors (e.g., scroll to the first error)
+    }
+  };
 
   return (
     <div className={styles.requestlesson}>
@@ -49,39 +141,83 @@ const RequestLesson: NextPage = () => {
                   Personal Information
                 </div>
                 <TextField
-                  className={styles.name}
+                  className={`${styles.name} ${
+                    errors.fullName ? styles.error : ""
+                  }`}
                   color="primary"
                   label="Full Name"
                   required={true}
                   variant="outlined"
+                  value={formData.fullName}
+                  onChange={(e) => onInputChange("fullName", e.target.value)}
+                  error={errors.fullName}
+                  helperText={
+                    errors.fullName ? "Please enter your full name" : ""
+                  }
                 />
                 <TextField
-                  className={styles.name}
+                  className={`${styles.name} ${
+                    errors.email ? styles.error : ""
+                  }`}
                   color="primary"
                   label="Email"
                   required={true}
                   variant="outlined"
+                  value={formData.email}
+                  onChange={(e) => onInputChange("email", e.target.value)}
+                  error={errors.email}
+                  helperText={
+                    errors.email ? "Please enter a valid email address" : ""
+                  }
                 />
                 <TextField
-                  className={styles.name}
+                  className={`${styles.name} ${errors.age ? styles.error : ""}`}
                   color="primary"
                   label="Age"
                   required={true}
                   variant="outlined"
+                  value={formData.age}
+                  onChange={(e) => onInputChange("age", e.target.value)}
+                  error={errors.age}
+                  helperText={errors.age ? "Please enter your age" : ""}
                 />
                 <TextField
-                  className={styles.name}
+                  className={`${styles.name} ${
+                    errors.yearsOfPlaying ? styles.error : ""
+                  }`}
                   color="primary"
                   label="Years of Playing"
                   required={true}
                   variant="outlined"
+                  value={formData.yearsOfPlaying}
+                  onChange={(e) =>
+                    onInputChange("yearsOfPlaying", e.target.value)
+                  }
+                  error={errors.yearsOfPlaying}
+                  helperText={
+                    errors.yearsOfPlaying
+                      ? "Please enter the number of years you've been playing"
+                      : ""
+                  }
                 />
                 <TextField
-                  className={styles.name}
+                  className={`${styles.name} ${
+                    errors.countryOfResidence ? styles.error : ""
+                  }`}
                   color="primary"
                   label="Country of Residence"
                   required={true}
                   variant="outlined"
+                  value={formData.countryOfResidence}
+                  onChange={(e) =>
+                    onInputChange("countryOfResidence", e.target.value)
+                  }
+                  error={errors.countryOfResidence}
+                  helperText={
+                    errors.countryOfResidence
+                      ? "Please enter your country of residence"
+                      : ""
+                  }
                 />
               </div>
               <div className={styles.personalInfo}>
@@ -89,33 +225,74 @@ const RequestLesson: NextPage = () => {
                 <FormControl
                   className={styles.teachingMethod}
                   variant="outlined"
+                  error={errors.teachingMethod}
                 >
-                  <InputLabel color="primary">Teaching Method</InputLabel>
-                  <Select color="primary" label="Teaching Method">
+                  <InputLabel
+                    color={errors.teachingMethod ? "error" : "primary"}
+                  >
+                    Teaching Method
+                  </InputLabel>
+                  <Select
+                    color="primary"
+                    label="Teaching Method"
+                    value={formData.teachingMethod}
+                    onChange={(e) =>
+                      onInputChange("teachingMethod", e.target.value)
+                    }
+                  >
                     <MenuItem value="In Person">In Person</MenuItem>
                     <MenuItem value="Online">Online</MenuItem>
                   </Select>
-                  <FormHelperText />
+                  <FormHelperText>
+                    {errors.teachingMethod
+                      ? "Please select a teaching method"
+                      : ""}
+                  </FormHelperText>
                 </FormControl>
                 <FormControl
                   className={styles.teachingMethod}
                   variant="outlined"
+                  error={errors.learningPath}
                 >
-                  <InputLabel color="primary">Learning Path</InputLabel>
-                  <Select color="primary" label="Learning Path">
+                  <InputLabel color={errors.learningPath ? "error" : "primary"}>
+                    Learning Path
+                  </InputLabel>
+                  <Select
+                    color="primary"
+                    label="Learning Path"
+                    value={formData.learningPath}
+                    onChange={(e) =>
+                      onInputChange("learningPath", e.target.value)
+                    }
+                    error={errors.learningPath}
+                  >
                     <MenuItem value="Single">Single</MenuItem>
                     <MenuItem value="Intensive">Intensive</MenuItem>
                     <MenuItem value="Mastery">Mastery</MenuItem>
                   </Select>
-                  <FormHelperText />
+                  <FormHelperText>
+                    {errors.learningPath ? "Please select a learning path" : ""}
+                  </FormHelperText>
                 </FormControl>
               </div>
             </div>
-            <div className={styles.check}>
+            <div
+              className={`${styles.check} ${
+                errors.agreeToTerms ? styles.error : ""
+              }`}
+            >
               <FormControlLabel
                 className={styles.chechbox}
                 label=""
-                control={<Checkbox color="primary" />}
+                control={
+                  <Checkbox
+                    color="primary"
+                    checked={formData.agreeToTerms}
+                    onChange={(e) =>
+                      onInputChange("agreeToTerms", e.target.checked.toString())
+                    }
+                  />
+                }
               />
               <div className={styles.iAgreeTo}>
                 I agree to the terms and privacy policy.

@@ -12,6 +12,16 @@
   position: relative;
   font-weight: 800;
 }
+
+.error {
+  border-color: var(--color-red);
+}
+
+.chechbox.error,
+.iAgreeTo.error {
+  color: var(--color-red);
+}
+
 .title {
   align-self: stretch;
   display: flex;
