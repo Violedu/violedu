@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
+import Head from "next/head";
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
 import WhiteSection from "../components/WhiteSection";
@@ -56,37 +57,43 @@ const Main: NextPage = () => {
   }, []);
 
   return (
-    <div className={styles.main}>
-      <NavBar />
-      <HeroSection />
-      <WhiteSection />
-      <SmallWhiteSection />
-      <ActionCall />
-      <Intro introTitle="Dive into a new way of performing." />
-      <About />
-      <Knowledge />
-      <Technique />
-      <Interpretation />
-      <IntroLearningPath />
-      <InPersonAndOnline />
-      <Offers />
-      <IntroMentor />
-      <Mentor />
-      <IntroTestemonials />
-      <Testemonials />
-      <Footer
-        onLogoClick={onLogoClick}
-        onAbout1Click={onAboutClick}
-        onLearningPath1Click={onLearningPathClick}
-        onMentor1Click={onMentorClick}
-        youtubeHref="https://www.youtube.com/@Violedu-dm3uk"
-        youtubeTarget="_blank"
-        instagramHref="https://www.instagram.com/violedugrp/"
-        instagramTarget="_blank"
-        facebookHref="https://www.google.com"
-        facebookTarget="_blank"
-      />
-    </div>
+    <>
+      <Head>
+        <title>Violedu - Step Up Your Next Performance</title>
+        <link rel="icon" href="/head_logo.png" />
+      </Head>
+      <div className={styles.main}>
+        <NavBar />
+        <HeroSection />
+        <WhiteSection />
+        <SmallWhiteSection />
+        <ActionCall />
+        <Intro introTitle="Dive into a new way of performing." />
+        <About />
+        <Knowledge />
+        <Technique />
+        <Interpretation />
+        <IntroLearningPath />
+        <InPersonAndOnline />
+        <Offers />
+        <IntroMentor />
+        <Mentor />
+        <IntroTestemonials />
+        <Testemonials />
+        <Footer
+          onLogoClick={onLogoClick}
+          onAbout1Click={onAboutClick}
+          onLearningPath1Click={onLearningPathClick}
+          onMentor1Click={onMentorClick}
+          youtubeHref="https://www.youtube.com/@Violedu-dm3uk"
+          youtubeTarget="_blank"
+          instagramHref="https://www.instagram.com/violedugrp/"
+          instagramTarget="_blank"
+          facebookHref="https://www.google.com"
+          facebookTarget="_blank"
+        />
+      </div>
+    </>
   );
 };
 
