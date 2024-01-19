@@ -19,7 +19,7 @@ const About: NextPage = () => {
           controlsList="nodownload"
           poster="/video_poster_1.PNG"
         >
-          <source src="https://github.com/Violedu/violedu/blob/master/public/pexels-c-technical-7095746_(2160p).mp4"/>
+          <source src="https://raw.githubusercontent.com/Violedu/violedu/master/public/pexels-c-technical-7095746_(2160p).mp4"/>
         </video>
       </div>
     </div>
