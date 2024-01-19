@@ -17,9 +17,9 @@ const About: NextPage = () => {
           className={styles.video}
           controls
           controlsList="nodownload"
-          poster="/video_poster_1.PNG"
+          poster="/about_cover.jpg"
         >
-          <source src="/pexels-c-technical-7095746_(2160p).mp4" />
+          <source src="https://d2cvlhxoblnid8.cloudfront.net/about_video.mp4" />
         </video>
       </div>
     </div>
