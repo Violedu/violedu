@@ -21,7 +21,7 @@ const About: NextPage = () => {
           controlsList="nodownload"
           poster="/about_cover.jpg"
         >
-          <source src="https://d2cvlhxoblnid8.cloudfront.net/about_video.mp4" />
+          <source src="https://d2cvlhxoblnid8.cloudfront.net/About_1.05.00(6).mp4" />
         </video>
       </div>
     </div>
