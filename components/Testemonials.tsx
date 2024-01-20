@@ -15,7 +15,7 @@ const Testemonials: NextPage = () => {
           controlsList="nodownload"
           poster="/video_poster_2.PNG"
         >
-          <source src="/pexels-mart-production-8471228_(720p) (1).mp4" />
+          <source src="https://d2cvlhxoblnid8.cloudfront.net/about_video_1080.mp4" />
         </video>
       </div>
     </div>
