@@ -89,7 +89,7 @@ const Main: NextPage = () => {
           youtubeTarget="_blank"
           instagramHref="https://www.instagram.com/violedugrp/"
           instagramTarget="_blank"
-          facebookHref="https://www.google.com"
+          facebookHref="https://www.facebook.com/profile.php?id=61554886883694"
           facebookTarget="_blank"
         />
       </div>
