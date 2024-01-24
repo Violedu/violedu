@@ -14,19 +14,11 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
-import Snackbar from '@mui/material/Snackbar';
-import Slide, { SlideProps } from '@mui/material/Slide';
 import { useRouter } from "next/router";
 import styles from "./RequestLesson.module.css";
 
-function SlideTransition(props: SlideProps) {
-  return <Slide {...props} direction="up" />;
-}
-
 const RequestLesson: NextPage = () => {
   const router = useRouter();
-
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -105,9 +97,8 @@ const RequestLesson: NextPage = () => {
         });
 
         if (response.ok) {
-          setSnackbarOpen(true);
           // Handle successful response (e.g., redirect to a success page)
-          // router.push("/");
+          router.push("/");
         } else {
           // Handle error response
           console.error(
@@ -313,13 +304,6 @@ const RequestLesson: NextPage = () => {
           </div>
         </div>
       </div>
-      <Snackbar
-        open={snackbarOpen}
-        onClose={() => setSnackbarOpen(false)}
-        TransitionComponent={SlideTransition}
-        message="Request submitted successfully!"
-        autoHideDuration={3000}
-      />
     </div>
   );
 };
