@@ -19,7 +19,7 @@ import Slide from '@mui/material/Slide';
 import { useRouter } from "next/router";
 import styles from "./RequestLesson.module.css";
 
-function SlideTransition(props) {
+function SlideTransition(props: SlideProps) {
   return <Slide {...props} direction="up" />;
 }
 
