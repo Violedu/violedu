@@ -107,7 +107,7 @@ const RequestLesson: NextPage = () => {
         if (response.ok) {
           setSnackbarOpen(true);
           // Handle successful response (e.g., redirect to a success page)
-          router.push("/");
+          // router.push("/");
         } else {
           // Handle error response
           console.error(
