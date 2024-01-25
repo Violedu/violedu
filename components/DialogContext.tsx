@@ -1,7 +1,7 @@
 // DialogContext.js
 import React, { createContext, useContext, useState } from 'react';
 
-const DialogContext = createContext();
+const DialogContext = createContext(null);
 
 export const DialogProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
