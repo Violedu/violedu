@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const DialogContext = createContext(null);
 
-export const DialogProvider = ({ children }) => {
+export const DialogProvider = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
