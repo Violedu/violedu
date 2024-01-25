@@ -20,6 +20,8 @@ import IntroTestemonials from "../components/IntroTestemonials";
 import Testemonials from "../components/Testemonials";
 import Footer from "../components/Footer";
 import styles from "./index.module.css";
+import { useDialog } from '../components/DialogContext';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
 
 const Main: NextPage = () => {
   const onLogoClick = useCallback(() => {
@@ -55,6 +57,12 @@ const Main: NextPage = () => {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   }, []);
+
+  const { isOpen, setIsOpen } = useDialog();
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -92,6 +100,22 @@ const Main: NextPage = () => {
           facebookHref="https://www.google.com"
           facebookTarget="_blank"
         />
+        <Dialog open={isOpen} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+          <DialogTitle id="alert-dialog-title">Request Submitted</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              <p>We will soon reach out to you via email for further details. As part of our process, 
+                 you'll be invited to a free online assessment session to define your goals and 
+                 evaluate your current skill level. We look forward to meeting you!
+              </p>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </>
   );

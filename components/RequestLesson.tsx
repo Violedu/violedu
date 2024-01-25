@@ -16,9 +16,11 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import styles from "./RequestLesson.module.css";
+import { useDialog } from './DialogContext';
 
 const RequestLesson: NextPage = () => {
   const router = useRouter();
+  const { setIsOpen } = useDialog();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -98,6 +100,7 @@ const RequestLesson: NextPage = () => {
 
         if (response.ok) {
           // Handle successful response (e.g., redirect to a success page)
+          setIsOpen(true);
           router.push("/");
         } else {
           // Handle error response
