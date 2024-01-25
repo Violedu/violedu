@@ -1,9 +1,11 @@
 // DialogContext.js
 import React, { createContext, useContext, useState } from 'react';
 
-const DialogContext = createContext(null);
+// Create a context for the dialog with an initial value of null
+const DialogContext = createContext({ isOpen: false, setIsOpen: () => {} });
 
-export const DialogProvider = ({ children }: { children: React.ReactNode }) => {
+// Create a provider component to wrap the app and provide dialog state
+export const DialogProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -13,4 +15,5 @@ export const DialogProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+// Create a custom hook to consume the dialog context
 export const useDialog = () => useContext(DialogContext);
