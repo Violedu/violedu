@@ -13,3 +13,5 @@ export const DialogProvider = ({ children }: { children: ReactNode }) => {
     </DialogContext.Provider>
   );
 };
+
+export const useDialog = () => useContext(DialogContext);
