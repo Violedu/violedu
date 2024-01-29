@@ -21,7 +21,7 @@ const InPersonAndOnline: NextPage = () => {
       </div>
       <div className={styles.options}>
         <div className={styles.topContent}>
-          <img className={styles.imageIcon} alt="" src="/image4@2x.png" />
+          <img className={styles.imageIcon} alt="" src="/stuttgart-354557_1280.jpg" />
           <div className={styles.topText}>
             <div className={styles.liveText}>
               Engaging in face-to-face sessions held in Stuttgart, Germany,
