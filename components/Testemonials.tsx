@@ -13,9 +13,9 @@ const Testemonials: NextPage = () => {
           className={styles.video}
           controls
           controlsList="nodownload"
-          poster="/video_poster_2.PNG"
+          poster="/testemonial_thumbnail.jpg"
         >
-          <source src="/pexels-mart-production-8471228_(720p) (1).mp4" />
+          <source src="https://d2cvlhxoblnid8.cloudfront.net/testemonial_video_1080p_h264_25fps_cmp.mp4" />
         </video>
       </div>
     </div>
