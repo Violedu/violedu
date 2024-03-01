@@ -8,7 +8,7 @@ const IntroLearningPath: NextPage = () => {
       data-scroll-to="introLearningPath"
     >
       <div className={styles.title}>
-        <b className={styles.introTitle}>Taylor your learning path.</b>
+        <b className={styles.introTitle}>Tailor your learning path.</b>
       </div>
     </div>
   );
