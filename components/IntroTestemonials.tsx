@@ -6,7 +6,7 @@ const IntroTestemonials: NextPage = () => {
     <div className={styles.introTestemonials}>
       <div className={styles.background}>
         <div className={styles.title}>
-          <b className={styles.introTitle}>Testemonials.</b>
+          <b className={styles.introTitle}>Testimonials.</b>
         </div>
       </div>
       <div className={styles.whiteBg} />
