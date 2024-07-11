@@ -21,7 +21,7 @@ const InPersonAndOnline: NextPage = () => {
       </div>
       <div className={styles.options}>
         <div className={styles.topContent}>
-          <img className={styles.imageIcon} alt="" src="/stuttgart-354557_1280.jpg" />
+          <img className={styles.imageIcon} alt="" src="/stuttgart-354557_1280.jpg" loading="lazy"/>
           <div className={styles.topText}>
             <div className={styles.liveText}>
               Engaging in face-to-face sessions held in Stuttgart, Germany,
@@ -37,7 +37,7 @@ const InPersonAndOnline: NextPage = () => {
           </div>
         </div>
         <div className={styles.bottomContent}>
-          <img className={styles.imageIcon1} alt="" src="/image5@2x.png" />
+          <img className={styles.imageIcon1} alt="" src="/image5@2x.png" loading="lazy"/>
           <div className={styles.topText}>
             <div className={styles.liveText}>
               Experience the convenience and flexibility of learning online.

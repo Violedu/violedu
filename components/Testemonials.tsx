@@ -8,7 +8,7 @@ const Testemonials: NextPage = () => {
         <div className={styles.title}>
           <div className={styles.introTitle}>What They Say.</div>
         </div>
-        <img className={styles.imageIcon} alt="" src="/image@2x.png" />
+        <img className={styles.imageIcon} alt="" src="/image@2x.png" loading="lazy"/>
         <video
           className={styles.video}
           controls
