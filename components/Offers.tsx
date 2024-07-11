@@ -1,10 +1,26 @@
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { animate } from "motion";
 import type { NextPage } from "next";
-import { useCallback } from "react";
 import { useRouter } from "next/router";
 import styles from "./Offers.module.css";
 
 const Offers: NextPage = () => {
   const router = useRouter();
+
+  const introTitleRef = useRef<HTMLDivElement>(null);
+  const singleCardRef = useRef<HTMLDivElement>(null);
+  const intensiveCardRef = useRef<HTMLDivElement>(null);
+  const masteryCardRef = useRef<HTMLDivElement>(null);
+  const moneyBackGuaranteeRef = useRef<HTMLDivElement>(null);
+  const freeAssessmentSessionRef = useRef<HTMLDivElement>(null);
+
+  // State variables to track if animations have run
+  const [hasAnimatedTitle, setHasAnimatedTitle] = useState(false);
+  const [hasAnimatedSingleCard, setHasAnimatedSingleCard] = useState(false);
+  const [hasAnimatedIntensiveCard, setHasAnimatedIntensiveCard] = useState(false);
+  const [hasAnimatedMasteryCard, setHasAnimatedMasteryCard] = useState(false);
+  const [hasAnimatedMoneyBackGuarantee, setHasAnimatedMoneyBackGuarantee] = useState(false);
+  const [hasAnimatedFreeAssessmentSession, setHasAnimatedFreeAssessmentSession] = useState(false);
 
   const onButtonClick = useCallback(() => {
     router.push("/Request1");
@@ -18,16 +34,95 @@ const Offers: NextPage = () => {
     router.push("/Request1");
   }, [router]);
 
+  useEffect(() => {
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (introTitleRef.current && !hasAnimatedTitle) {
+            animate(introTitleRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
+            setHasAnimatedTitle(true); // Set the flag to true after animation
+          }
+          if (singleCardRef.current && !hasAnimatedSingleCard) {
+            animate(singleCardRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
+            setHasAnimatedSingleCard(true); // Set the flag to true after animation
+          }
+          if (intensiveCardRef.current && !hasAnimatedIntensiveCard) {
+            animate(intensiveCardRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.4 });
+            setHasAnimatedIntensiveCard(true); // Set the flag to true after animation
+          }
+          if (masteryCardRef.current && !hasAnimatedMasteryCard) {
+            animate(masteryCardRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.6 });
+            setHasAnimatedMasteryCard(true); // Set the flag to true after animation
+          }
+          if (moneyBackGuaranteeRef.current && !hasAnimatedMoneyBackGuarantee) {
+            animate(moneyBackGuaranteeRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.8 });
+            setHasAnimatedMoneyBackGuarantee(true); // Set the flag to true after animation
+          }
+          if (freeAssessmentSessionRef.current && !hasAnimatedFreeAssessmentSession) {
+            animate(freeAssessmentSessionRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 1.0 });
+            setHasAnimatedFreeAssessmentSession(true); // Set the flag to true after animation
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+
+    if (introTitleRef.current) {
+      observer.observe(introTitleRef.current);
+    }
+    if (singleCardRef.current) {
+      observer.observe(singleCardRef.current);
+    }
+    if (intensiveCardRef.current) {
+      observer.observe(intensiveCardRef.current);
+    }
+    if (masteryCardRef.current) {
+      observer.observe(masteryCardRef.current);
+    }
+    if (moneyBackGuaranteeRef.current) {
+      observer.observe(moneyBackGuaranteeRef.current);
+    }
+    if (freeAssessmentSessionRef.current) {
+      observer.observe(freeAssessmentSessionRef.current);
+    }
+
+    return () => {
+      if (introTitleRef.current) {
+        observer.unobserve(introTitleRef.current);
+      }
+      if (singleCardRef.current) {
+        observer.unobserve(singleCardRef.current);
+      }
+      if (intensiveCardRef.current) {
+        observer.unobserve(intensiveCardRef.current);
+      }
+      if (masteryCardRef.current) {
+        observer.unobserve(masteryCardRef.current);
+      }
+      if (moneyBackGuaranteeRef.current) {
+        observer.unobserve(moneyBackGuaranteeRef.current);
+      }
+      if (freeAssessmentSessionRef.current) {
+        observer.unobserve(freeAssessmentSessionRef.current);
+      }
+    };
+  }, [hasAnimatedTitle, hasAnimatedSingleCard, hasAnimatedIntensiveCard, hasAnimatedMasteryCard, hasAnimatedMoneyBackGuarantee, hasAnimatedFreeAssessmentSession]); // Depend on animation flags
+
   return (
     <div className={styles.offers} data-scroll-to="offersContainer">
       <div className={styles.title}>
-        <div className={styles.introTitle}>
+        <div
+          className={styles.introTitle}
+          ref={introTitleRef}
+          style={{ opacity: 0, transform: 'translateY(24px)' }} // Initial style to hide and position the element
+        >
           <p className={styles.chooseTheLearning}>Choose The Learning Path</p>
           <p className={styles.chooseTheLearning}>That Fits Your Needs.</p>
         </div>
       </div>
       <div className={styles.offers1}>
-        <div className={styles.single}>
+        <div className={styles.single} ref={singleCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
             <div className={styles.title1}>Single</div>
             <div className={styles.price}>80 €</div>
@@ -82,7 +177,7 @@ const Offers: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.intensive}>
+        <div className={styles.intensive} ref={intensiveCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
             <b className={styles.title4}>Intensive</b>
             <div className={styles.price1}>295 €</div>
@@ -155,7 +250,7 @@ const Offers: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.mastery}>
+        <div className={styles.mastery} ref={masteryCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
             <b className={styles.title4}>Mastery</b>
             <div className={styles.price1}>595 €</div>
@@ -225,7 +320,7 @@ const Offers: NextPage = () => {
                 <div className={styles.line}>
                   <img className={styles.icon} alt="" src="/icon.svg" />
                   <div className={styles.minSession}>
-                    In-depth rewiew of musical works
+                    In-depth review of musical works
                   </div>
                 </div>
                 <div className={styles.line}>
@@ -240,17 +335,17 @@ const Offers: NextPage = () => {
         </div>
       </div>
       <div className={styles.info}>
-        <div className={styles.garantee}>
+        <div className={styles.garantee} ref={moneyBackGuaranteeRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <img className={styles.imageIcon} alt="" src="/image6@2x.png" />
           <div className={styles.text6}>
-            <div className={styles.garanteeText}>Money Back Garantee</div>
+            <div className={styles.garanteeText}>Money Back Guarantee</div>
             <div className={styles.garanteeTitle}>
-              All learning paths include a 14-day money back garantee. If you
+              All learning paths include a 14-day money back guarantee. If you
               are not satisfied, get your money back.
             </div>
           </div>
         </div>
-        <div className={styles.garantee}>
+        <div className={styles.garantee} ref={freeAssessmentSessionRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <img className={styles.imageIcon1} alt="" src="/image7@2x.png" />
           <div className={styles.text6}>
             <div className={styles.garanteeText}>Free Assessment Session</div>

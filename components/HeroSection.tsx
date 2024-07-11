@@ -13,17 +13,27 @@ const HeroSection: NextPage = () => {
   }, []);
 
   const actionCallRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const imageRef1 = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (actionCallRef.current) {
       animate(actionCallRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
+    }
+
+    if (imageRef.current) {
+      animate(imageRef.current, { opacity: [0, 1], y: [12, 0] }, { duration: 1 });
+    }
+
+    if (imageRef1.current) {
+      animate(imageRef1.current, { opacity: [0, 1], y: [12, 0] }, { duration: 1 });
     }
   }, []);
 
   return (
     <div className={styles.heroSection}>
       <div className={styles.heroSection1}>
-        <div className={styles.actionCall} ref={actionCallRef}>
+        <div className={styles.actionCall} ref={actionCallRef} style={{ opacity: 0 }}>
           <div className={styles.text}>
             <div className={styles.title}>
               <p className={styles.stepUp}>{`Step Up `}</p>
@@ -41,8 +51,8 @@ const HeroSection: NextPage = () => {
             <div className={styles.requestALesson}>Request a Lesson</div>
           </button>
         </div>
-        <img className={styles.imageIcon} alt="" src="/image-1@2x.png"/>
-        <img className={styles.imageIcon1} alt="" src="/image-11@2x.png"/>
+        <img className={styles.imageIcon} alt="" src="/image-1@2x.png" ref={imageRef} style={{ opacity: 0 }} />
+        <img className={styles.imageIcon1} alt="" src="/image-11@2x.png" ref={imageRef1} style={{ opacity: 0 }} />
       </div>
     </div>
   );
