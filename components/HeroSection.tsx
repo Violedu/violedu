@@ -13,15 +13,10 @@ const HeroSection: NextPage = () => {
   }, []);
 
   const actionCallRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (actionCallRef.current) {
       animate(actionCallRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
-    }
-
-    if (imgRef.current) {
-      animate(imgRef.current, { opacity: [0, 1], y: [10, 0] }, { duration: 1 });
     }
   }, []);
 
@@ -46,10 +41,8 @@ const HeroSection: NextPage = () => {
             <div className={styles.requestALesson}>Request a Lesson</div>
           </button>
         </div>
-        <div ref={imgRef}>
-          <img className={styles.imageIcon} alt="" src="/image-1@2x.png" />
-          <img className={styles.imageIcon1} alt="" src="/image-11@2x.png" />
-        </div>
+        <img className={styles.imageIcon} alt="" src="/image-1@2x.png" />
+        <img className={styles.imageIcon1} alt="" src="/image-11@2x.png" />
       </div>
     </div>
   );
