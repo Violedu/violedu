@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { animate } from "motion";
 import {
   TextField,
   InputAdornment,
@@ -99,11 +99,9 @@ const RequestLesson: NextPage = () => {
         });
 
         if (response.ok) {
-          // Handle successful response (e.g., redirect to a success page)
           setIsOpen(true);
           router.push("/");
         } else {
-          // Handle error response
           console.error(
             "API request failed:",
             response.status,
@@ -113,14 +111,52 @@ const RequestLesson: NextPage = () => {
       } catch (error) {
         console.error("Error during API request:", error);
       }
-    } else {
-      // Handle validation errors (e.g., scroll to the first error)
     }
   };
 
+  const titleRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [hasAnimatedTitle, setHasAnimatedTitle] = useState(false);
+  const [hasAnimatedContent, setHasAnimatedContent] = useState(false);
+
+  useEffect(() => {
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (titleRef.current && !hasAnimatedTitle) {
+            animate(titleRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
+            setHasAnimatedTitle(true); // Set the flag to true after animation
+          }
+          if (contentRef.current && !hasAnimatedContent) {
+            animate(contentRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
+            setHasAnimatedContent(true); // Set the flag to true after animation
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        observer.unobserve(titleRef.current);
+      }
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
+  }, [hasAnimatedTitle, hasAnimatedContent]); // Depend on animation flags
+
   return (
     <div className={styles.requestlesson}>
-      <div className={styles.title}>
+      <div className={styles.title} ref={titleRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
         <div className={styles.introTitle}>
           <p className={styles.secureYourSpot}>
             <span className={styles.secureYour}>{`Secure Your `}</span>
@@ -134,7 +170,7 @@ const RequestLesson: NextPage = () => {
           </p>
         </div>
       </div>
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
         <img className={styles.imageIcon} alt="" src="/image@2x.png" />
         <div className={styles.frame}>
           <div className={styles.box}>
@@ -144,9 +180,7 @@ const RequestLesson: NextPage = () => {
                   Personal Information
                 </div>
                 <TextField
-                  className={`${styles.name} ${
-                    errors.fullName ? styles.error : ""
-                  }`}
+                  className={`${styles.name} ${errors.fullName ? styles.error : ""}`}
                   color="primary"
                   label="Full Name"
                   required={true}
@@ -154,14 +188,10 @@ const RequestLesson: NextPage = () => {
                   value={formData.fullName}
                   onChange={(e) => onInputChange("fullName", e.target.value)}
                   error={errors.fullName}
-                  helperText={
-                    errors.fullName ? "Please enter your full name" : ""
-                  }
+                  helperText={errors.fullName ? "Please enter your full name" : ""}
                 />
                 <TextField
-                  className={`${styles.name} ${
-                    errors.email ? styles.error : ""
-                  }`}
+                  className={`${styles.name} ${errors.email ? styles.error : ""}`}
                   color="primary"
                   label="Email"
                   required={true}
@@ -169,9 +199,7 @@ const RequestLesson: NextPage = () => {
                   value={formData.email}
                   onChange={(e) => onInputChange("email", e.target.value)}
                   error={errors.email}
-                  helperText={
-                    errors.email ? "Please enter a valid email address" : ""
-                  }
+                  helperText={errors.email ? "Please enter a valid email address" : ""}
                 />
                 <TextField
                   className={`${styles.name} ${errors.age ? styles.error : ""}`}
@@ -185,42 +213,26 @@ const RequestLesson: NextPage = () => {
                   helperText={errors.age ? "Please enter your age" : ""}
                 />
                 <TextField
-                  className={`${styles.name} ${
-                    errors.yearsOfPlaying ? styles.error : ""
-                  }`}
+                  className={`${styles.name} ${errors.yearsOfPlaying ? styles.error : ""}`}
                   color="primary"
                   label="Years of Playing"
                   required={true}
                   variant="outlined"
                   value={formData.yearsOfPlaying}
-                  onChange={(e) =>
-                    onInputChange("yearsOfPlaying", e.target.value)
-                  }
+                  onChange={(e) => onInputChange("yearsOfPlaying", e.target.value)}
                   error={errors.yearsOfPlaying}
-                  helperText={
-                    errors.yearsOfPlaying
-                      ? "Please enter the number of years you've been playing"
-                      : ""
-                  }
+                  helperText={errors.yearsOfPlaying ? "Please enter the number of years you've been playing" : ""}
                 />
                 <TextField
-                  className={`${styles.name} ${
-                    errors.countryOfResidence ? styles.error : ""
-                  }`}
+                  className={`${styles.name} ${errors.countryOfResidence ? styles.error : ""}`}
                   color="primary"
                   label="Country of Residence"
                   required={true}
                   variant="outlined"
                   value={formData.countryOfResidence}
-                  onChange={(e) =>
-                    onInputChange("countryOfResidence", e.target.value)
-                  }
+                  onChange={(e) => onInputChange("countryOfResidence", e.target.value)}
                   error={errors.countryOfResidence}
-                  helperText={
-                    errors.countryOfResidence
-                      ? "Please enter your country of residence"
-                      : ""
-                  }
+                  helperText={errors.countryOfResidence ? "Please enter your country of residence" : ""}
                 />
               </div>
               <div className={styles.personalInfo}>
@@ -230,26 +242,20 @@ const RequestLesson: NextPage = () => {
                   variant="outlined"
                   error={errors.teachingMethod}
                 >
-                  <InputLabel
-                    color={errors.teachingMethod ? "error" : "primary"}
-                  >
+                  <InputLabel color={errors.teachingMethod ? "error" : "primary"}>
                     Teaching Method
                   </InputLabel>
                   <Select
                     color="primary"
                     label="Teaching Method"
                     value={formData.teachingMethod}
-                    onChange={(e) =>
-                      onInputChange("teachingMethod", e.target.value)
-                    }
+                    onChange={(e) => onInputChange("teachingMethod", e.target.value)}
                   >
                     <MenuItem value="In Person">In Person</MenuItem>
                     <MenuItem value="Online">Online</MenuItem>
                   </Select>
                   <FormHelperText>
-                    {errors.teachingMethod
-                      ? "Please select a teaching method"
-                      : ""}
+                    {errors.teachingMethod ? "Please select a teaching method" : ""}
                   </FormHelperText>
                 </FormControl>
                 <FormControl
@@ -264,9 +270,7 @@ const RequestLesson: NextPage = () => {
                     color="primary"
                     label="Learning Path"
                     value={formData.learningPath}
-                    onChange={(e) =>
-                      onInputChange("learningPath", e.target.value)
-                    }
+                    onChange={(e) => onInputChange("learningPath", e.target.value)}
                     error={errors.learningPath}
                   >
                     <MenuItem value="Single">Single</MenuItem>
@@ -279,11 +283,7 @@ const RequestLesson: NextPage = () => {
                 </FormControl>
               </div>
             </div>
-            <div
-              className={`${styles.check} ${
-                errors.agreeToTerms ? styles.error : ""
-              }`}
-            >
+            <div className={`${styles.check} ${errors.agreeToTerms ? styles.error : ""}`}>
               <FormControlLabel
                 className={styles.chechbox}
                 label=""
@@ -291,9 +291,7 @@ const RequestLesson: NextPage = () => {
                   <Checkbox
                     color="primary"
                     checked={formData.agreeToTerms}
-                    onChange={(e) =>
-                      onInputChange("agreeToTerms", e.target.checked.toString())
-                    }
+                    onChange={(e) => onInputChange("agreeToTerms", e.target.checked.toString())}
                   />
                 }
               />
