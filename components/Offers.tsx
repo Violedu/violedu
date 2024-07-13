@@ -125,7 +125,10 @@ const Offers: NextPage = () => {
         <div className={styles.single} ref={singleCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
             <div className={styles.title1}>Single</div>
-            <div className={styles.price}>80 €</div>
+            <div className={styles.price1}>
+              80€
+              <span className={styles.perSession}>/session</span>
+            </div>
             <button className={styles.button} onClick={onButtonClick}>
               <div className={styles.text}>Request a lesson</div>
             </button>
@@ -134,7 +137,7 @@ const Offers: NextPage = () => {
             <div className={styles.features}>
               <div className={styles.line}>
                 <img className={styles.icon} alt="" src="/icon.svg" />
-                <div className={styles.minSession}>45 min session</div>
+                <div className={styles.minSession}>1 x 45 min session</div>
               </div>
               <div className={styles.line}>
                 <img className={styles.icon} alt="" src="/icon.svg" />
@@ -180,7 +183,10 @@ const Offers: NextPage = () => {
         <div className={styles.intensive} ref={intensiveCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
             <b className={styles.title4}>Intensive</b>
-            <div className={styles.price1}>295 €</div>
+            <div className={styles.price1}>
+              70€
+              <span className={styles.perSession}>/session</span>
+            </div>
             <button className={styles.button} onClick={onButton1Click}>
               <div className={styles.text}>Request a lesson</div>
             </button>
@@ -253,7 +259,10 @@ const Offers: NextPage = () => {
         <div className={styles.mastery} ref={masteryCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
             <b className={styles.title4}>Mastery</b>
-            <div className={styles.price1}>595 €</div>
+            <div className={styles.price1}>
+              65€
+              <span className={styles.perSession}>/session</span>
+            </div>
             <button className={styles.button} onClick={onButton2Click}>
               <div className={styles.text}>Request a lesson</div>
             </button>

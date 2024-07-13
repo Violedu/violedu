@@ -286,6 +286,13 @@
   color: var(--color-white);
   font-family: var(--font-inter);
 }
+
+.perSession {
+  font-size: 0.5em;
+  color: grey;
+  margin-left: 4px;
+}
+
 @media screen and (max-width: 744px) {
   .introTitle,
   .title1 {
