@@ -76,7 +76,7 @@ const Mentor: NextPage = () => {
         <div className={styles.introTitle}>Work With Kalina.</div>
       </div>
       <div className={styles.frame}>
-        <img className={styles.imageIcon} alt="" src="/image8@2x.png" loading="lazy" ref={imageRef} />
+        <img className={styles.imageIcon} alt="" src="/image8@2x.png" ref={imageRef} />
         <div className={styles.text} ref={textRef}>
           <div className={styles.mentorTextParent}>
             <div className={styles.mentorText}>

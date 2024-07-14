@@ -110,7 +110,6 @@ const InPersonAndOnline: NextPage = () => {
             className={styles.imageIcon}
             alt=""
             src="/stuttgart-354557_1280.jpg"
-            loading="lazy"
             ref={image1Ref}
             style={{ opacity: 0, transform: 'translateY(24px)' }} // Initial style to hide and position the element
           />
@@ -133,7 +132,6 @@ const InPersonAndOnline: NextPage = () => {
             className={styles.imageIcon1}
             alt=""
             src="/image5@2x.png"
-            loading="lazy"
             ref={image2Ref}
             style={{ opacity: 0, transform: 'translateY(24px)' }} // Initial style to hide and position the element
           />

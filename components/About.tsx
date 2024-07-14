@@ -44,7 +44,7 @@ const About: NextPage = () => {
             <p className={styles.fromIntermediate}>To Advanced.</p>
           </div>
         </div>
-        <img className={styles.imageIcon} alt="" src="/image@2x.png" loading="lazy" />
+        <img className={styles.imageIcon} alt="" src="/image@2x.png" />
         <video
           className={styles.video}
           controls

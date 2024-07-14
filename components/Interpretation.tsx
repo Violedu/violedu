@@ -90,7 +90,6 @@ const Interpretation: NextPage = () => {
           className={styles.imageIcon}
           alt=""
           src="/image3@2x.png"
-          loading="lazy"
           ref={imageRef}
           style={{ opacity: 0, transform: 'translateY(24px)' }} // Initial style to hide and position the element
         />
