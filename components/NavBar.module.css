@@ -1,61 +1,90 @@
-.logoIcon {
-  position: relative;
-  width: 162px;
-  height: 30.4px;
+.navBar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.95); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-33xl) var(--padding-5xl) var(--padding-5xl);
+  padding-top: 1.8rem; /* Additional top padding */
+  padding-bottom: 1.8rem; /* Additional bottom padding */
+  z-index: 1000; /* High enough to stay on top */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional for visibility */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(5px); /* For Safari */
 }
+
+.navBar1 {
+  width: 1170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navBar2 {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-17xl);
+}
+
+.logoIcon {
+  width: 162px;
+  height: auto;
+  cursor: pointer;
+}
+
 .about,
 .about:hover,
 .logoIcon,
 .logoIcon:hover {
   cursor: pointer;
 }
+
 .about {
   text-decoration: none;
-  position: relative;
   color: inherit;
 }
+
 .about:hover {
   color: var(--color-dimgray);
 }
+
 .menu {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
   gap: var(--gap-5xl);
 }
+
 .text {
-  position: relative;
   font-size: var(--font-size-sm);
   font-weight: 500;
   font-family: var(--font-inter);
   color: var(--color-white);
   text-align: left;
   display: inline-block;
-  width: 117px;
-  height: 17px;
-  flex-shrink: 0;
 }
+
 .button,
 .hamburgerMenuChild {
   background-color: var(--color-cornflowerblue);
 }
+
 .button {
   cursor: pointer;
   border: 0;
   padding: var(--padding-xl) var(--padding-14xl);
   border-radius: var(--br-11xl);
-  width: 174px;
-  height: 55px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
 }
+
 .button:hover {
   background-color: var(--color-steelblue);
 }
+
 .hamburgerMenuChild {
   position: absolute;
   top: 0;
@@ -64,6 +93,7 @@
   width: 45px;
   height: 45px;
 }
+
 .hamburgerMenu,
 .hamburgerMenuItem {
   position: absolute;
@@ -72,6 +102,7 @@
   width: 27.2px;
   height: 14.4px;
 }
+
 .hamburgerMenu {
   cursor: pointer;
   border: 0;
@@ -84,53 +115,27 @@
   overflow: hidden;
   display: none;
 }
+
 .hamburgerMenuWrapper {
   position: relative;
   width: 45px;
   height: 45px;
   display: none;
 }
+
 .buttons {
-  height: 55px;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--gap-xs);
 }
-.buttons,
-.navBar,
-.navBar1,
-.navBar2 {
-  display: flex;
-  flex-direction: row;
-}
-.navBar2 {
-  align-items: baseline;
-  justify-content: center;
-  gap: var(--gap-17xl);
-}
-.navBar,
-.navBar1 {
-  align-items: center;
-}
-.navBar1 {
-  width: 1170px;
-  justify-content: space-between;
-}
-.navBar {
-  align-self: stretch;
-  background-color: var(--color-whitesmoke);
-  justify-content: center;
-  padding: var(--padding-33xl) var(--padding-5xl) var(--padding-5xl);
-  text-align: left;
-  font-size: var(--font-size-base);
-  color: var(--color-gray-300);
-  font-family: var(--font-inter);
-}
+
 @media screen and (max-width: 744px) {
   .button {
     display: none;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .button,
   .menu {
