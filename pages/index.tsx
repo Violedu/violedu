@@ -1,5 +1,7 @@
+// index.tsx
+
 import type { NextPage } from "next";
-import { useCallback } from "react";
+import { useEffect } from "react";
 import Head from "next/head";
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
@@ -24,44 +26,44 @@ import { useDialog } from '../components/DialogContext';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
 
 const Main: NextPage = () => {
-  const onLogoClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='navBar']");
-    if (anchor) {
-      anchor.scrollIntoView({ block: "start" });
-    }
-  }, []);
-
-  const onAboutClick = useCallback(() => {
-    const anchor = document.querySelector(
-      "[data-scroll-to='introAboutContainer']"
-    );
-    if (anchor) {
-      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  }, []);
-
-  const onLearningPathClick = useCallback(() => {
-    const anchor = document.querySelector(
-      "[data-scroll-to='introLearningPath']"
-    );
-    if (anchor) {
-      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  }, []);
-
-  const onMentorClick = useCallback(() => {
-    const anchor = document.querySelector(
-      "[data-scroll-to='introMentorContainer']"
-    );
-    if (anchor) {
-      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  }, []);
-
   const { isOpen, setIsOpen } = useDialog();
 
   const handleClose = () => {
     setIsOpen(false);
+  };
+
+  useEffect(() => {
+    // Ensure the page scrolls to the top on initial load
+    window.scrollTo(0, 0);
+  }, []);
+
+  const onLogoClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+  const onAboutClick = () => {
+    const anchor = document.querySelector("[data-scroll-to='introAboutContainer']");
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const onLearningPathClick = () => {
+    const anchor = document.querySelector("[data-scroll-to='introLearningPath']");
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const onMentorClick = () => {
+    const anchor = document.querySelector("[data-scroll-to='introMentorContainer']");
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -70,8 +72,8 @@ const Main: NextPage = () => {
         <title>Violedu - Step Up Your Next Performance</title>
         <link rel="icon" href="/head_logo.png" />
       </Head>
+      <NavBar />
       <div className={styles.main}>
-        <NavBar />
         <HeroSection />
         <WhiteSection />
         <SmallWhiteSection />
