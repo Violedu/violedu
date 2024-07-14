@@ -7,54 +7,53 @@ import styles from "./NavBar.module.css";
 const NavBar: NextPage = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-  const scrollToSection = useCallback((selector: string) => {
-    const anchor = document.querySelector(selector);
-    const navBarHeight = document.querySelector("[data-scroll-to='navBar']")?.clientHeight || 0;
-
+  const onLogoImageClick = useCallback(() => {
+    const anchor = document.querySelector("[data-scroll-to='navBar']");
     if (anchor) {
-      const offsetPosition = anchor.getBoundingClientRect().top + window.scrollY - navBarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      anchor.scrollIntoView({ block: "start" });
     }
   }, []);
 
-  const onLogoImageClick = useCallback(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth"
-    });
+  const onAboutClick = useCallback(() => {
+    const anchor = document.querySelector(
+      "[data-scroll-to='introAboutContainer']"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
   }, []);
 
-  const onAboutClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introAboutContainer']");
-    setDrawerOpen(false); // Close drawer when About is clicked
-  }, [scrollToSection]);
-
   const onLearningPathClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introLearningPath']");
-    setDrawerOpen(false); // Close drawer when Learning Path is clicked
-  }, [scrollToSection]);
+    const anchor = document.querySelector(
+      "[data-scroll-to='introLearningPath']"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, []);
 
   const onMentorClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introMentorContainer']");
-    setDrawerOpen(false); // Close drawer when Mentor is clicked
-  }, [scrollToSection]);
+    const anchor = document.querySelector(
+      "[data-scroll-to='introMentorContainer']"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, []);
 
   const onButtonClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='offersContainer']");
-    setDrawerOpen(false); // Close drawer when Request a Lesson button is clicked
-  }, [scrollToSection]);
+    const anchor = document.querySelector("[data-scroll-to='offersContainer']");
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, []);
 
-  const toggleDrawer = useCallback(() => {
-    setDrawerOpen((prev) => !prev); // Toggle drawer state
+  const openDrawer = useCallback(() => {
+    setDrawerOpen(true);
   }, []);
 
   const closeDrawer = useCallback(() => {
-    setDrawerOpen(false); // Close drawer explicitly
+    setDrawerOpen(false);
   }, []);
 
   return (
@@ -84,7 +83,7 @@ const NavBar: NextPage = () => {
                 <div className={styles.text}>Request a lesson</div>
               </button>
               <div className={styles.hamburgerMenuWrapper}>
-                <button className={styles.hamburgerMenu} onClick={toggleDrawer}>
+                <button className={styles.hamburgerMenu} onClick={openDrawer}>
                   <div className={styles.hamburgerMenuChild} />
                   <img
                     className={styles.hamburgerMenuItem}

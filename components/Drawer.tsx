@@ -37,52 +37,58 @@ const Drawer: NextPage<DrawerType> = ({ onClose }) => {
     };
   }, []);
 
-  const scrollToSection = useCallback((selector: string) => {
-    const anchor = document.querySelector(selector);
-    const navBarHeight = document.querySelector("[data-scroll-to='navBar']")?.clientHeight || 0;
-
+  const onAboutClick = useCallback(() => {
+    const anchor = document.querySelector(
+      "[data-scroll-to='introAboutContainer']"
+    );
     if (anchor) {
-      const offsetPosition = anchor.getBoundingClientRect().top + window.scrollY - navBarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
+    onClose && onClose();
   }, []);
 
-  const onAboutClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introAboutContainer']");
-    if (onClose) onClose();
-  }, [scrollToSection, onClose]);
-
   const onLearningPathClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introLearningPath']");
-    if (onClose) onClose();
-  }, [scrollToSection, onClose]);
+    const anchor = document.querySelector(
+      "[data-scroll-to='introLearningPath']"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+    onClose && onClose();
+  }, []);
 
   const onMentorClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introMentorContainer']");
-    if (onClose) onClose();
-  }, [scrollToSection, onClose]);
+    const anchor = document.querySelector(
+      "[data-scroll-to='introMentorContainer']"
+    );
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+    onClose && onClose();
+  }, []);
 
   const onButtonClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='offersContainer']");
-    if (onClose) onClose();
-  }, [scrollToSection, onClose]);
+    const anchor = document.querySelector("[data-scroll-to='offersContainer']");
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+    onClose && onClose();
+  }, []);
 
   return (
     <div className={styles.drawer} data-animate-on-scroll>
       <div className={styles.navBar}>
         <div className={styles.navBar1}>
           <div className={styles.menu}>
-            <a className={styles.menuItem} onClick={onAboutClick}>
+            <a className={styles.about} onClick={onAboutClick}>
               About
             </a>
-            <a className={styles.menuItem} onClick={onLearningPathClick}>
+            <div className={styles.menuChild} />
+            <a className={styles.learningPath} onClick={onLearningPathClick}>
               Learning Path
             </a>
-            <a className={styles.menuItem} onClick={onMentorClick}>
+            <div className={styles.menuChild} />
+            <a className={styles.about} onClick={onMentorClick}>
               Mentor
             </a>
           </div>
