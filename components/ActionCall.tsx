@@ -1,14 +1,13 @@
-import type { NextPage } from "next";
 import { useCallback } from "react";
 import styles from "./ActionCall.module.css";
+import { useNavBar } from "../components/NavBarContext";
 
-const ActionCall: NextPage = () => {
+const ActionCall = () => {
+  const { onRequestLessonClick } = useNavBar();
+
   const onActionCallButtonClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='offersContainer']");
-    if (anchor) {
-      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  }, []);
+    onRequestLessonClick();
+  }, [onRequestLessonClick]);
 
   return (
     <div className={styles.actionCall}>
