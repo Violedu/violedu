@@ -25,6 +25,10 @@ import styles from "./index.module.css";
 import { useDialog } from '../components/DialogContext';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
 
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual';
+}
+
 const Main: NextPage = () => {
   const { isOpen, setIsOpen } = useDialog();
 
@@ -35,6 +39,7 @@ const Main: NextPage = () => {
   useEffect(() => {
     // Ensure the page scrolls to the top on initial load
     window.scrollTo(0, 0);
+    window.history.scrollRestoration = 'manual';
   }, []);
 
   const onLogoClick = () => {
