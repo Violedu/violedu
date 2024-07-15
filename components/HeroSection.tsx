@@ -1,16 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { animate } from "motion"
+import { animate } from "motion";
 import type { NextPage } from "next";
-import { useCallback } from "react";
 import styles from "./HeroSection.module.css";
+import { useNavBar } from "../components/NavBarContext";
 
 const HeroSection: NextPage = () => {
-  const onActionCallButtonClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='offersContainer']");
-    if (anchor) {
-      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  }, []);
+  const { onRequestLessonClick } = useNavBar();
 
   const actionCallRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -46,7 +41,7 @@ const HeroSection: NextPage = () => {
           </div>
           <button
             className={styles.actionCallButton}
-            onClick={onActionCallButtonClick}
+            onClick={onRequestLessonClick}
           >
             <div className={styles.requestALesson}>Request a Lesson</div>
           </button>

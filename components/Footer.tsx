@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useMemo, type CSSProperties, useCallback } from "react";
 import { useRouter } from "next/router";
 import styles from "./Footer.module.css";
+import { useNavBar } from "../components/NavBarContext";
 
 type FooterType = {
   youtubeHref: string;
@@ -17,21 +18,12 @@ type FooterType = {
   learningPathCursor?: CSSProperties["cursor"];
   mentorCursor?: CSSProperties["cursor"];
 
-  /** Action props */
-  onLogoClick?: () => void;
-  onAbout1Click?: () => void;
-  onLearningPath1Click?: () => void;
-  onMentor1Click?: () => void;
 };
 
 const Footer: NextPage<FooterType> = ({
-  onLogoClick,
   logoIconCursor,
-  onAbout1Click,
   aboutCursor,
-  onLearningPath1Click,
   learningPathCursor,
-  onMentor1Click,
   mentorCursor,
   youtubeHref,
   youtubeTarget,
@@ -40,6 +32,8 @@ const Footer: NextPage<FooterType> = ({
   facebookHref,
   facebookTarget,
 }) => {
+  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick } = useNavBar();
+
   const logoIconStyle: CSSProperties = useMemo(() => {
     return {
       cursor: logoIconCursor,
@@ -73,6 +67,15 @@ const Footer: NextPage<FooterType> = ({
   const onPrivacyClick = useCallback(() => {
     router.push("/Privacy");
   }, [router]);
+
+  const onLogoClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <div className={styles.footer}>
       <div className={styles.logo}>
@@ -89,21 +92,21 @@ const Footer: NextPage<FooterType> = ({
           <div className={styles.menu}>
             <a
               className={styles.about}
-              onClick={onAbout1Click}
+              onClick={onAboutClick}
               style={aboutStyle}
             >
               About
             </a>
             <a
               className={styles.about}
-              onClick={onLearningPath1Click}
+              onClick={onLearningPathClick}
               style={learningPathStyle}
             >
               Learning Path
             </a>
             <a
               className={styles.about}
-              onClick={onMentor1Click}
+              onClick={onMentorClick}
               style={mentorStyle}
             >
               Mentor

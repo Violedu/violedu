@@ -3,23 +3,11 @@ import { useState, useCallback } from "react";
 import Drawer from "./Drawer";
 import PortalDrawer from "./PortalDrawer";
 import styles from "./NavBar.module.css";
+import { useNavBar } from "../components/NavBarContext";
 
 const NavBar: NextPage = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-
-  const scrollToSection = useCallback((selector: string) => {
-    const anchor = document.querySelector(selector);
-    const navBarHeight = document.querySelector("[data-scroll-to='navBar']")?.clientHeight || 0;
-
-    if (anchor) {
-      const offsetPosition = anchor.getBoundingClientRect().top + window.scrollY - navBarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  }, []);
+  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick } = useNavBar();
 
   const onLogoImageClick = useCallback(() => {
     window.scrollTo({
@@ -28,26 +16,6 @@ const NavBar: NextPage = () => {
       behavior: "smooth"
     });
   }, []);
-
-  const onAboutClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introAboutContainer']");
-    setDrawerOpen(false); // Close drawer when About is clicked
-  }, [scrollToSection]);
-
-  const onLearningPathClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introLearningPath']");
-    setDrawerOpen(false); // Close drawer when Learning Path is clicked
-  }, [scrollToSection]);
-
-  const onMentorClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='introMentorContainer']");
-    setDrawerOpen(false); // Close drawer when Mentor is clicked
-  }, [scrollToSection]);
-
-  const onButtonClick = useCallback(() => {
-    scrollToSection("[data-scroll-to='offersContainer']");
-    setDrawerOpen(false); // Close drawer when Request a Lesson button is clicked
-  }, [scrollToSection]);
 
   const toggleDrawer = useCallback(() => {
     setDrawerOpen((prev) => !prev); // Toggle drawer state
@@ -80,7 +48,7 @@ const NavBar: NextPage = () => {
               </a>
             </div>
             <div className={styles.buttons}>
-              <button className={styles.button} onClick={onButtonClick}>
+              <button className={styles.button} onClick={onRequestLessonClick}>
                 <div className={styles.text}>Request a lesson</div>
               </button>
               <div className={styles.hamburgerMenuWrapper}>
