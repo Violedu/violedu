@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import PrivacyNavbar from "../components/PrivacyNavbar";
 import PrivacyContent from "../components/PrivacyContent";
-import PrivacyFooter from "../components/PrivacyFooter";
-import styles from "./Privacy.module.css";
+import GeneralNavBar from "../components/GeneralNavBar";
+import GeneralFooter from "../components/GeneralFooter";
+import styles from "./privacy.module.css";
 
 const Privacy: NextPage = () => {
   return (
@@ -13,9 +13,9 @@ const Privacy: NextPage = () => {
         <link rel="icon" href="/head_logo.png" />
       </Head>
       <div className={styles.privacy}>
-        <PrivacyNavbar />
+        <GeneralNavBar />
         <PrivacyContent />
-        <PrivacyFooter />
+        <GeneralFooter />
       </div>
     </>
   );

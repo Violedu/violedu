@@ -23,15 +23,15 @@ const Offers: NextPage = () => {
   const [hasAnimatedFreeAssessmentSession, setHasAnimatedFreeAssessmentSession] = useState(false);
 
   const onButtonClick = useCallback(() => {
-    router.push("/Request1");
+    router.push("/request");
   }, [router]);
 
   const onButton1Click = useCallback(() => {
-    router.push("/Request1");
+    router.push("/request");
   }, [router]);
 
   const onButton2Click = useCallback(() => {
-    router.push("/Request1");
+    router.push("/request");
   }, [router]);
 
   useEffect(() => {

@@ -61,11 +61,11 @@ const Footer: NextPage<FooterType> = ({
   const router = useRouter();
 
   const onTermsClick = useCallback(() => {
-    router.push("/Terms");
+    router.push("/terms");
   }, [router]);
 
   const onPrivacyClick = useCallback(() => {
-    router.push("/Privacy");
+    router.push("/privacy");
   }, [router]);
 
   const onLogoClick = () => {

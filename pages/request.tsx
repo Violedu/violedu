@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import RequestNavBar from "../components/RequestNavBar";
+import GeneralNavBar from "../components/GeneralNavBar";
 import RequestLesson from "../components/RequestLesson";
-import RequestFooter from "../components/RequestFooter";
-import styles from "./Request1.module.css";
+import GeneralFooter from "../components/GeneralFooter";
+import styles from "./request.module.css";
 
-const Request1: NextPage = () => {
+const Request: NextPage = () => {
   return (
     <>
       <Head>
@@ -13,12 +13,12 @@ const Request1: NextPage = () => {
         <link rel="icon" href="/head_logo.png" />
       </Head>
       <div className={styles.request}>
-        <RequestNavBar />
+        <GeneralNavBar />
         <RequestLesson />
-        <RequestFooter />
+        <GeneralFooter />
       </div>
     </>
   );
 };
 
-export default Request1;
+export default Request;

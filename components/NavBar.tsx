@@ -7,7 +7,7 @@ import { useNavBar } from "../components/NavBarContext";
 
 const NavBar: NextPage = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick } = useNavBar();
+  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick, onFreeResourcesClick } = useNavBar();
 
   const onLogoImageClick = useCallback(() => {
     window.scrollTo({
@@ -45,6 +45,9 @@ const NavBar: NextPage = () => {
               </a>
               <a className={styles.about} onClick={onMentorClick}>
                 Mentor
+              </a>
+              <a className={styles.about} onClick={onFreeResourcesClick}>
+                Free Resources
               </a>
             </div>
             <div className={styles.buttons}>

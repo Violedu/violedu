@@ -8,7 +8,7 @@ type DrawerType = {
 };
 
 const Drawer: NextPage<DrawerType> = ({ onClose }) => {
-  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick } = useNavBar();
+  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick, onFreeResourcesClick } = useNavBar();
 
   useEffect(() => {
     const scrollAnimElements = document.querySelectorAll(
@@ -60,6 +60,9 @@ const Drawer: NextPage<DrawerType> = ({ onClose }) => {
             </a>
             <a className={styles.menuItem} onClick={handleClick(onMentorClick)}>
               Mentor
+            </a>
+            <a className={styles.menuItem} onClick={handleClick(onFreeResourcesClick)}>
+              Free Resources
             </a>
           </div>
           <button className={styles.button} onClick={handleClick(onRequestLessonClick)}>

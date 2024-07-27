@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { useRouter } from 'next/router'; // Import useRouter from next/router
 
 interface NavBarContextProps {
   navBarHeight: number;
@@ -6,6 +7,7 @@ interface NavBarContextProps {
   onLearningPathClick: () => void;
   onMentorClick: () => void;
   onRequestLessonClick: () => void;
+  onFreeResourcesClick: () => void; // Add the new function to the context interface
 }
 
 const NavBarContext = createContext<NavBarContextProps | undefined>(undefined);
@@ -20,6 +22,7 @@ export const useNavBar = () => {
 
 export const NavBarProvider = ({ children }: { children: ReactNode }) => {
   const [navBarHeight, setNavBarHeight] = useState(0);
+  const router = useRouter(); // Initialize the router
 
   useEffect(() => {
     const navBar = document.querySelector("[data-scroll-to='navBar']");
@@ -43,9 +46,13 @@ export const NavBarProvider = ({ children }: { children: ReactNode }) => {
   const onLearningPathClick = () => scrollToSection("[data-scroll-to='introLearningPath']");
   const onMentorClick = () => scrollToSection("[data-scroll-to='introMentorContainer']");
   const onRequestLessonClick = () => scrollToSection("[data-scroll-to='offersContainer']");
+  
+  const onFreeResourcesClick = () => { // Define the new function
+    router.push('/free-resources');
+  };
 
   return (
-    <NavBarContext.Provider value={{ navBarHeight, onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick }}>
+    <NavBarContext.Provider value={{ navBarHeight, onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick, onFreeResourcesClick }}>
       {children}
     </NavBarContext.Provider>
   );
