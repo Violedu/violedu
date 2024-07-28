@@ -3,24 +3,33 @@
     background-color: var(--color-whitesmoke);
     width: 100%;
     overflow: hidden;
+  }
+
+  .content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 0 0 var(--padding-53xl);
     gap: var(--gap-41xl);
+    padding-left: var(--padding-5xl);
+    padding-right: var(--padding-5xl);
   }
   
   .cardsContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 45px;
     justify-content: center;
+    width: 100%; /* Ensure the container width does not exceed 100% */
   }
   
   @media (min-width: 600px) {
     .cardsContainer {
-      gap: 30px;
+      gap: 45px;
     }
   }
   

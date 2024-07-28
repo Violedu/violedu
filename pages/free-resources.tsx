@@ -43,25 +43,25 @@ const FreeResources: NextPage = () => {
         <title>Violedu - Free Resources</title> {/* Updated the title */}
         <link rel="icon" href="/head_logo.png" />
       </Head>
-      <GeneralNavBar />
       <div className={styles.freeResources}>
+        <GeneralNavBar />
         <div className={styles.content}>
-          <h1>A Violinist's Must Have Free Resources.</h1>
+            <h1>A Violinist's Must Have Free Resources.</h1>
+            <div className={styles.cardsContainer}>
+            {cards.map((card, index) => (
+                <Card
+                key={index}
+                imageSrc={card.imageSrc}
+                title={card.title}
+                text={card.text}
+                buttonText={card.buttonText}
+                buttonLink={card.buttonLink}
+                />
+            ))}
+            </div>
         </div>
-        <div className={styles.cardsContainer}>
-          {cards.map((card, index) => (
-            <Card
-              key={index}
-              imageSrc={card.imageSrc}
-              title={card.title}
-              text={card.text}
-              buttonText={card.buttonText}
-              buttonLink={card.buttonLink}
-            />
-          ))}
-        </div>
+        <GeneralFooter />
       </div>
-      <GeneralFooter />
     </>
   );
 };
