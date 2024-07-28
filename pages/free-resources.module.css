@@ -1,12 +1,14 @@
 .freeResources {
     position: relative;
-    background-color: var(--color-white);
+    background-color: var(--color-whitesmoke);
     width: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    padding: 0 0 var(--padding-53xl);
+    gap: var(--gap-41xl);
   }
   
   .cardsContainer {
