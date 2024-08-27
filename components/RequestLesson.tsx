@@ -99,8 +99,11 @@ const RequestLesson: NextPage = () => {
         });
 
         if (response.ok) {
-          setIsOpen(true);
+          //setIsOpen(true);
           router.push("/");
+          
+          // Open Calendly link in a new tab
+          window.open("https://calendly.com/contact-violedu/30min", "_blank");
         } else {
           console.error(
             "API request failed:",
