@@ -77,6 +77,9 @@ const RequestLesson: NextPage = () => {
   };
 
   const onButtonClick = async () => {
+    // Open the Calendly link immediately in a new tab
+    const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
+
     if (validateForm()) {
       try {
         const apiUrl =
@@ -103,7 +106,7 @@ const RequestLesson: NextPage = () => {
           router.push("/");
           
           // Open Calendly link in a new tab
-          window.open("https://calendly.com/contact-violedu/30min", "_blank");
+          if (calendlyWindow) calendlyWindow.focus();
         } else {
           console.error(
             "API request failed:",
