@@ -300,7 +300,7 @@ const RequestLesson: NextPage = () => {
               </div>
             </div>
             <button className={styles.button} onClick={onButtonClick}>
-              <div className={styles.submitRequest}>Submit Request</div>
+              <div className={styles.submitRequest}>Submit Request Now</div>
             </button>
           </div>
         </div>
