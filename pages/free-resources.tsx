@@ -46,7 +46,18 @@ const FreeResources: NextPage = () => {
       <div className={styles.freeResources}>
         <GeneralNavBar />
         <div className={styles.content}>
-            <h1>A Violinist's Must Have Free Resources.</h1>
+            <div className={styles.title}>
+              <div className={styles.titleLine}>
+                <span>A Violinist's </span>
+                <span className={styles.blueWording}>Must</span>
+                <span> Have</span>
+              </div>
+              <div className={styles.titleLine}>
+                <span className={styles.blueWording}>Free </span>
+                <span>Resources</span>
+                <span>.</span>
+              </div>       
+            </div>       
             <div className={styles.cardsContainer}>
             {cards.map((card, index) => (
                 <Card
