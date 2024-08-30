@@ -15,8 +15,6 @@
   justify-content: flex-start;
   padding: 0 0 var(--padding-53xl);
   gap: var(--gap-41xl);
-  padding-left: var(--padding-5xl);
-  padding-right: var(--padding-5xl);
   font-family: var(--font-inter);
   color: var(--color-gray-200);
   line-height: normal;
@@ -26,6 +24,8 @@
   text-align: center;
   font-size: var(--font-size-33xl);
   font-weight: 800;
+  padding-left: var(--padding-5xl);
+  padding-right: var(--padding-5xl);
 }
 
 .blueWording {
