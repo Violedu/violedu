@@ -10,7 +10,9 @@ import styles from "./worksheet.module.css";
 
 const Worksheet: NextPage = () => {
   const headlineRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
   const [hasAnimatedHeadline, setHasAnimatedHeadline] = useState(false);
+  const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
 
   const router = useRouter();
 
@@ -62,6 +64,10 @@ const Worksheet: NextPage = () => {
             animate(headlineRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
             setHasAnimatedHeadline(true);
           }
+          if (formRef.current && !hasAnimatedForm) {
+            animate(formRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
+            setHasAnimatedForm(true);
+          }
         }
       });
     };
@@ -71,13 +77,19 @@ const Worksheet: NextPage = () => {
     if (headlineRef.current) {
       observer.observe(headlineRef.current);
     }
+    if (formRef.current) {
+      observer.observe(formRef.current);
+    }
 
     return () => {
       if (headlineRef.current) {
         observer.unobserve(headlineRef.current);
       }
+      if (formRef.current) {
+        observer.unobserve(formRef.current);
+      }
     };
-  }, [hasAnimatedHeadline]);
+  }, [hasAnimatedHeadline, hasAnimatedForm]);
 
   return (
     <>
@@ -94,14 +106,14 @@ const Worksheet: NextPage = () => {
               <span className={styles.blueWording}>Worksheet</span>
             </div>
             <div className={styles.titleLine}>
-              <span>To Sound Like A </span>
-              <span className={styles.blueWording}>Pro </span>
-              <span>Violinist</span>
+              <span>To </span>
+              <span className={styles.blueWording}>Sound </span>
+              <span>Like A Pro Violinist</span>
               <span>.</span>
             </div>
           </div>
 
-          <div className={styles.form}>
+          <div className={styles.form} ref={formRef} style={{ opacity: 0, transform: 'translateY(24px)' }}> {/* Add ref and initial styles */}
             <img className={styles.imageIcon} alt="" src="/image@2x.png" />
             <div className={styles.frame}>
               <div className={styles.box}>
