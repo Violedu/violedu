@@ -77,6 +77,9 @@ const RequestLesson: NextPage = () => {
   };
 
   const onButtonClick = async () => {
+    // Open the Calendly link immediately in a new tab
+    const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
+
     if (validateForm()) {
       try {
         const apiUrl =
@@ -99,8 +102,11 @@ const RequestLesson: NextPage = () => {
         });
 
         if (response.ok) {
-          setIsOpen(true);
+          //setIsOpen(true);
           router.push("/");
+          
+          // Open Calendly link in a new tab
+          if (calendlyWindow) calendlyWindow.focus();
         } else {
           console.error(
             "API request failed:",
@@ -300,7 +306,7 @@ const RequestLesson: NextPage = () => {
               </div>
             </div>
             <button className={styles.button} onClick={onButtonClick}>
-              <div className={styles.submitRequest}>Submit Request</div>
+              <div className={styles.submitRequest}>Schedule Free Assessment</div>
             </button>
           </div>
         </div>
