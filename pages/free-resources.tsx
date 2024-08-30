@@ -14,7 +14,7 @@ const FreeResources: NextPage = () => {
       title: "Card Title 1",
       text: "This is a description for card 1.",
       buttonText: "Download The Handbook",
-      buttonLink: "/learn-more-1"
+      buttonLink: "/resources/worksheet"
     },
     {
       imageSrc: "/stuttgart-354557_1280.jpg",
