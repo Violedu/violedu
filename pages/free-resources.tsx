@@ -13,7 +13,7 @@ const FreeResources: NextPage = () => {
       imageSrc: "/stuttgart-354557_1280.jpg",
       title: "Card Title 1",
       text: "This is a description for card 1.",
-      buttonText: "Download The Handbook",
+      buttonText: "Download The Worksheet",
       buttonLink: "/resources/worksheet"
     },
     {

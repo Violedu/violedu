@@ -2,16 +2,57 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { animate } from "motion";
+import { TextField } from "@mui/material";
+import { useRouter } from "next/router";
 import GeneralNavBar from "../../components/GeneralNavBar";
 import GeneralFooter from "../../components/GeneralFooter";
 import styles from "./worksheet.module.css";
 
 const Worksheet: NextPage = () => {
-
-  // References for the headline and cards
   const headlineRef = useRef<HTMLDivElement>(null);
-
   const [hasAnimatedHeadline, setHasAnimatedHeadline] = useState(false);
+
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+  });
+
+  const [errors, setErrors] = useState({
+    fullName: false,
+    email: false,
+  });
+
+  const onInputChange = (field: string, value: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [field]: false,
+    }));
+  };
+
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const newErrors = {
+      fullName: formData.fullName === "",
+      email: !formData.email || !emailRegex.test(formData.email),
+    };
+
+    setErrors(newErrors);
+
+    return Object.values(newErrors).every((error) => !error);
+  };
+
+  const onButtonClick = () => {
+    if (validateForm()) {
+      router.push("/");
+    }
+  };
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -57,6 +98,46 @@ const Worksheet: NextPage = () => {
               <span className={styles.blueWording}>Pro </span>
               <span>Violinist</span>
               <span>.</span>
+            </div>
+          </div>
+
+          <div className={styles.form}>
+            <img className={styles.imageIcon} alt="" src="/image@2x.png" />
+            <div className={styles.frame}>
+              <div className={styles.box}>
+                <div className={styles.forms}>
+                  <div className={styles.personalInfo}>
+                    <div className={styles.personalInformation}>
+                      Personal Information
+                    </div>
+                    <TextField
+                      className={`${styles.name} ${errors.fullName ? styles.error : ""}`}
+                      color="primary"
+                      label="Full Name"
+                      required={true}
+                      variant="outlined"
+                      value={formData.fullName}
+                      onChange={(e) => onInputChange("fullName", e.target.value)}
+                      error={errors.fullName}
+                      helperText={errors.fullName ? "Please enter your full name" : ""}
+                    />
+                    <TextField
+                      className={`${styles.name} ${errors.email ? styles.error : ""}`}
+                      color="primary"
+                      label="Email"
+                      required={true}
+                      variant="outlined"
+                      value={formData.email}
+                      onChange={(e) => onInputChange("email", e.target.value)}
+                      error={errors.email}
+                      helperText={errors.email ? "Please enter a valid email address" : ""}
+                    />
+                  </div>
+                  <button className={styles.button} onClick={onButtonClick}>
+                    <div className={styles.submitRequest}>Download The Worksheet</div>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
