@@ -11,10 +11,12 @@ import styles from "./worksheet.module.css";
 const Worksheet: NextPage = () => {
   const headlineRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null); // Ref for the image
+  const imageRef = useRef<HTMLImageElement>(null); // Ref for the first image
+  const secondImageRef = useRef<HTMLImageElement>(null); // Ref for the second image
   const [hasAnimatedHeadline, setHasAnimatedHeadline] = useState(false);
   const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
-  const [hasAnimatedImage, setHasAnimatedImage] = useState(false); // State for image animation
+  const [hasAnimatedImage, setHasAnimatedImage] = useState(false); // State for first image animation
+  const [hasAnimatedSecondImage, setHasAnimatedSecondImage] = useState(false); // State for second image animation
 
   const router = useRouter();
 
@@ -74,6 +76,10 @@ const Worksheet: NextPage = () => {
             animate(imageRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
             setHasAnimatedImage(true);
           }
+          if (secondImageRef.current && !hasAnimatedSecondImage) {
+            animate(secondImageRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
+            setHasAnimatedSecondImage(true);
+          }
         }
       });
     };
@@ -89,6 +95,9 @@ const Worksheet: NextPage = () => {
     if (imageRef.current) {
       observer.observe(imageRef.current);
     }
+    if (secondImageRef.current) {
+      observer.observe(secondImageRef.current);
+    }
 
     return () => {
       if (headlineRef.current) {
@@ -100,8 +109,11 @@ const Worksheet: NextPage = () => {
       if (imageRef.current) {
         observer.unobserve(imageRef.current);
       }
+      if (secondImageRef.current) {
+        observer.unobserve(secondImageRef.current);
+      }
     };
-  }, [hasAnimatedHeadline, hasAnimatedForm, hasAnimatedImage]);
+  }, [hasAnimatedHeadline, hasAnimatedForm, hasAnimatedImage, hasAnimatedSecondImage]);
 
   return (
     <>
@@ -133,7 +145,7 @@ const Worksheet: NextPage = () => {
                 <div className={styles.forms}>
                   <div className={styles.personalInfo}>
                     <div className={styles.personalInformation}>
-                      Personal Information
+                      With the help of this worksheet, you'll explore three key aspects that set professional violinists apart.
                     </div>
                     <TextField
                       className={`${styles.name} ${errors.fullName ? styles.error : ""}`}
@@ -168,10 +180,17 @@ const Worksheet: NextPage = () => {
               className={styles.worksheetImg}
               alt=""
               src="/worksheet_cover.png"
-              ref={imageRef} // Add ref to the image
-              style={{ opacity: 0, transform: 'translateY(24px)' }} // Initial styles
+              ref={imageRef}
+              style={{ opacity: 0, transform: 'translateY(24px)' }}
             />
           </div>
+          <img
+            className={styles.secondImage}
+            alt="Open Worksheet"
+            src="/open_worksheet.png"
+            ref={secondImageRef}
+            style={{ opacity: 0, transform: 'translateY(24px)' }}
+          />
         </div>
         <GeneralFooter />
       </div>
