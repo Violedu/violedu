@@ -101,20 +101,21 @@ const Worksheet: NextPage = () => {
         <GeneralNavBar />
         <div className={styles.content}>
           <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
-            <div className={styles.titleLine}>
-              <span>The Ultimate </span>
-              <span className={styles.blueWording}>Worksheet</span>
-            </div>
-            <div className={styles.titleLine}>
-              <span>To </span>
-              <span className={styles.blueWording}>Sound </span>
-              <span>Like A Pro Violinist</span>
-              <span>.</span>
+            <div>
+              <div className={styles.titleLine}>
+                <span>The Ultimate </span>
+                <span className={styles.blueWording}>Worksheet</span>
+              </div>
+              <div className={styles.titleLine}>
+                <span>To </span>
+                <span className={styles.blueWording}>Sound </span>
+                <span>Like A Pro Violinist</span>
+                <span>.</span>
+              </div>
             </div>
           </div>
 
           <div className={styles.form} ref={formRef} style={{ opacity: 0, transform: 'translateY(24px)' }}> {/* Add ref and initial styles */}
-            <img className={styles.imageIcon} alt="" src="/image@2x.png" />
             <div className={styles.frame}>
               <div className={styles.box}>
                 <div className={styles.forms}>
@@ -151,6 +152,7 @@ const Worksheet: NextPage = () => {
                 </div>
               </div>
             </div>
+            <img className={styles.worksheetImg} alt="" src="/worksheet_cover.png" />
           </div>
         </div>
         <GeneralFooter />
