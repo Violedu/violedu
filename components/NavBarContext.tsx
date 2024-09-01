@@ -3,9 +3,8 @@ import { useRouter } from 'next/router'; // Import useRouter from next/router
 
 interface NavBarContextProps {
   navBarHeight: number;
+  onLogoImageClick: () => void;
   onAboutClick: () => void;
-  onLearningPathClick: () => void;
-  onMentorClick: () => void;
   onRequestLessonClick: () => void;
   onFreeResourcesClick: () => void; // Add the new function to the context interface
 }
@@ -22,7 +21,7 @@ export const useNavBar = () => {
 
 export const NavBarProvider = ({ children }: { children: ReactNode }) => {
   const [navBarHeight, setNavBarHeight] = useState(0);
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
 
   useEffect(() => {
     const navBar = document.querySelector("[data-scroll-to='navBar']");
@@ -31,28 +30,24 @@ export const NavBarProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  const scrollToSection = (selector: string) => {
-    const anchor = document.querySelector(selector);
-    if (anchor) {
-      const offsetPosition = anchor.getBoundingClientRect().top + window.scrollY - navBarHeight;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+  const onLogoImageClick = () => {
+    router.push('/');
   };
 
-  const onAboutClick = () => scrollToSection("[data-scroll-to='introAboutContainer']");
-  const onLearningPathClick = () => scrollToSection("[data-scroll-to='introLearningPath']");
-  const onMentorClick = () => scrollToSection("[data-scroll-to='introMentorContainer']");
-  const onRequestLessonClick = () => scrollToSection("[data-scroll-to='offersContainer']");
-  
-  const onFreeResourcesClick = () => { // Define the new function
+  const onFreeResourcesClick = () => {
     router.push('/free-resources');
   };
 
+  const onAboutClick = () => {
+    router.push('/free-resources');
+  };
+
+  const onRequestLessonClick = () => {
+    router.push('/request');
+  };
+
   return (
-    <NavBarContext.Provider value={{ navBarHeight, onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick, onFreeResourcesClick }}>
+    <NavBarContext.Provider value={{ navBarHeight, onLogoImageClick, onAboutClick, onRequestLessonClick, onFreeResourcesClick }}>
       {children}
     </NavBarContext.Provider>
   );

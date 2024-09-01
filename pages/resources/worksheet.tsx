@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { animate } from "motion";
 import { TextField } from "@mui/material";
 import { useRouter } from "next/router";
-import GeneralNavBar from "../../components/GeneralNavBar";
 import GeneralFooter from "../../components/GeneralFooter";
+import NavBar from "../../components/NavBar";
+import { NavBarProvider } from "../../components/NavBarContext";
 import styles from "./worksheet.module.css";
 
 const Worksheet: NextPage = () => {
@@ -116,85 +117,87 @@ const Worksheet: NextPage = () => {
   }, [hasAnimatedHeadline, hasAnimatedForm, hasAnimatedImage, hasAnimatedSecondImage]);
 
   return (
-    <>
-      <Head>
-        <title>Violedu - Worksheet</title>
-        <link rel="icon" href="/head_logo.png" />
-      </Head>
-      <div className={styles.worksheet}>
-        <GeneralNavBar />
-        <div className={styles.content}>
-          <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
-            <div>
-              <div className={styles.titleLine}>
-                <span>The Ultimate </span>
-                <span className={styles.blueWording}>Worksheet</span>
-              </div>
-              <div className={styles.titleLine}>
-                <span>To </span>
-                <span className={styles.blueWording}>Sound </span>
-                <span>Like A Pro Violinist</span>
-                <span>.</span>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.form} ref={formRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
-            <div className={styles.frame}>
-              <div className={styles.box}>
-                <div className={styles.forms}>
-                  <div className={styles.personalInfo}>
-                    <div className={styles.personalInformation}>
-                      With the help of this worksheet, you'll explore three key aspects that set professional violinists apart.
-                    </div>
-                    <TextField
-                      className={`${styles.name} ${errors.fullName ? styles.error : ""}`}
-                      color="primary"
-                      label="Full Name"
-                      required={true}
-                      variant="outlined"
-                      value={formData.fullName}
-                      onChange={(e) => onInputChange("fullName", e.target.value)}
-                      error={errors.fullName}
-                      helperText={errors.fullName ? "Please enter your full name" : ""}
-                    />
-                    <TextField
-                      className={`${styles.name} ${errors.email ? styles.error : ""}`}
-                      color="primary"
-                      label="Email"
-                      required={true}
-                      variant="outlined"
-                      value={formData.email}
-                      onChange={(e) => onInputChange("email", e.target.value)}
-                      error={errors.email}
-                      helperText={errors.email ? "Please enter a valid email address" : ""}
-                    />
-                  </div>
-                  <button className={styles.button} onClick={onButtonClick}>
-                    <div className={styles.submitRequest}>Download The Worksheet</div>
-                  </button>
+    <NavBarProvider>
+      <>
+        <Head>
+          <title>Violedu - Worksheet</title>
+          <link rel="icon" href="/head_logo.png" />
+        </Head>
+        <NavBar />
+        <div className={styles.worksheet}>
+          <div className={styles.content}>
+            <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+              <div>
+                <div className={styles.titleLine}>
+                  <span>The Ultimate </span>
+                  <span className={styles.blueWording}>Worksheet</span>
+                </div>
+                <div className={styles.titleLine}>
+                  <span>To </span>
+                  <span className={styles.blueWording}>Sound </span>
+                  <span>Like A Pro Violinist</span>
+                  <span>.</span>
                 </div>
               </div>
             </div>
+
+            <div className={styles.form} ref={formRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+              <div className={styles.frame}>
+                <div className={styles.box}>
+                  <div className={styles.forms}>
+                    <div className={styles.personalInfo}>
+                      <div className={styles.personalInformation}>
+                        With the help of this worksheet, you'll explore three key aspects that set professional violinists apart.
+                      </div>
+                      <TextField
+                        className={`${styles.name} ${errors.fullName ? styles.error : ""}`}
+                        color="primary"
+                        label="Full Name"
+                        required={true}
+                        variant="outlined"
+                        value={formData.fullName}
+                        onChange={(e) => onInputChange("fullName", e.target.value)}
+                        error={errors.fullName}
+                        helperText={errors.fullName ? "Please enter your full name" : ""}
+                      />
+                      <TextField
+                        className={`${styles.name} ${errors.email ? styles.error : ""}`}
+                        color="primary"
+                        label="Email"
+                        required={true}
+                        variant="outlined"
+                        value={formData.email}
+                        onChange={(e) => onInputChange("email", e.target.value)}
+                        error={errors.email}
+                        helperText={errors.email ? "Please enter a valid email address" : ""}
+                      />
+                    </div>
+                    <button className={styles.button} onClick={onButtonClick}>
+                      <div className={styles.submitRequest}>Download The Worksheet</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <img
+                className={styles.worksheetImg}
+                alt=""
+                src="/worksheet_cover.png"
+                ref={imageRef}
+                style={{ opacity: 0, transform: 'translateY(24px)' }}
+              />
+            </div>
             <img
-              className={styles.worksheetImg}
-              alt=""
-              src="/worksheet_cover.png"
-              ref={imageRef}
+              className={styles.secondImage}
+              alt="Open Worksheet"
+              src="/open_worksheet.png"
+              ref={secondImageRef}
               style={{ opacity: 0, transform: 'translateY(24px)' }}
             />
           </div>
-          <img
-            className={styles.secondImage}
-            alt="Open Worksheet"
-            src="/open_worksheet.png"
-            ref={secondImageRef}
-            style={{ opacity: 0, transform: 'translateY(24px)' }}
-          />
+          <GeneralFooter />
         </div>
-        <GeneralFooter />
-      </div>
-    </>
+      </>
+    </NavBarProvider>
   );
 };
 

@@ -2,7 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { animate } from "motion";
-import GeneralNavBar from "../components/GeneralNavBar";
+import NavBar from "../components/NavBar";
+import { NavBarProvider } from "../components/NavBarContext";
 import GeneralFooter from "../components/GeneralFooter";
 import Card from "../components/Card";
 import styles from "./free-resources.module.css";
@@ -93,47 +94,49 @@ const FreeResources: NextPage = () => {
   }, [hasAnimatedHeadline, hasAnimatedCards]);
 
   return (
-    <>
-      <Head>
-        <title>Violedu - Free Resources</title>
-        <link rel="icon" href="/head_logo.png" />
-      </Head>
-      <div className={styles.freeResources}>
-        <GeneralNavBar />
-        <div className={styles.content}>
-          <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
-            <div className={styles.titleLine}>
-              <span>A Violinist's </span>
-              <span className={styles.blueWording}>Must</span>
-              <span> Have</span>
-            </div>
-            <div className={styles.titleLine}>
-              <span className={styles.blueWording}>Free </span>
-              <span>Resources</span>
-              <span>.</span>
-            </div>
-          </div>
-          <div className={styles.cardsContainer}>
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                ref={(el) => cardRefs.current[index] = el}
-                style={{ opacity: 0, transform: 'translateY(24px)' }}
-              >
-                <Card
-                  imageSrc={card.imageSrc}
-                  title={card.title}
-                  text={card.text}
-                  buttonText={card.buttonText}
-                  buttonLink={card.buttonLink}
-                />
+    <NavBarProvider>
+      <>
+        <Head>
+          <title>Violedu - Free Resources</title>
+          <link rel="icon" href="/head_logo.png" />
+        </Head>
+        <NavBar />
+        <div className={styles.freeResources}>
+          <div className={styles.content}>
+            <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+              <div className={styles.titleLine}>
+                <span>A Violinist's </span>
+                <span className={styles.blueWording}>Must</span>
+                <span> Have</span>
               </div>
-            ))}
+              <div className={styles.titleLine}>
+                <span className={styles.blueWording}>Free </span>
+                <span>Resources</span>
+                <span>.</span>
+              </div>
+            </div>
+            <div className={styles.cardsContainer}>
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  ref={(el) => cardRefs.current[index] = el}
+                  style={{ opacity: 0, transform: 'translateY(24px)' }}
+                >
+                  <Card
+                    imageSrc={card.imageSrc}
+                    title={card.title}
+                    text={card.text}
+                    buttonText={card.buttonText}
+                    buttonLink={card.buttonLink}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
+          <GeneralFooter />
         </div>
-        <GeneralFooter />
-      </div>
-    </>
+      </>
+    </NavBarProvider>
   );
 };
 
