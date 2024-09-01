@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* Align items to the top */
 }
 
 .frame {
@@ -57,6 +57,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 
 .worksheetImg {
   width: 50%; /* Ensure the image takes 50% of the form's width */
