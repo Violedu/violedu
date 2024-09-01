@@ -39,7 +39,7 @@ export const NavBarProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const onAboutClick = () => {
-    router.push('/free-resources');
+    router.push('/about');
   };
 
   const onRequestLessonClick = () => {

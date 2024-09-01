@@ -3,6 +3,7 @@
   background-color: var(--color-whitesmoke);
   width: 100%;
   overflow: hidden;
+  padding: var(--padding-101xl) 0 0;
 }
 
 .content {
@@ -204,6 +205,17 @@
   .personalInformation,
   .submitRequest {
     font-size: var(--font-size-lg);
+  }
+
+  .worksheet {
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-81xl);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .worksheet {
+    padding-top: var(--padding-61xl);
   }
 }
 

@@ -3,6 +3,7 @@
     background-color: var(--color-whitesmoke);
     width: 100%;
     overflow: hidden;
+    padding: var(--padding-101xl) 0 0;
   }
 
 .content {
@@ -52,6 +53,12 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .freeResources {
+    padding-top: var(--padding-61xl);
+  }
+}
+
 @media screen and (max-width: 744px) {
   .title {
     font-size: var(--font-size-29xl);
@@ -60,6 +67,11 @@
   }
   .content {
     gap: var(--gap-21xl);
+  }
+
+  .freeResources {
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-81xl);
   }
 }
 @media screen and (max-width: 430px) {
