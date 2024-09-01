@@ -11,8 +11,10 @@ import styles from "./worksheet.module.css";
 const Worksheet: NextPage = () => {
   const headlineRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null); // Ref for the image
   const [hasAnimatedHeadline, setHasAnimatedHeadline] = useState(false);
   const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
+  const [hasAnimatedImage, setHasAnimatedImage] = useState(false); // State for image animation
 
   const router = useRouter();
 
@@ -68,6 +70,10 @@ const Worksheet: NextPage = () => {
             animate(formRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
             setHasAnimatedForm(true);
           }
+          if (imageRef.current && !hasAnimatedImage) {
+            animate(imageRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
+            setHasAnimatedImage(true);
+          }
         }
       });
     };
@@ -80,6 +86,9 @@ const Worksheet: NextPage = () => {
     if (formRef.current) {
       observer.observe(formRef.current);
     }
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+    }
 
     return () => {
       if (headlineRef.current) {
@@ -88,8 +97,11 @@ const Worksheet: NextPage = () => {
       if (formRef.current) {
         observer.unobserve(formRef.current);
       }
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current);
+      }
     };
-  }, [hasAnimatedHeadline, hasAnimatedForm]);
+  }, [hasAnimatedHeadline, hasAnimatedForm, hasAnimatedImage]);
 
   return (
     <>
@@ -115,7 +127,7 @@ const Worksheet: NextPage = () => {
             </div>
           </div>
 
-          <div className={styles.form} ref={formRef} style={{ opacity: 0, transform: 'translateY(24px)' }}> {/* Add ref and initial styles */}
+          <div className={styles.form} ref={formRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
             <div className={styles.frame}>
               <div className={styles.box}>
                 <div className={styles.forms}>
@@ -152,7 +164,13 @@ const Worksheet: NextPage = () => {
                 </div>
               </div>
             </div>
-            <img className={styles.worksheetImg} alt="" src="/worksheet_cover.png" />
+            <img
+              className={styles.worksheetImg}
+              alt=""
+              src="/worksheet_cover.png"
+              ref={imageRef} // Add ref to the image
+              style={{ opacity: 0, transform: 'translateY(24px)' }} // Initial styles
+            />
           </div>
         </div>
         <GeneralFooter />
