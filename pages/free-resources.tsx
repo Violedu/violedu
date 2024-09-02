@@ -18,6 +18,13 @@ const FreeResources: NextPage = () => {
       buttonLink: "/resources/worksheet"
     },
     {
+      imageSrc: "/card_img_2.png",
+      title: "Card Title 2",
+      text: "This is a description for card 2.",
+      buttonText: "Download The Handbook",
+      buttonLink: "/read-more-3"
+    },
+    {
       imageSrc: "/card_img_3.png",
       title: "Card Title 3",
       text: "This is a description for card 3.",
@@ -30,7 +37,7 @@ const FreeResources: NextPage = () => {
       text: "This is a description for card 4.",
       buttonText: "Download The Handbook",
       buttonLink: "/get-started-4"
-    },
+    }
   ];
 
   // References for the headline and cards
