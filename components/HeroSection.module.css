@@ -36,6 +36,8 @@
   border: 0;
   padding: var(--padding-xl) var(--padding-14xl);
   background-color: var(--color-cornflowerblue);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 5px 18px rgba(0, 0, 0, 0.15),
+  0 24px 83px rgba(0, 0, 0, 0.2);
   border-radius: var(--br-26xl);
   display: flex;
   flex-direction: row;
