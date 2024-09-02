@@ -182,7 +182,7 @@ const Offers: NextPage = () => {
         </div>
         <div className={styles.intensive} ref={intensiveCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
-            <b className={styles.title4}>Intensive</b>
+            <div className={styles.title1}>Intensive</div>
             <div className={styles.price1}>
               70€
               <span className={styles.perSession}>/session</span>
@@ -258,7 +258,7 @@ const Offers: NextPage = () => {
         </div>
         <div className={styles.mastery} ref={masteryCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
           <div className={styles.top}>
-            <b className={styles.title4}>Mastery</b>
+            <div className={styles.title1}>Mastery</div>
             <div className={styles.price1}>
               65€
               <span className={styles.perSession}>/session</span>
