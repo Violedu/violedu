@@ -86,7 +86,7 @@ const Mentor: NextPage = () => {
               With a doctoral degree in violin and a deep passion for education, Kalina brings a wealth of expertise to her teaching, making her the perfect guide for your violin journey.
             </div>
             <div className={styles.buttons} ref={buttonsRef}>
-              <a className={styles.button} href="https://www.instagram.com/mitevakalina/" target="_blank">
+              <a className={styles.button} href="https://www.instagram.com/kalinageorgieva_violinist/" target="_blank">
                 <div className={styles.instagram}>
                   <div className={styles.icon}>
                     <img className={styles.iconinstagram} alt="" src="/iconinstagram.svg" />
