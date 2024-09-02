@@ -1,16 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { animate } from "motion";
 import type { NextPage } from "next";
 import styles from "./Testemonials.module.css";
 
 const Testemonials: NextPage = () => {
   const introTitleRef = useRef<HTMLDivElement>(null);
+  const [hasAnimatedTitle, setHasAnimatedTitle] = useState(false); // State to track if the animation has run
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && introTitleRef.current) {
+        if (entry.isIntersecting && introTitleRef.current && !hasAnimatedTitle) {
           animate(introTitleRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
+          setHasAnimatedTitle(true); // Set the flag to true after the animation runs
         }
       });
     };
@@ -26,7 +28,7 @@ const Testemonials: NextPage = () => {
         observer.unobserve(introTitleRef.current);
       }
     };
-  }, []);
+  }, [hasAnimatedTitle]); // Dependency on hasAnimatedTitle
 
   return (
     <div className={styles.testemonials}>
