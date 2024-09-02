@@ -11,8 +11,6 @@ import About from "../components/About";
 import IntroLearningPath from "../components/IntroLearningPath";
 import InPersonAndOnline from "../components/InPersonAndOnline";
 import Offers from "../components/Offers";
-import IntroMentor from "../components/IntroMentor";
-import Mentor from "../components/Mentor";
 import IntroTestemonials from "../components/IntroTestemonials";
 import Testemonials from "../components/Testemonials";
 import GeneralFooter from "../components/GeneralFooter";
@@ -55,8 +53,6 @@ const Main: NextPage = () => {
           <IntroLearningPath />
           <InPersonAndOnline />
           <Offers />
-          <IntroMentor />
-          <Mentor />
           <IntroTestemonials />
           <Testemonials />
           <GeneralFooter />
