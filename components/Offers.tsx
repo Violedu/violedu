@@ -8,17 +8,13 @@ const Offers: NextPage = () => {
   const router = useRouter();
 
   const introTitleRef = useRef<HTMLDivElement>(null);
-  const singleCardRef = useRef<HTMLDivElement>(null);
-  const intensiveCardRef = useRef<HTMLDivElement>(null);
-  const masteryCardRef = useRef<HTMLDivElement>(null);
+  const offers1Ref = useRef<HTMLDivElement>(null); // Ref for the offers1 div
   const moneyBackGuaranteeRef = useRef<HTMLDivElement>(null);
   const freeAssessmentSessionRef = useRef<HTMLDivElement>(null);
 
   // State variables to track if animations have run
   const [hasAnimatedTitle, setHasAnimatedTitle] = useState(false);
-  const [hasAnimatedSingleCard, setHasAnimatedSingleCard] = useState(false);
-  const [hasAnimatedIntensiveCard, setHasAnimatedIntensiveCard] = useState(false);
-  const [hasAnimatedMasteryCard, setHasAnimatedMasteryCard] = useState(false);
+  const [hasAnimatedOffers, setHasAnimatedOffers] = useState(false);
   const [hasAnimatedMoneyBackGuarantee, setHasAnimatedMoneyBackGuarantee] = useState(false);
   const [hasAnimatedFreeAssessmentSession, setHasAnimatedFreeAssessmentSession] = useState(false);
 
@@ -42,17 +38,9 @@ const Offers: NextPage = () => {
             animate(introTitleRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8 });
             setHasAnimatedTitle(true); // Set the flag to true after animation
           }
-          if (singleCardRef.current && !hasAnimatedSingleCard) {
-            animate(singleCardRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
-            setHasAnimatedSingleCard(true); // Set the flag to true after animation
-          }
-          if (intensiveCardRef.current && !hasAnimatedIntensiveCard) {
-            animate(intensiveCardRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.4 });
-            setHasAnimatedIntensiveCard(true); // Set the flag to true after animation
-          }
-          if (masteryCardRef.current && !hasAnimatedMasteryCard) {
-            animate(masteryCardRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.6 });
-            setHasAnimatedMasteryCard(true); // Set the flag to true after animation
+          if (offers1Ref.current && !hasAnimatedOffers) {
+            animate(offers1Ref.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.2 });
+            setHasAnimatedOffers(true); // Set the flag to true after animation
           }
           if (moneyBackGuaranteeRef.current && !hasAnimatedMoneyBackGuarantee) {
             animate(moneyBackGuaranteeRef.current, { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.8 });
@@ -71,14 +59,8 @@ const Offers: NextPage = () => {
     if (introTitleRef.current) {
       observer.observe(introTitleRef.current);
     }
-    if (singleCardRef.current) {
-      observer.observe(singleCardRef.current);
-    }
-    if (intensiveCardRef.current) {
-      observer.observe(intensiveCardRef.current);
-    }
-    if (masteryCardRef.current) {
-      observer.observe(masteryCardRef.current);
+    if (offers1Ref.current) {
+      observer.observe(offers1Ref.current);
     }
     if (moneyBackGuaranteeRef.current) {
       observer.observe(moneyBackGuaranteeRef.current);
@@ -91,14 +73,8 @@ const Offers: NextPage = () => {
       if (introTitleRef.current) {
         observer.unobserve(introTitleRef.current);
       }
-      if (singleCardRef.current) {
-        observer.unobserve(singleCardRef.current);
-      }
-      if (intensiveCardRef.current) {
-        observer.unobserve(intensiveCardRef.current);
-      }
-      if (masteryCardRef.current) {
-        observer.unobserve(masteryCardRef.current);
+      if (offers1Ref.current) {
+        observer.unobserve(offers1Ref.current);
       }
       if (moneyBackGuaranteeRef.current) {
         observer.unobserve(moneyBackGuaranteeRef.current);
@@ -107,7 +83,7 @@ const Offers: NextPage = () => {
         observer.unobserve(freeAssessmentSessionRef.current);
       }
     };
-  }, [hasAnimatedTitle, hasAnimatedSingleCard, hasAnimatedIntensiveCard, hasAnimatedMasteryCard, hasAnimatedMoneyBackGuarantee, hasAnimatedFreeAssessmentSession]); // Depend on animation flags
+  }, [hasAnimatedTitle, hasAnimatedOffers, hasAnimatedMoneyBackGuarantee, hasAnimatedFreeAssessmentSession]); // Depend on animation flags
 
   return (
     <div className={styles.offers} data-scroll-to="offersContainer">
@@ -121,8 +97,8 @@ const Offers: NextPage = () => {
           <p className={styles.chooseTheLearning}>That Fits Your Needs.</p>
         </div>
       </div>
-      <div className={styles.offers1}>
-        <div className={styles.single} ref={singleCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+      <div className={styles.offers1} ref={offers1Ref} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+        <div className={styles.single}>
           <div className={styles.top}>
             <div className={styles.title1}>Single</div>
             <div className={styles.price1}>
@@ -180,9 +156,9 @@ const Offers: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.intensive} ref={intensiveCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+        <div className={styles.intensive}>
           <div className={styles.top}>
-          <div className={styles.title1}>Intensive</div>
+            <div className={styles.title1}>Intensive</div>
             <div className={styles.price1}>
               70€
               <span className={styles.perSession}>/session</span>
@@ -256,9 +232,9 @@ const Offers: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.mastery} ref={masteryCardRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+        <div className={styles.mastery}>
           <div className={styles.top}>
-          <div className={styles.title1}>Mastery</div>
+            <div className={styles.title1}>Mastery</div>
             <div className={styles.price1}>
               65€
               <span className={styles.perSession}>/session</span>
