@@ -11,28 +11,21 @@ import styles from "./free-resources.module.css";
 const FreeResources: NextPage = () => {
   const cards = [
     {
-      imageSrc: "/stuttgart-354557_1280.jpg",
+      imageSrc: "/card_img_1.png",
       title: "Card Title 1",
       text: "This is a description for card 1.",
       buttonText: "Download The Worksheet",
       buttonLink: "/resources/worksheet"
     },
     {
-      imageSrc: "/stuttgart-354557_1280.jpg",
-      title: "Card Title 2",
-      text: "This is a description for card 2.",
-      buttonText: "Download The Handbook",
-      buttonLink: "/explore-2"
-    },
-    {
-      imageSrc: "/stuttgart-354557_1280.jpg",
+      imageSrc: "/card_img_3.png",
       title: "Card Title 3",
       text: "This is a description for card 3.",
       buttonText: "Download The Handbook",
       buttonLink: "/read-more-3"
     },
     {
-      imageSrc: "/stuttgart-354557_1280.jpg",
+      imageSrc: "/card_img_4.png",
       title: "Card Title 4",
       text: "This is a description for card 4.",
       buttonText: "Download The Handbook",
