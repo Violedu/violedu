@@ -77,48 +77,43 @@ const RequestLesson: NextPage = () => {
   };
 
   const onButtonClick = async () => {
-    // Open the Calendly link immediately in a new tab
-    const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
+    if (validateForm()) {       
+        try {
+            const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
 
-    if (validateForm()) {
-      try {
-        const apiUrl =
-          "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: formData.fullName,
+                    email: formData.email,
+                    age: Number(formData.age),
+                    yearsOfPlaying: Number(formData.yearsOfPlaying),
+                    countryOfResidence: formData.countryOfResidence,
+                    teachingMethod: formData.teachingMethod,
+                    learningPath: formData.learningPath,
+                }),
+            });
 
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.fullName,
-            email: formData.email,
-            age: Number(formData.age),
-            yearsOfPlaying: Number(formData.yearsOfPlaying),
-            countryOfResidence: formData.countryOfResidence,
-            teachingMethod: formData.teachingMethod,
-            learningPath: formData.learningPath,
-          }),
-        });
+            if (response.ok) {
+                // Open the Calendly link in a new tab only after successful validation
+                const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
+                
+                // Navigate to the home page or show a dialog
+                router.push("/");
 
-        if (response.ok) {
-          //setIsOpen(true);
-          router.push("/");
-          
-          // Open Calendly link in a new tab
-          if (calendlyWindow) calendlyWindow.focus();
-        } else {
-          console.error(
-            "API request failed:",
-            response.status,
-            response.statusText
-          );
+                // Bring the Calendly tab into focus if it was opened
+                if (calendlyWindow) calendlyWindow.focus();
+            } else {
+                console.error("API request failed:", response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error("Error during API request:", error);
         }
-      } catch (error) {
-        console.error("Error during API request:", error);
-      }
     }
-  };
+};
 
   const titleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
