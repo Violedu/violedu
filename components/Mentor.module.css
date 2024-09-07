@@ -1,14 +1,13 @@
-.introTitle {
-  position: relative;
+.title {
+  text-align: center;
+  font-size: var(--font-size-33xl);
   font-weight: 800;
 }
-.title {
-  width: 969px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+
+.blueWording {
+  color: var(--color-cornflowerblue);
 }
+
 .imageIcon {
   position: relative;
   border-radius: 19.69px;
@@ -119,17 +118,18 @@
 .mentor {
   align-self: stretch;
   background-color: var(--color-whitesmoke);
-  padding: var(--padding-53xl) var(--padding-5xl);
-  gap: var(--gap-21xl);
+  padding: var(--padding-101xl) var(--padding-5xl);
+  gap: var(--gap-41xl);
   text-align: left;
   font-size: var(--font-size-29xl);
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
 @media screen and (max-width: 744px) {
-  .introTitle {
-    font-size: var(--font-size-15xl);
-    line-height: 40px;
+  .title {
+    font-size: var(--font-size-29xl);
+    align-self: stretch;
+    width: auto;
   }
   .mentorText,
   .mentorText1 {
@@ -141,10 +141,16 @@
     font-size: var(--font-size-base);
   }
   .mentor {
-    gap: var(--gap-11xl);
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-81xl);
+    gap: var(--gap-21xl);
   }
 }
 @media screen and (max-width: 430px) {
+  .title {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
   .buttons {
     flex-direction: column;
   }
@@ -154,17 +160,6 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .introTitle {
-    text-align: center;
-  }
-  .title {
-    align-self: stretch;
-    width: auto;
-  }
-  .title {
-    align-items: center;
-    justify-content: center;
-  }
   .imageIcon {
     flex: 1;
     height: auto;
