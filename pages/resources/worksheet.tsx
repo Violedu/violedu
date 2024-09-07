@@ -55,9 +55,33 @@ const Worksheet: NextPage = () => {
     return Object.values(newErrors).every((error) => !error);
   };
 
-  const onButtonClick = () => {
+  const onButtonClick = async () => {
     if (validateForm()) {
-      router.push("/");
+      const resourceName = 'worksheet_template';
+      try {
+        const apiUrl = 'https://ze3q72lkwe.execute-api.eu-central-1.amazonaws.com/dev';
+        
+        // Make the POST request
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            resourceName: resourceName,
+          }),
+        });
+  
+        if (response.ok) {
+          router.push("/");
+        } else {
+          console.error("API request failed:", response.status, response.statusText);
+        }
+      } catch (error) {
+          console.error("Error during API request:", error);
+      }
     }
   };
 
