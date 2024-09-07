@@ -77,41 +77,40 @@ const RequestLesson: NextPage = () => {
   };
 
   const onButtonClick = async () => {
-    if (validateForm()) {       
-        try {
-            const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
+    if (validateForm()) {   
+      const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
 
-            const response = await fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: formData.fullName,
-                    email: formData.email,
-                    age: Number(formData.age),
-                    yearsOfPlaying: Number(formData.yearsOfPlaying),
-                    countryOfResidence: formData.countryOfResidence,
-                    teachingMethod: formData.teachingMethod,
-                    learningPath: formData.learningPath,
-                }),
-            });
+      try {
+          const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
 
-            if (response.ok) {
-                // Open the Calendly link in a new tab only after successful validation
-                const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
-                
-                // Navigate to the home page or show a dialog
-                router.push("/");
+          const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  name: formData.fullName,
+                  email: formData.email,
+                  age: Number(formData.age),
+                  yearsOfPlaying: Number(formData.yearsOfPlaying),
+                  countryOfResidence: formData.countryOfResidence,
+                  teachingMethod: formData.teachingMethod,
+                  learningPath: formData.learningPath,
+              }),
+          });
 
-                // Bring the Calendly tab into focus if it was opened
-                if (calendlyWindow) calendlyWindow.focus();
-            } else {
-                console.error("API request failed:", response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error("Error during API request:", error);
-        }
+          if (response.ok) {              
+              // Navigate to the home page or show a dialog
+              router.push("/");
+
+              // Bring the Calendly tab into focus if it was opened
+              if (calendlyWindow) calendlyWindow.focus();
+          } else {
+              console.error("API request failed:", response.status, response.statusText);
+          }
+      } catch (error) {
+          console.error("Error during API request:", error);
+      }
     }
 };
 
