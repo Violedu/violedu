@@ -11,32 +11,18 @@ import styles from "./free-resources.module.css";
 const FreeResources: NextPage = () => {
   const cards = [
     {
-      imageSrc: "/card_img_1.png",
-      title: "Card Title 1",
-      text: "This is a description for card 1.",
+      imageSrc: "/worksheet_cover.png",
+      title: "Sound Like A Pro Violinist",
+      text: "Improve your sound with this worksheet.",
       buttonText: "Download The Worksheet",
       buttonLink: "/resources/worksheet"
     },
     {
-      imageSrc: "/card_img_2.png",
-      title: "Card Title 2",
-      text: "This is a description for card 2.",
+      imageSrc: "/worksheet_memory_cover.png",
+      title: "Learn Music Faster",
+      text: "Memorize music like a pro with this worksheet.",
       buttonText: "Download The Handbook",
-      buttonLink: "/read-more-3"
-    },
-    {
-      imageSrc: "/card_img_3.png",
-      title: "Card Title 3",
-      text: "This is a description for card 3.",
-      buttonText: "Download The Handbook",
-      buttonLink: "/read-more-3"
-    },
-    {
-      imageSrc: "/card_img_4.png",
-      title: "Card Title 4",
-      text: "This is a description for card 4.",
-      buttonText: "Download The Handbook",
-      buttonLink: "/get-started-4"
+      buttonLink: "/resources/worksheet-memory"
     }
   ];
 

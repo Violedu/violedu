@@ -7,9 +7,9 @@ import { useRouter } from "next/router";
 import GeneralFooter from "../../components/GeneralFooter";
 import NavBar from "../../components/NavBar";
 import { NavBarProvider } from "../../components/NavBarContext";
-import styles from "./worksheet.module.css";
+import styles from "./worksheet-memory.module.css";
 
-const Worksheet: NextPage = () => {
+const WorksheetMemory: NextPage = () => {
   const headlineRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null); // Ref for the first image
@@ -57,7 +57,7 @@ const Worksheet: NextPage = () => {
 
   const onButtonClick = async () => {
     if (validateForm()) {
-      const resourceName = 'worksheet_sound';
+      const resourceName = 'worksheet_memory';
       try {
         const apiUrl = 'https://ze3q72lkwe.execute-api.eu-central-1.amazonaws.com/dev';
         
@@ -158,8 +158,8 @@ const Worksheet: NextPage = () => {
                 </div>
                 <div className={styles.titleLine}>
                   <span>To </span>
-                  <span className={styles.blueWording}>Sound </span>
-                  <span>Like A Pro Violinist</span>
+                  <span className={styles.blueWording}>Learn </span>
+                  <span>Music Faster</span>
                   <span>.</span>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const Worksheet: NextPage = () => {
                   <div className={styles.forms}>
                     <div className={styles.personalInfo}>
                       <div className={styles.personalInformation}>
-                        With the help of this worksheet, you'll explore three key aspects that set professional violinists apart.
+                        With the help of this worksheet, you'll explore how violin pros learn music faster.
                       </div>
                       <TextField
                         className={`${styles.name} ${errors.fullName ? styles.error : ""}`}
@@ -205,7 +205,7 @@ const Worksheet: NextPage = () => {
               <img
                 className={styles.worksheetImg}
                 alt=""
-                src="/worksheet_cover.png"
+                src="/worksheet_memory_cover.png"
                 ref={imageRef}
                 style={{ opacity: 0, transform: 'translateY(24px)' }}
               />
@@ -213,7 +213,7 @@ const Worksheet: NextPage = () => {
             <img
               className={styles.secondImage}
               alt="Open Worksheet"
-              src="/open_worksheet.png"
+              src="/open_worksheet_memory.png"
               ref={secondImageRef}
               style={{ opacity: 0, transform: 'translateY(24px)' }}
             />
@@ -225,4 +225,4 @@ const Worksheet: NextPage = () => {
   );
 };
 
-export default Worksheet;
+export default WorksheetMemory;
