@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
-import styles from "./RequestNavBar.module.css";
+import styles from "./GeneralNavBar.module.css";
 
-const RequestNavBar: NextPage = () => {
+const GeneralNavBar: NextPage = () => {
   const router = useRouter();
 
   const onLogoImageClick = useCallback(() => {
@@ -24,4 +24,4 @@ const RequestNavBar: NextPage = () => {
   );
 };
 
-export default RequestNavBar;
+export default GeneralNavBar;

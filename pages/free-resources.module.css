@@ -1,0 +1,82 @@
+.freeResources {
+    position: relative;
+    background-color: var(--color-whitesmoke);
+    width: 100%;
+    overflow: hidden;
+    padding: var(--padding-101xl) 0 0;
+  }
+
+.content {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-53xl);
+  gap: var(--gap-41xl);
+  padding-left: var(--padding-5xl);
+  padding-right: var(--padding-5xl);
+  font-family: var(--font-inter);
+  color: var(--color-gray-200);
+  line-height: normal;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-size-33xl);
+  font-weight: 800;
+}
+
+.blueWording {
+  color: var(--color-cornflowerblue);
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+  justify-content: center;
+  width: 100%; /* Ensure the container width does not exceed 100% */
+}
+
+@media (min-width: 600px) {
+  .cardsContainer {
+    gap: 45px;
+  }
+}
+
+@media (min-width: 900px) {
+  .cardsContainer {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .freeResources {
+    padding-top: var(--padding-61xl);
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .title {
+    font-size: var(--font-size-29xl);
+    align-self: stretch;
+    width: auto;
+  }
+  .content {
+    gap: var(--gap-21xl);
+  }
+
+  .freeResources {
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-81xl);
+  }
+}
+@media screen and (max-width: 430px) {
+  .title {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
+}

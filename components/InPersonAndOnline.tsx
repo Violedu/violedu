@@ -9,11 +9,11 @@ const InPersonAndOnline: NextPage = () => {
   const router = useRouter();
 
   const onLinkClick = useCallback(() => {
-    router.push("/Request1");
+    router.push("/request");
   }, [router]);
 
   const onLink1Click = useCallback(() => {
-    router.push("/Request1");
+    router.push("/request");
   }, [router]);
 
   const introTitleRef = useRef<HTMLDivElement>(null);

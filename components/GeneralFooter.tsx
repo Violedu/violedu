@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
-import styles from "./RequestFooter.module.css";
+import styles from "./GeneralFooter.module.css";
 
-const RequestFooter: NextPage = () => {
+const GeneralFooter: NextPage = () => {
   const router = useRouter();
 
   const onLogoImageClick = useCallback(() => {
@@ -11,11 +11,11 @@ const RequestFooter: NextPage = () => {
   }, [router]);
 
   const onTermsClick = useCallback(() => {
-    router.push("/Terms");
+    router.push("/terms");
   }, [router]);
 
   const onPrivacyClick = useCallback(() => {
-    router.push("/Privacy");
+    router.push("/privacy");
   }, [router]);
 
   return (
@@ -111,4 +111,4 @@ const RequestFooter: NextPage = () => {
   );
 };
 
-export default RequestFooter;
+export default GeneralFooter;

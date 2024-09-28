@@ -8,17 +8,12 @@ import SmallWhiteSection from "../components/SmallWhiteSection";
 import ActionCall from "../components/ActionCall";
 import Intro from "../components/Intro";
 import About from "../components/About";
-import Knowledge from "../components/Knowledge";
-import Technique from "../components/Technique";
-import Interpretation from "../components/Interpretation";
 import IntroLearningPath from "../components/IntroLearningPath";
 import InPersonAndOnline from "../components/InPersonAndOnline";
 import Offers from "../components/Offers";
-import IntroMentor from "../components/IntroMentor";
-import Mentor from "../components/Mentor";
 import IntroTestemonials from "../components/IntroTestemonials";
 import Testemonials from "../components/Testemonials";
-import Footer from "../components/Footer";
+import GeneralFooter from "../components/GeneralFooter";
 import styles from "./index.module.css";
 import { useDialog } from '../components/DialogContext';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
@@ -36,7 +31,6 @@ const Main: NextPage = () => {
   };
 
   useEffect(() => {
-    // Ensure the page scrolls to the top on initial load
     window.scrollTo(0, 0);
     window.history.scrollRestoration = 'manual';
   }, []);
@@ -56,24 +50,12 @@ const Main: NextPage = () => {
           <ActionCall />
           <Intro introTitle="Dive into a new way of performing." />
           <About />
-          <Knowledge />
-          <Technique />
-          <Interpretation />
           <IntroLearningPath />
           <InPersonAndOnline />
           <Offers />
-          <IntroMentor />
-          <Mentor />
           <IntroTestemonials />
           <Testemonials />
-          <Footer
-            youtubeHref="https://www.youtube.com/@Violedu-dm3uk"
-            youtubeTarget="_blank"
-            instagramHref="https://www.instagram.com/violedugrp/"
-            instagramTarget="_blank"
-            facebookHref="https://www.facebook.com/profile.php?id=61554886883694"
-            facebookTarget="_blank"
-          />
+          <GeneralFooter />
           <Dialog open={isOpen} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
             <DialogTitle id="alert-dialog-title">Request Submitted</DialogTitle>
             <DialogContent>

@@ -7,15 +7,7 @@ import { useNavBar } from "../components/NavBarContext";
 
 const NavBar: NextPage = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const { onAboutClick, onLearningPathClick, onMentorClick, onRequestLessonClick } = useNavBar();
-
-  const onLogoImageClick = useCallback(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth"
-    });
-  }, []);
+  const { onLogoImageClick, onAboutClick, onRequestLessonClick, onFreeResourcesClick } = useNavBar();
 
   const toggleDrawer = useCallback(() => {
     setDrawerOpen((prev) => !prev); // Toggle drawer state
@@ -37,14 +29,11 @@ const NavBar: NextPage = () => {
           />
           <div className={styles.navBar2}>
             <div className={styles.menu}>
+              <a className={styles.about} onClick={onFreeResourcesClick}>
+                Free Resources
+              </a>
               <a className={styles.about} onClick={onAboutClick}>
                 About
-              </a>
-              <a className={styles.about} onClick={onLearningPathClick}>
-                Learning Path
-              </a>
-              <a className={styles.about} onClick={onMentorClick}>
-                Mentor
               </a>
             </div>
             <div className={styles.buttons}>
