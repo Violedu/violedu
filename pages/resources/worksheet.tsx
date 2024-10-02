@@ -18,6 +18,7 @@ const Worksheet: NextPage = () => {
   const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
   const [hasAnimatedImage, setHasAnimatedImage] = useState(false); // State for first image animation
   const [hasAnimatedSecondImage, setHasAnimatedSecondImage] = useState(false); // State for second image animation
+  const [loading, setLoading] = useState(false); // State to track if the request is in progress
 
   const router = useRouter();
 
@@ -56,7 +57,8 @@ const Worksheet: NextPage = () => {
   };
 
   const onButtonClick = async () => {
-    if (validateForm()) {
+    if (validateForm() && !loading) { // Prevent multiple clicks while loading
+      setLoading(true); // Disable the button by setting loading state
       const resourceName = 'worksheet_sound';
       try {
         const apiUrl = 'https://ze3q72lkwe.execute-api.eu-central-1.amazonaws.com/dev';
@@ -75,12 +77,14 @@ const Worksheet: NextPage = () => {
         });
   
         if (response.ok) {
-          router.push("/");
+          router.push("/").then(() => setLoading(false)); // Re-enable the button after routing
         } else {
           console.error("API request failed:", response.status, response.statusText);
+          setLoading(false); // Re-enable button if request fails
         }
       } catch (error) {
-          console.error("Error during API request:", error);
+        console.error("Error during API request:", error);
+        setLoading(false); // Re-enable button if there is an error
       }
     }
   };
@@ -196,7 +200,7 @@ const Worksheet: NextPage = () => {
                         helperText={errors.email ? "Please enter a valid email address" : ""}
                       />
                     </div>
-                    <button className={styles.button} onClick={onButtonClick}>
+                    <button className={styles.button} onClick={onButtonClick} disabled={loading}>
                       <div className={styles.submitRequest}>Send To My Inbox</div>
                     </button>
                   </div>
