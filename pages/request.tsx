@@ -11,7 +11,7 @@ const Request: NextPage = () => {
     <NavBarProvider>
       <>
         <Head>
-          <title>Violedu - Step Up Your Next Performance</title>
+          <title>Violedu - Lesson Request</title>
           <link rel="icon" href="/head_logo.png" />
         </Head>
         <NavBar />
