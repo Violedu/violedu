@@ -24,26 +24,11 @@ const TermsContent: NextPage = () => {
             Students are expected to attend punctually and adequately prepared.
             This entails instrumental practice, ensuring a stable internet
             connection, functional audio/video equipment, a charged device, and
-            having all necessary sheet music ready (for an online lesson). If
+            having all necessary sheet music ready. If
             rescheduling a lesson is needed, the student should provide a
             24-hour notice. Recording lessons without consent or sharing
             instructional material is prohibited. Being late will not extend the
             standard 45-minute lesson duration.
-          </div>
-        </div>
-        <div className={styles.paragraph}>
-          <div className={styles.title1}>
-            Live Lessons at Student's Residence
-          </div>
-          <div className={styles.text}>
-            Live lessons are conducted at the student's residence within the
-            Stuttgart town area. The student must provide a suitable environment
-            conducive to learning, including a quiet space and proper lighting.
-            The student is responsible for ensuring the safety and security of
-            the location where the lesson will take place. In cases where the
-            residence environment is deemed unsuitable for instruction (e.g.,
-            excessive noise, inadequate space), the teacher reserves the right
-            to cancel or reschedule the lesson.
           </div>
         </div>
         <div className={styles.paragraph}>
@@ -71,11 +56,22 @@ const TermsContent: NextPage = () => {
           </div>
         </div>
         <div className={styles.paragraph}>
-          <div className={styles.title1}>Payment</div>
+          <div className={styles.title1}>Payment Processing</div>
           <div className={styles.text}>
-            Each lesson/learning path is payable via bank account provided via
-            e-mail. Service and transaction fees are the responsibility of the
-            student.
+            By enrolling, you authorize us, or a third-party payment service, to 
+            charge fees using your chosen payment method. If payments are processed 
+            by a third party, you agree to their terms and conditions, and we are 
+            not responsible for their actions or errors. The third-party processor 
+            may share your payment information with us. We reserve the right to 
+            change our payment processor or handle payments directly.
+          </div>
+        </div>
+        <div className={styles.paragraph}>
+          <div className={styles.title1}>Credit Card Authorization</div>
+          <div className={styles.text}>
+            You may need to provide credit card details to complete your enrollment. 
+            By doing so, you authorize us to charge your card for your purchases. 
+            Failure to process your payment does not release you from your obligation to pay.
           </div>
         </div>
         <div className={styles.paragraph}>

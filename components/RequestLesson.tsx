@@ -3,9 +3,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { animate } from "motion";
 import {
   TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
   Select,
   InputLabel,
   MenuItem,
@@ -20,7 +17,6 @@ import { useDialog } from './DialogContext';
 
 const RequestLesson: NextPage = () => {
   const router = useRouter();
-  const { setIsOpen } = useDialog();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -28,7 +24,6 @@ const RequestLesson: NextPage = () => {
     age: "",
     yearsOfPlaying: "",
     countryOfResidence: "",
-    teachingMethod: "",
     learningPath: "",
     agreeToTerms: false,
   });
@@ -39,7 +34,6 @@ const RequestLesson: NextPage = () => {
     age: false,
     yearsOfPlaying: false,
     countryOfResidence: false,
-    teachingMethod: false,
     learningPath: false,
     agreeToTerms: false,
   });
@@ -66,7 +60,6 @@ const RequestLesson: NextPage = () => {
       yearsOfPlaying:
         formData.yearsOfPlaying === "" || !isInteger(formData.yearsOfPlaying),
       countryOfResidence: formData.countryOfResidence === "",
-      teachingMethod: formData.teachingMethod === "",
       learningPath: formData.learningPath === "",
       agreeToTerms: !formData.agreeToTerms,
     };
@@ -94,7 +87,6 @@ const RequestLesson: NextPage = () => {
                   age: Number(formData.age),
                   yearsOfPlaying: Number(formData.yearsOfPlaying),
                   countryOfResidence: formData.countryOfResidence,
-                  teachingMethod: formData.teachingMethod,
                   learningPath: formData.learningPath,
               }),
           });
@@ -236,28 +228,7 @@ const RequestLesson: NextPage = () => {
                 />
               </div>
               <div className={styles.personalInfo}>
-                <div className={styles.personalInformation}>Lesson</div>
-                <FormControl
-                  className={styles.teachingMethod}
-                  variant="outlined"
-                  error={errors.teachingMethod}
-                >
-                  <InputLabel color={errors.teachingMethod ? "error" : "primary"}>
-                    Teaching Method
-                  </InputLabel>
-                  <Select
-                    color="primary"
-                    label="Teaching Method"
-                    value={formData.teachingMethod}
-                    onChange={(e) => onInputChange("teachingMethod", e.target.value)}
-                  >
-                    <MenuItem value="In Person">In Person</MenuItem>
-                    <MenuItem value="Online">Online</MenuItem>
-                  </Select>
-                  <FormHelperText>
-                    {errors.teachingMethod ? "Please select a teaching method" : ""}
-                  </FormHelperText>
-                </FormControl>
+                <div className={styles.personalInformation}>Learning Path</div>
                 <FormControl
                   className={styles.teachingMethod}
                   variant="outlined"

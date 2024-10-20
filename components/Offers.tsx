@@ -102,7 +102,7 @@ const Offers: NextPage = () => {
           <div className={styles.top}>
             <div className={styles.title1}>Single</div>
             <div className={styles.price1}>
-              80€
+              $85
               <span className={styles.perSession}>/session</span>
             </div>
             <button className={styles.button} onClick={onButtonClick}>
@@ -160,7 +160,7 @@ const Offers: NextPage = () => {
           <div className={styles.top}>
             <div className={styles.title1}>Intensive</div>
             <div className={styles.price1}>
-              70€
+              $75
               <span className={styles.perSession}>/session</span>
             </div>
             <button className={styles.button} onClick={onButton1Click}>
@@ -236,7 +236,7 @@ const Offers: NextPage = () => {
           <div className={styles.top}>
             <div className={styles.title1}>Mastery</div>
             <div className={styles.price1}>
-              65€
+              $70
               <span className={styles.perSession}>/session</span>
             </div>
             <button className={styles.button} onClick={onButton2Click}>

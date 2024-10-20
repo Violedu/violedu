@@ -9,7 +9,7 @@ import ActionCall from "../components/ActionCall";
 import Intro from "../components/Intro";
 import About from "../components/About";
 import IntroLearningPath from "../components/IntroLearningPath";
-import InPersonAndOnline from "../components/InPersonAndOnline";
+import LearningOnline from "../components/LearningOnline";
 import Offers from "../components/Offers";
 import IntroTestemonials from "../components/IntroTestemonials";
 import Testemonials from "../components/Testemonials";
@@ -51,7 +51,7 @@ const Main: NextPage = () => {
           <Intro introTitle="Dive into a new way of performing." />
           <About />
           <IntroLearningPath />
-          <InPersonAndOnline />
+          <LearningOnline />
           <Offers />
           <IntroTestemonials />
           <Testemonials />

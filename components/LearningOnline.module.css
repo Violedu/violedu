@@ -1,0 +1,111 @@
+.deepenYourUnderstanding {
+    margin: 0;
+  }
+  .introTitle {
+    flex: 1;
+    position: relative;
+    font-weight: 800;
+  }
+  .title {
+    width: 436px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .text1 {
+    flex: 1;
+    position: relative;
+    line-height: 30px;
+    font-weight: 300;
+  }
+  .paragraph {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+  }
+  .text {
+    width: 438px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-21xl);
+  }
+  .imageIcon {
+    position: relative;
+    border-radius: var(--br-xl);
+    width: 498px;
+    height: 780px;
+    object-fit: cover;
+  }
+  .knowledge {
+    align-self: stretch;
+    background-color: var(--color-whitesmoke);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-101xl) var(--padding-5xl);
+    gap: var(--gap-21xl);
+    text-align: left;
+    font-size: var(--font-size-29xl);
+    color: var(--color-gray-200);
+    font-family: var(--font-inter);
+  }
+  @media screen and (max-width: 744px) {
+    .introTitle {
+      font-size: var(--font-size-15xl);
+      line-height: 40px;
+    }
+    .text1 {
+      font-size: var(--font-size-base);
+      line-height: 28px;
+    }
+    .text {
+      gap: var(--gap-11xl);
+    }
+    .knowledge {
+      padding-top: var(--padding-41xl);
+      padding-bottom: var(--padding-81xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 430px) {
+    .imageIcon {
+      align-self: stretch;
+      width: auto;
+      flex: 1;
+      align-self: stretch;
+      height: auto;
+      max-height: 376px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .introTitle {
+      text-align: center;
+    }
+    .title {
+      align-items: center;
+      justify-content: center;
+    }
+    .imageIcon,
+    .text,
+    .title {
+      align-self: stretch;
+      width: auto;
+    }
+    .imageIcon {
+      height: 780px;
+    }
+    .knowledge {
+      flex-direction: column;
+      padding-top: var(--padding-61xl);
+      box-sizing: border-box;
+    }
+  }
+  
