@@ -1,5 +1,5 @@
 // FAQ.tsx
-import { ExpandMoreRounded } from "@mui/icons-material";
+import { AddCircle } from "@mui/icons-material"; // New icon import
 import {
   Accordion,
   AccordionDetails,
@@ -71,7 +71,8 @@ const FAQ = ({ faqList }: Props) => {
           ref={(el) => faqRefs.current[index] = el} // Assign ref to each FAQ item
           style={{ opacity: 0, transform: 'translateY(20px)' }} // Initial animation state
         >
-          <AccordionSummary expandIcon={<ExpandMoreRounded className={styles.expandIcon} />}>
+          {/* Replace ExpandMoreRounded with AddCircle */}
+          <AccordionSummary expandIcon={<AddCircle className={styles.expandIcon} />}>
             <Typography className={styles.questionText}>{faq.params.question}</Typography>
           </AccordionSummary>
           <AccordionDetails>
