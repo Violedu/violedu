@@ -13,6 +13,7 @@ import LearningOnline from "../components/LearningOnline";
 import Offers from "../components/Offers";
 import IntroTestemonials from "../components/IntroTestemonials";
 import Testemonials from "../components/Testemonials";
+import FAQList from "../components/FAQList";
 import GeneralFooter from "../components/GeneralFooter";
 import styles from "./index.module.css";
 import { useDialog } from '../components/DialogContext';
@@ -55,6 +56,7 @@ const Main: NextPage = () => {
           <Offers />
           <IntroTestemonials />
           <Testemonials />
+          <FAQList />
           <GeneralFooter />
           <Dialog open={isOpen} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
             <DialogTitle id="alert-dialog-title">Request Submitted</DialogTitle>

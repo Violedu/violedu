@@ -1,0 +1,73 @@
+.introTitle,
+.title {
+  display: flex;
+  align-items: center;
+}
+.introTitle {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  font-weight: 800;
+  justify-content: center;
+}
+.title {
+  width: 495px;
+  flex-direction: row;
+  justify-content: flex-start;
+  z-index: 0;
+}
+.imageIcon {
+  position: absolute;
+  margin: 0 !important;
+  top: 89.4px;
+  left: calc(50% + 349px);
+  width: 186px;
+  height: 173px;
+  object-fit: cover;
+  z-index: 1;
+}
+.frame,
+.faqlist {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame {
+  color: var(--color-gray-200);
+  background-color: var(--color-whitesmoke);
+  padding: var(--padding-53xl) var(--padding-5xl) var(--padding-121xl);
+  position: relative;
+  gap: var(--gap-21xl);
+}
+.faqlist {
+  text-align: center;
+  font-size: var(--font-size-29xl);
+  font-family: var(--font-inter);
+  background-color: var(--color-gray-200);
+}
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
+  .title {
+    align-self: stretch;
+    width: auto;
+  }
+  .frame {
+    gap: var(--gap-11xl);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .introTitle {
+    text-align: center;
+    flex: 1;
+  }
+  .video {
+    flex: 1;
+    height: auto;
+    width: 100%;
+  }
+}

@@ -1,0 +1,61 @@
+/* FAQ.module.css */
+
+.container {
+    padding: 1rem;
+  }
+  
+  .accordion {
+    margin-bottom: 0.8rem;
+    overflow: hidden; /* Ensure content stays within the rounded corners */
+    border-radius: var(--br-xl);
+    box-shadow: 0 2px 4px rgba(114, 114, 114, 0.1); /* Optional: add a subtle shadow */
+    border-radius: 20px; /* Main border radius applied here */
+  }
+  
+  /* Remove border lines in between to make the radius visible */
+  .accordion > .MuiAccordionSummary-root,
+  .accordion > .MuiAccordionDetails-root {
+    border-top: none;
+    border-bottom: none;
+  }
+  
+  /* Apply specific border radius for the top and bottom when expanded */
+  .accordion:first-of-type .MuiAccordionSummary-root {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .accordion:last-of-type .MuiAccordionDetails-root {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Expanded state adjustments */
+  .accordion.Mui-expanded {
+    margin: 0; /* Remove spacing when expanded to avoid visual gaps */
+  }
+  
+  /* Optional: Icon color */
+  .expandIcon {
+    color: var(--color-cornflowerblue);
+  }
+  
+  
+  .questionText {
+    text-align: left;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    font-family: var(--font-inter);
+  }
+  
+  .answerText {
+    text-align: left;
+    font-size: var(--font-size-lg);
+    font-family: var(--font-inter);
+    font-weight: 300;
+  }
+  
+  .expandIcon {
+    color: var(--color-cornflowerblue);
+  }
+  
