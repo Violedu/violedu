@@ -70,6 +70,12 @@ const FAQ = ({ faqList }: Props) => {
           square
           ref={(el) => faqRefs.current[index] = el} // Assign ref to each FAQ item
           style={{ opacity: 0, transform: 'translateY(20px)' }} // Initial animation state
+          TransitionProps={{
+            timeout: {
+              enter: 500, // Slow down expand animation
+              exit: 500,  // Adjust collapse speed (optional)
+            },
+          }}
         >
           {/* Replace ExpandMoreRounded with AddCircle */}
           <AccordionSummary expandIcon={<AddCircle className={styles.expandIcon} />}>
