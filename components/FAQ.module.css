@@ -59,3 +59,10 @@
     color: var(--color-cornflowerblue);
   }
   
+  @media screen and (max-width: 744px) {
+    .questionText,
+    .answerText {
+        font-size: var(--font-size-base);
+    }
+  }
+  
