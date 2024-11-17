@@ -9,36 +9,100 @@ const faqData = [
   {
     params: {
       id: "faq-1",
-      question: "How many team members can I invite?",
-      answer: "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.",
+      question: "Is Violedu right for me?",
+      answer: `
+        Violedu is perfect for intermediate and advanced violinists who feel stuck 
+        and want to elevate their performance. Whether you’re preparing for a recital, 
+        audition, or competition—or just want to refine your technique—we offer a 
+        structured, personalized approach to help you achieve your goals. 
+        Our platform is ideal for players ready to commit to meaningful improvement 
+        and dive deep into their artistry.
+      `,
     },
   },
   {
     params: {
       id: "faq-2",
-      question: "What is the maximum file upload size?",
-      answer: "No more than 2GB. All files in your account must fit your allotted storage space.",
+      question: "What makes Violedu better than other violin lesson platforms?",
+      answer: `
+        Most platforms focus on beginner basics or general tips, leaving advanced players stuck without clear progress. 
+        Violedu is different. We’re designed for intermediate and advanced violinists ready to break through a plateau 
+        and prepare for recitals, auditions, or competitions.
+  
+        With tailored plans—Single, Intensive, or Mastery—we provide personalized lessons, progress tracking, and 
+        recorded video feedback to ensure steady improvement. Beyond technique, we help you dive into the music itself, 
+        mastering phrasing, interpretation, and efficient practice strategies. Mock recitals and audition simulations 
+        prepare you for real-world performances.
+  
+        Led by Kalina, an experienced soloist and teacher with a Ph.D. in musical arts, Violedu combines academic depth 
+        with practical artistry.
+      `,
     },
   },
   {
     params: {
       id: "faq-3",
-      question: "How do I reset my password?",
-      answer: "Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.",
+      question: "How does the free assessment session work?",
+      answer: `
+        In this 30-minute online session, we’ll get to know your goals, skill level, 
+        and what you want to achieve. It’s a chance to map out the best path forward for you.
+  
+        This session also lets us assess your proficiency and ensure our teaching style 
+        aligns with your needs. The goal is to create the right fit because tailored 
+        guidance leads to the best progress.
+  
+        Please note, an invitation to an assessment session doesn’t guarantee enrollment. 
+        If it’s not the right match, we may suggest alternatives.
+      `,
     },
   },
   {
     params: {
       id: "faq-4",
-      question: "Can I cancel my subscription?",
-      answer: "Yes! Send us a message and we'll process your request no questions asked.",
+      question: "How long are the lessons?",
+      answer: "Each individual lesson has a duration of 45 minutes.",
     },
   },
   {
     params: {
       id: "faq-5",
-      question: "Do you provide additional support?",
-      answer: "Chat and email support is available 24/7. Phone lines are open during normal business hours.",
+      question: "Is Violedu good for beginners?",
+      answer: `
+        No, Violedu is not designed for beginners. We believe beginners benefit most 
+        from hands-on, in-person instruction to establish foundational skills. 
+  
+        Our programs are specifically tailored to intermediate and advanced violinists 
+        who already have a solid technical base and want to focus on unlocking their 
+        full potential for the stage or their next performance.
+      `,
+    },
+  },  
+  {
+    params: {
+      id: "faq-6",
+      question: "Is Violedu good for intermediate and advanced violinists?",
+      answer: `
+        Absolutely. Violedu is built for violinists who’ve hit a plateau and are ready to level up. 
+        Whether you’re struggling with a particular piece, preparing for an audition, or working toward 
+        long-term mastery, our intensive and mastery plans are tailored to meet your needs.
+  
+        Our structured lessons, personalized feedback, and mock recitals give intermediate and advanced 
+        players the tools to break through barriers and achieve consistent progress.
+      `,
+    },
+  },  
+  {
+    params: {
+      id: "faq-7",
+      question: "How does the 14 day money back guarantee work?",
+      answer: "We offer a 14-day money back guarantee. If you’re not satisfied with your progress in the first 14 days of your chosen learning path, we will give you your money back - no questions asked.",
+    },
+  },
+  {
+    params: {
+      id: "faq-8",
+      question: "What are my payment options?",
+      answer: "Payments are securely processed through PayPal and Stripe, and you’ll receive an email receipt immediately after purchase.",
     },
   },
 ];
