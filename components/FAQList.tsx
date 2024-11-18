@@ -94,7 +94,7 @@ const faqData = [
   {
     params: {
       id: "faq-7",
-      question: "How does the 14 day money back guarantee work?",
+      question: "How does the 14-day money back guarantee work?",
       answer: "We offer a 14-day money back guarantee. If you’re not satisfied with your progress in the first 14 days of your chosen learning path, we will give you your money back - no questions asked.",
     },
   },

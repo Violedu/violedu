@@ -42,7 +42,7 @@ const TermsContent: NextPage = () => {
             mutual understanding, thus optimizing the learning experience. The
             session will be conducted online and lasts for 30 minutes. Please
             note, the teacher reserves the right to decline enrollment if these
-            criteria are not met during the session
+            criteria are not met during the session.
           </div>
         </div>
         <div className={styles.paragraph}>
