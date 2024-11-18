@@ -1,16 +1,20 @@
 /* FAQ.module.css */
 
 .container {
-    padding: 1rem;
-  }
-  
-  .accordion {
-    margin-bottom: 0.8rem;
-    overflow: hidden; /* Ensure content stays within the rounded corners */
-    border-radius: var(--br-xl);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06), 0 24px 83px rgba(0, 0, 0, 0.1);
-    border-radius: 20px; /* Main border radius applied here */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accordion {
+  margin-bottom: 0.8rem;
+  overflow: hidden; /* Ensure content stays within the rounded corners */
+  border-radius: var(--br-xl);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06), 0 24px 83px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 969px; /* Maximum width for FAQ items */
+}
+
   
   /* Remove border lines in between to make the radius visible */
   .accordion > .MuiAccordionSummary-root,
@@ -50,7 +54,7 @@
   
   .answerText {
     text-align: left;
-    font-size: var(--font-size-lg);
+    font-size: 17px;
     font-family: var(--font-inter);
     font-weight: 300;
   }
@@ -60,9 +64,12 @@
   }
   
   @media screen and (max-width: 744px) {
-    .questionText,
-    .answerText {
+    .questionText {
         font-size: var(--font-size-base);
     }
+
+    .answerText {
+      font-size: 15px;
+  }
   }
   
