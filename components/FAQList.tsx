@@ -68,7 +68,7 @@ const faqData = [
       id: "faq-5",
       question: "Is Violedu good for beginners?",
       answer: `
-        No, Violedu is not designed for beginners. We believe beginners benefit most 
+        We believe beginners benefit most 
         from hands-on, in-person instruction to establish foundational skills. 
   
         Our programs are specifically tailored to intermediate and advanced violinists 
