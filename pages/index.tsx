@@ -15,6 +15,7 @@ import IntroTestemonials from "../components/IntroTestemonials";
 import Testemonials from "../components/Testemonials";
 import FAQList from "../components/FAQList";
 import GeneralFooter from "../components/GeneralFooter";
+import ContactIcon from "../components/ContactIcon";
 import styles from "./index.module.css";
 import { useDialog } from '../components/DialogContext';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
@@ -59,6 +60,7 @@ const Main: NextPage = () => {
           <Intro introTitle="Everything you need to know." />
           <FAQList />
           <GeneralFooter />
+          <ContactIcon />
           <Dialog open={isOpen} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
             <DialogTitle id="alert-dialog-title">Request Submitted</DialogTitle>
             <DialogContent>
