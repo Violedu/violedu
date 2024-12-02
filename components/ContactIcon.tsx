@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ContactIcon.module.css";
+import ContactModal from "./ContactModal";
 
 const ContactIcon: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false); // Tracks if icon should stay visible
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      setIsVisible(scrollPosition > windowHeight/2);
+
+      if (scrollPosition > windowHeight / 2) {
+        setHasScrolled(true); // Make icon persist after showing
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -18,17 +23,21 @@ const ContactIcon: React.FC = () => {
     };
   }, []);
 
-  const handleClick = () => {
-    window.location.href = "mailto:contact@violedu.com";
+  const handleIconClick = () => {
+    setIsModalOpen((prev) => !prev); // Toggle the modal
   };
 
   return (
     <>
-      {isVisible && (
-        <div className={`${styles.contactIcon} ${isVisible ? styles.visible : ""}`} onClick={handleClick}>
+      {(hasScrolled || isModalOpen) && ( // Icon stays visible once scrolled down
+        <div
+          className={`${styles.contactIcon} ${hasScrolled ? styles.visible : ""}`}
+          onClick={handleIconClick}
+        >
           <img src="/contact_icon.png" alt="Contact Us" />
         </div>
       )}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

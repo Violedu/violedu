@@ -1,0 +1,41 @@
+.modalWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Ensure it's on top of everything */
+  }
+  
+  .modalContainer {
+    position: fixed;
+    bottom: calc(var(--padding-5xl) + 50px + var(--padding-5xl)); /* Space above the contact icon */
+    right: var(--padding-5xl);
+    width: 375px;
+    height: 600px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+    overflow: hidden; /* Ensure header and content stay together */
+  }
+  
+  .modalHeader {
+    height: 70px;
+    width: 100%;
+    background-color: var(--color-cornflowerblue);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
