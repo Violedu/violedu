@@ -21,7 +21,7 @@
   }
   
   .modalHeader {
-    height: 60px;
+    height: 70px;
     width: 100%;
     background-color: var(--color-cornflowerblue);
     border-top-left-radius: 20px;
@@ -32,20 +32,53 @@
   }
   
   .modalHeaderText {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-lg);
     font-weight: 500;
     font-family: var(--font-inter);
     color: var(--color-white);
   }
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Consistent spacing */
+  }
+  
+  .profileCircle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid var(--color-cornflowerblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure the image stays inside the circle */
+    margin-top: 10px; /* Consistent spacing */
+  }
+  
+  .profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .replyText {
+    margin-top: 10px; /* Consistent spacing */
+    margin-bottom: 0px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    font-family: var(--font-inter);
+    color: var(--color-black);
+    text-align: center;
+  }
+  
+  .helperText {
+    margin-top: 10px; /* Consistent spacing */
+    font-size: var(--font-size-sm-3);
+    font-weight: 500;
+    font-family: var(--font-inter);
+    color: #959191; /* Lighter grey */
+    text-align: center;
   }
   

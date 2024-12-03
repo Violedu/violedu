@@ -18,7 +18,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         <div className={styles.modalHeader}>
           <span className={styles.modalHeaderText}>Send a message</span>
         </div>
-        {/* Modal content can go here */}
+        <div className={styles.content}>
+          <div className={styles.profileCircle}>
+            <img src="/profile_kalina.png" alt="Profile" className={styles.profileImage} />
+          </div>
+          <p className={styles.replyText}>We typically reply within a day</p>
+          <p className={styles.helperText}>We are here to help you reach your violin goals.</p>
+        </div>
+        {/* Additional modal content can go here */}
       </div>
     </div>
   );
