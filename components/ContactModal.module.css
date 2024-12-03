@@ -21,11 +21,21 @@
   }
   
   .modalHeader {
-    height: 70px;
+    height: 60px;
     width: 100%;
     background-color: var(--color-cornflowerblue);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+  }
+  
+  .modalHeaderText {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    font-family: var(--font-inter);
+    color: var(--color-white);
   }
   
   @keyframes fadeIn {
