@@ -19,8 +19,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           <span className={styles.modalHeaderText}>Send a message</span>
         </div>
         <div className={styles.content}>
-          <div className={styles.profileCircle}>
-            <img src="/profile_kalina.png" alt="Profile" className={styles.profileImage} />
+          <div className={styles.circleWrapper}>
+            <div className={`${styles.profileCircle} ${styles.firstCircle}`}>
+              <img src="/profile_kalina.png" alt="Profile" className={styles.profileImage} />
+            </div>
+            <div className={`${styles.profileCircle} ${styles.secondCircle}`}>
+              <img src="/profile_ivo.png" alt="Profile" className={styles.profileImage} />
+            </div>
           </div>
           <p className={styles.replyText}>We typically reply within a day</p>
           <p className={styles.helperText}>We are here to help you reach your violin goals.</p>

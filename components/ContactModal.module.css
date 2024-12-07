@@ -42,19 +42,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px; /* Consistent spacing */
+    margin-top: 25px; /* Consistent spacing */
+  }
+  
+  .circleWrapper {
+    position: relative;
+    width: 120px; /* Adjusted to fit both circles with overlap */
+    height: 70px; /* Align with the height of a single circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .profileCircle {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 3px solid var(--color-cornflowerblue);
+    border: 2px solid var(--color-cornflowerblue);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Ensure the image stays inside the circle */
-    margin-top: 10px; /* Consistent spacing */
+    position: absolute;
+  }
+  
+  .firstCircle {
+    z-index: 2; /* First circle is on top */
+    left: 0; /* Start at the leftmost point */
+  }
+  
+  .secondCircle {
+    z-index: 1; /* Second circle is underneath */
+    left: 40%;
   }
   
   .profileImage {
@@ -80,5 +99,15 @@
     font-family: var(--font-inter);
     color: #959191; /* Lighter grey */
     text-align: center;
+  }
+  
+  /* Optional fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   
