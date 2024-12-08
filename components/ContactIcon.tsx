@@ -34,7 +34,10 @@ const ContactIcon: React.FC = () => {
           className={`${styles.contactIcon} ${hasScrolled ? styles.visible : ""}`}
           onClick={handleIconClick}
         >
-          <img src="/contact_icon.png" alt="Contact Us" />
+          <img
+            src={isModalOpen ? "/contact_icon_open.png" : "/contact_icon.png"} // Change the icon based on modal state
+            alt="Contact Us"
+          />
         </div>
       )}
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
