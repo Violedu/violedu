@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ContactModal.module.css";
+import { TextField, Button } from "@mui/material";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -30,7 +31,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           <p className={styles.replyText}>We typically reply within a day</p>
           <p className={styles.helperText}>We are here to help you reach your violin goals.</p>
         </div>
-        {/* Additional modal content can go here */}
+        <div className={styles.form}>
+          <TextField
+            className={styles.textField}
+            label="Email"
+            variant="outlined"
+            fullWidth
+          />
+          <TextField
+            className={styles.textField}
+            label="Message"
+            variant="outlined"
+            multiline
+            rows={4}
+            fullWidth
+          />
+        </div>
       </div>
     </div>
   );
