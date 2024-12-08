@@ -29,17 +29,24 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const onSendMessage = () => {
     if (validateForm()) {
       console.log("Message sent:", { email, message });
-      setEmail("");
-      setMessage("");
+      setEmail(""); // Clear the email field after sending
+      setMessage(""); // Clear the message field after sending
       setErrors({ email: false, message: false });
-      onClose();
+      onClose(); // Close the modal
     }
+  };
+
+  const handleClose = () => {
+    setEmail(""); // Clear the email field when closing the modal
+    setMessage(""); // Clear the message field when closing the modal
+    setErrors({ email: false, message: false }); // Clear any errors
+    onClose(); // Close the modal
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className={styles.modalWrapper} onClick={onClose}>
+    <div className={styles.modalWrapper} onClick={handleClose}>
       <div
         className={styles.modalContainer}
         onClick={(e) => e.stopPropagation()} // Prevent click propagation to the wrapper
@@ -50,21 +57,31 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             src="/close_icon.png"
             alt="Close"
             className={styles.closeIcon}
-            onClick={onClose}
+            onClick={handleClose}
           />
         </div>
         <div className={styles.mainContent}>
           <div className={styles.content}>
             <div className={styles.circleWrapper}>
               <div className={`${styles.profileCircle} ${styles.firstCircle}`}>
-                <img src="/profile_kalina.png" alt="Profile" className={styles.profileImage} />
+                <img
+                  src="/profile_kalina.png"
+                  alt="Profile"
+                  className={styles.profileImage}
+                />
               </div>
               <div className={`${styles.profileCircle} ${styles.secondCircle}`}>
-                <img src="/profile_ivo.png" alt="Profile" className={styles.profileImage} />
+                <img
+                  src="/profile_ivo.png"
+                  alt="Profile"
+                  className={styles.profileImage}
+                />
               </div>
             </div>
             <p className={styles.replyText}>We typically reply within a day</p>
-            <p className={styles.helperText}>We are here to help you reach your violin goals.</p>
+            <p className={styles.helperText}>
+              We are here to help you reach your violin goals.
+            </p>
           </div>
           <div className={styles.formButtonContainer}>
             <div className={styles.form}>
