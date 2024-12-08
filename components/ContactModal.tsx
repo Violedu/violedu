@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ContactModal.module.css";
-import { TextField, Button } from "@mui/material";
+import { TextField } from "@mui/material";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -8,6 +8,34 @@ interface ContactModalProps {
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({
+    email: false,
+    message: false,
+  });
+
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const newErrors = {
+      email: !email || !emailRegex.test(email),
+      message: message.trim() === "",
+    };
+
+    setErrors(newErrors);
+    return !newErrors.email && !newErrors.message;
+  };
+
+  const onSendMessage = () => {
+    if (validateForm()) {
+      console.log("Message sent:", { email, message });
+      setEmail("");
+      setMessage("");
+      setErrors({ email: false, message: false });
+      onClose();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -37,15 +65,28 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             label="Email"
             variant="outlined"
             fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            error={errors.email}
+            helperText={errors.email ? "Please enter a valid email address" : ""}
           />
           <TextField
             className={styles.textField}
             label="Message"
             variant="outlined"
             multiline
-            rows={4}
+            rows={5}
             fullWidth
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            error={errors.message}
+            helperText={errors.message ? "Message cannot be empty" : ""}
           />
+        </div>
+        <div className={styles.buttonContainer}>
+          <button className={styles.sendButton} onClick={onSendMessage}>
+            <div className={styles.submitRequest}>Send a message</div>
+          </button>
         </div>
       </div>
     </div>

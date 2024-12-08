@@ -1,132 +1,153 @@
 .modalWrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999; /* Ensure it's on top of everything */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.modalContainer {
+  position: fixed;
+  bottom: calc(var(--padding-5xl) + 50px + var(--padding-5xl));
+  right: var(--padding-5xl);
+  width: 375px;
+  height: 600px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  height: 70px;
+  width: 100%;
+  background-color: var(--color-cornflowerblue);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalHeaderText {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.circleWrapper {
+  position: relative;
+  width: 120px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileCircle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--color-cornflowerblue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+}
+
+.firstCircle {
+  z-index: 2;
+  left: 0;
+}
+
+.secondCircle {
+  z-index: 1;
+  left: 40%;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.replyText {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.helperText {
+  margin-top: 10px;
+  font-size: var(--font-size-sm-3);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: #959191;
+  text-align: center;
+}
+
+.form {
+  padding: 0 var(--padding-5xl);
+  width: 100%;
+  height: 280px; /* Fixed height for form */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buttonContainer {
+  padding: 0 var(--padding-5xl);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.sendButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-xl) 0;
+  background-color: var(--color-cornflowerblue);
+  width: 100%; /* Button fills the modal horizontally */
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sendButton:hover {
+  background-color: var(--color-steelblue);
+}
+
+.submitRequest {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .modalContainer {
-    position: fixed;
-    bottom: calc(var(--padding-5xl) + 50px + var(--padding-5xl)); /* Space above the contact icon */
-    right: var(--padding-5xl);
-    width: 375px;
-    height: 600px;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.3s ease-in-out;
-    overflow: hidden; /* Ensure header and content stay together */
+  to {
+    opacity: 1;
   }
-  
-  .modalHeader {
-    height: 70px;
-    width: 100%;
-    background-color: var(--color-cornflowerblue);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-  }
-  
-  .modalHeaderText {
-    font-size: var(--font-size-lg);
-    font-weight: 500;
-    font-family: var(--font-inter);
-    color: var(--color-white);
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px; /* Consistent spacing */
-  }
-  
-  .circleWrapper {
-    position: relative;
-    width: 120px; /* Adjusted to fit both circles with overlap */
-    height: 70px; /* Align with the height of a single circle */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profileCircle {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid var(--color-cornflowerblue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Ensure the image stays inside the circle */
-    position: absolute;
-  }
-  
-  .firstCircle {
-    z-index: 2; /* First circle is on top */
-    left: 0; /* Start at the leftmost point */
-  }
-  
-  .secondCircle {
-    z-index: 1; /* Second circle is underneath */
-    left: 40%;
-  }
-  
-  .profileImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .replyText {
-    margin-top: 10px; /* Consistent spacing */
-    margin-bottom: 0px;
-    font-size: var(--font-size-base);
-    font-weight: 500;
-    font-family: var(--font-inter);
-    color: var(--color-black);
-    text-align: center;
-  }
-  
-  .helperText {
-    margin-top: 10px; /* Consistent spacing */
-    font-size: var(--font-size-sm-3);
-    font-weight: 500;
-    font-family: var(--font-inter);
-    color: #959191; /* Lighter grey */
-    text-align: center;
-  }
-  
-  /* Optional fade-in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  
-  .form {
-    padding: 0 var(--padding-5xl);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 80px;
-    margin-bottom: var(--padding-5xl); /* Adds space between the form and the bottom */
-  }
-  
-  .inputField {
-    width: 100%;
-  }
-  
-  .error {
-    border-color: var(--color-red);
-  }
-  
+}
