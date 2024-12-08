@@ -30,6 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative; /* Allows absolute positioning for the close icon */
 }
 
 .modalHeaderText {
@@ -37,6 +38,20 @@
   font-weight: 500;
   font-family: var(--font-inter);
   color: var(--color-white);
+}
+
+.closeIcon {
+  position: absolute;
+  top: 50%;
+  right: var(--padding-5xl);
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+}
+
+.closeIcon:hover {
+  opacity: 0.8; /* Optional: adds a hover effect */
 }
 
 .mainContent {

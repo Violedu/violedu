@@ -46,6 +46,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       >
         <div className={styles.modalHeader}>
           <span className={styles.modalHeaderText}>Send a message</span>
+          <img
+            src="/close_icon.png"
+            alt="Close"
+            className={styles.closeIcon}
+            onClick={onClose}
+          />
         </div>
         <div className={styles.mainContent}>
           <div className={styles.content}>
