@@ -25,7 +25,7 @@ type Props = {
 
 const FAQ = ({ faqList }: Props) => {
   const [expanded, setExpanded] = useState<string | false>(false); // No item expanded by default
-  const faqRefs = useRef<HTMLDivElement[]>([]); // Array of refs for FAQ items
+  const faqRefs = useRef<(HTMLDivElement | null)[]>([]); // Allow null values
 
   const handleChange = (panel: string) => (
     event: React.SyntheticEvent,
@@ -36,13 +36,15 @@ const FAQ = ({ faqList }: Props) => {
 
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
-
+  
     faqRefs.current.forEach((faqRef, index) => {
+      if (!faqRef) return; // Skip if the ref is null
+  
       const handleIntersection = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             animate(
-              faqRef,
+              faqRef, // Safe to use because of the null check
               { opacity: [0, 1], y: [20, 0] },
               { duration: 0.6, delay: index * 0.15 } // Staggered delay
             );
@@ -50,12 +52,12 @@ const FAQ = ({ faqList }: Props) => {
           }
         });
       };
-
+  
       const observer = new IntersectionObserver(handleIntersection, observerOptions);
-      if (faqRef) observer.observe(faqRef);
+      observer.observe(faqRef); // Safe to use because of the null check
       return () => observer.disconnect();
     });
-  }, []);
+  }, []);  
 
   return (
     <Container disableGutters component="section" id="faq-accordion" className={styles.container}>
