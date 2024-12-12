@@ -7,6 +7,7 @@ import GeneralFooter from "../components/GeneralFooter";
 import Knowledge from "../components/Knowledge";
 import Technique from "../components/Technique";
 import Interpretation from "../components/Interpretation";
+import ContactIcon from "../components/ContactIcon";
 import styles from "./about.module.css";
 
 const About: NextPage = () => {
@@ -23,6 +24,7 @@ const About: NextPage = () => {
           <Knowledge />
           <Technique />
           <Interpretation />
+          <ContactIcon />
           <GeneralFooter />
         </div>
       </>

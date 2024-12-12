@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { animate } from "motion";
 import NavBar from "../components/NavBar";
 import { NavBarProvider } from "../components/NavBarContext";
+import ContactIcon from "../components/ContactIcon";
 import GeneralFooter from "../components/GeneralFooter";
 import Card from "../components/Card";
 import styles from "./free-resources.module.css";
@@ -87,6 +88,7 @@ const FreeResources: NextPage = () => {
           <link rel="icon" href="/head_logo.png" />
         </Head>
         <NavBar />
+        <ContactIcon />
         <div className={styles.freeResources}>
           <div className={styles.content}>
             <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>

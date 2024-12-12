@@ -26,19 +26,39 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     return !newErrors.email && !newErrors.message;
   };
 
-  const onSendMessage = () => {
+  const onSendMessage = async () => {
     if (validateForm()) {
-      console.log("Message sent:", { email, message });
-      setEmail(""); // Clear the email field after sending
-      setMessage(""); // Clear the message field after sending
-      setErrors({ email: false, message: false });
-      onClose(); // Close the modal
+      onClose();
+
+      try {
+        const apiUrl = "https://oerf0eurlb.execute-api.eu-central-1.amazonaws.com/production";
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            message,
+          }),
+        });
+
+        if (response.ok) {
+          setEmail("");
+          setMessage("");
+          setErrors({ email: false, message: false });
+        } else {
+          console.error("API request failed:", response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error("Error during API request:", error);
+      }
     }
   };
 
   const handleClose = () => {
-    setEmail(""); // Clear the email field when closing the modal
-    setMessage(""); // Clear the message field when closing the modal
+    setEmail(""); // Clear email field when closing modal
+    setMessage(""); // Clear message field when closing modal
     setErrors({ email: false, message: false }); // Clear any errors
     onClose(); // Close the modal
   };

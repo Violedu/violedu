@@ -6,6 +6,7 @@ import { TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import GeneralFooter from "../../components/GeneralFooter";
 import NavBar from "../../components/NavBar";
+import ContactIcon from "../../components/ContactIcon";
 import { NavBarProvider } from "../../components/NavBarContext";
 import styles from "./worksheet.module.css";
 
@@ -152,6 +153,7 @@ const Worksheet: NextPage = () => {
           <link rel="icon" href="/head_logo.png" />
         </Head>
         <NavBar />
+        <ContactIcon />
         <div className={styles.worksheet}>
           <div className={styles.content}>
             <div className={styles.title} ref={headlineRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
