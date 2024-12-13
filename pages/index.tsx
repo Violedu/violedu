@@ -57,8 +57,6 @@ const Main: NextPage = () => {
           <Offers />
           <IntroTestemonials />
           <Testemonials />
-          <Intro introTitle="Everything you need to know." />
-          <FAQList />
           <GeneralFooter />
           <ContactIcon />
           <Dialog open={isOpen} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
