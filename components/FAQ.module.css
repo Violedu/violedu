@@ -1,75 +1,75 @@
 /* FAQ.module.css */
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
 .accordion {
-  margin-bottom: 0.8rem;
-  overflow: hidden; /* Ensure content stays within the rounded corners */
-  border-radius: var(--br-xl);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06), 0 24px 83px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 969px; /* Maximum width for FAQ items */
+  margin-bottom: 0.8rem !important;
+  overflow: hidden !important; /* Ensure content stays within the rounded corners */
+  border-radius: var(--br-xl) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06), 0 24px 83px rgba(0, 0, 0, 0.1) !important;
+  width: 100% !important;
+  max-width: 969px !important; /* Maximum width for FAQ items */
 }
 
   
   /* Remove border lines in between to make the radius visible */
   .accordion > .MuiAccordionSummary-root,
   .accordion > .MuiAccordionDetails-root {
-    border-top: none;
-    border-bottom: none;
+    border-top: none !important;
+    border-bottom: none !important;
   }
   
   /* Apply specific border radius for the top and bottom when expanded */
   .accordion:first-of-type .MuiAccordionSummary-root {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
   }
   
   .accordion:last-of-type .MuiAccordionDetails-root {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
   }
   
   /* Expanded state adjustments */
   .accordion.Mui-expanded {
-    margin: 0; /* Remove spacing when expanded to avoid visual gaps */
+    margin: 0 !important; /* Remove spacing when expanded to avoid visual gaps */
   }
   
   /* Optional: Icon color */
   .expandIcon {
-    color: var(--color-cornflowerblue);
+    color: var(--color-cornflowerblue) !important;
   }
   
   
   .questionText {
-    text-align: left;
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    font-family: var(--font-inter);
+    text-align: left !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    font-family: var(--font-inter) !important;
   }
   
   .answerText {
-    text-align: left;
-    font-size: 17px;
-    font-family: var(--font-inter);
-    font-weight: 300;
+    text-align: left !important;
+    font-size: 17px !important;
+    font-family: var(--font-inter) !important;
+    font-weight: 300 !important;
   }
   
   .expandIcon {
-    color: var(--color-cornflowerblue);
+    color: var(--color-cornflowerblue) !important;
   }
   
   @media screen and (max-width: 744px) {
     .questionText {
-        font-size: var(--font-size-base);
+        font-size: var(--font-size-base) !important;
     }
 
     .answerText {
-      font-size: 15px;
+      font-size: 15px !important;
   }
   }
   
