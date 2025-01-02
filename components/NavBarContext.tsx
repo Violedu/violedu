@@ -43,7 +43,27 @@ export const NavBarProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const onRequestLessonClick = () => {
-    router.push('/request');
+    const scrollToSection = () => {
+      const anchor = document.querySelector("[data-scroll-to='offersContainer']");
+      if (anchor) {
+        anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+      }
+    };
+  
+    if (router.pathname === '/') {
+      // Already on the home page, just scroll
+      scrollToSection();
+    } else {
+      // Navigate to the home page and scroll after navigation
+      const handleRouteChange = () => {
+        // Wait briefly to ensure DOM has rendered
+        setTimeout(scrollToSection, 100); // Adjust delay as needed
+        router.events.off('routeChangeComplete', handleRouteChange); // Cleanup listener
+      };
+  
+      router.events.on('routeChangeComplete', handleRouteChange);
+      router.push('/');
+    }
   };
 
   return (
