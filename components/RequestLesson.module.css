@@ -128,7 +128,7 @@
   background-color: var(--color-white);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06),
     0 24px 83px rgba(0, 0, 0, 0.1);
-  width: 694px;
+  width: 710px;
   align-items: center;
   padding: var(--padding-53xl) var(--padding-21xl) var(--padding-101xl);
   box-sizing: border-box;
@@ -148,6 +148,7 @@
   text-align: left;
   font-size: var(--font-size-xl);
   color: var(--color-black);
+  gap: var(--gap-41xl);
 }
 .requestlesson {
   background-color: var(--color-whitesmoke);
@@ -161,6 +162,20 @@
   color: var(--color-gray-200);
   font-family: var(--font-inter);
 }
+
+.selectedLearningPath {
+  border-radius: var(--br-11xl);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06),
+    0 24px 83px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  height: 450px;
+  align-items: center;
+  padding: var(--padding-53xl) var(--padding-21xl) var(--padding-101xl);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
 @media screen and (max-width: 744px) {
   .introTitle {
     font-size: var(--font-size-29xl);
@@ -194,4 +209,166 @@
     text-align: center;
     flex: 1;
   }
+}
+
+.single {
+  border-radius: var(--br-21xl);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06),
+    0 24px 83px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 650px;
+  padding: var(--padding-41xl) var(--padding-21xl) var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-35xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.intensive {
+  border-radius: var(--br-21xl);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06),
+    0 24px 83px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 800px;
+  padding: var(--padding-41xl) var(--padding-21xl) var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-35xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mastery {
+  border-radius: var(--br-21xl);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 5px 18px rgba(0, 0, 0, 0.06),
+    0 24px 83px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 850px;
+  padding: var(--padding-41xl) var(--padding-21xl) var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-35xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-9xl);
+}
+
+.title1 {
+  position: relative;
+  letter-spacing: -2.07px;
+  font-weight: 800;
+  font-size: var(--font-size-29xl);
+}
+
+.price1 {
+  position: relative;
+  font-size: var(--font-size-15xl);
+  letter-spacing: -1px;
+  font-weight: 300;
+}
+
+.perSession {
+  font-size: 0.5em;
+  color: grey;
+  margin-left: 4px;
+}
+
+.text1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 264.6px;
+  height: 240px;
+  gap: var(--gap-lgi);
+  font-size: var(--font-size-base);
+}
+
+.features {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-5xs);
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+}
+
+.icon {
+  position: relative;
+  width: 15.6px;
+  height: 15.6px;
+}
+
+.minSession {
+  position: relative;
+  letter-spacing: 0.08px;
+  line-height: 26.76px;
+}
+
+.textChild {
+  position: relative;
+  background-color: var(--color-gainsboro-300);
+  border-top: 2px solid var(--color-gainsboro-200);
+  box-sizing: border-box;
+  width: 225px;
+  height: 1px;
+}
+
+.suitableText {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: var(--font-size-base);
+  justify-content: flex-start;
+}
+
+.title2 {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-3xs);
+}
+
+.title3 {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.08px;
+  line-height: 26.76px;
+  display: flex;
+  align-items: center;
+  height: 19px;
+}
+
+.suitable {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-3xs);
+  font-size: var(--font-size-base);
 }
