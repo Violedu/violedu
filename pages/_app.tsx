@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { DialogProvider } from '../components/DialogContext';
-
+import { LearningPathProvider } from "../components/LearningPathContext";
 import "./global.css";
 
 export default function MyApp(props: AppProps) {
@@ -20,21 +20,23 @@ export default function MyApp(props: AppProps) {
   const muiTheme = createTheme();
 
   return (
-    <DialogProvider>
-      <Fragment>
-        <Head>
-          <title>violedu</title>
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
-          />
-        </Head>
-        <ThemeProvider theme={muiTheme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </Fragment>
-    </DialogProvider>
+    <LearningPathProvider>
+      <DialogProvider>
+        <Fragment>
+          <Head>
+            <title>violedu</title>
+            <meta
+              name="viewport"
+              content="minimum-scale=1, initial-scale=1, width=device-width"
+            />
+          </Head>
+          <ThemeProvider theme={muiTheme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </Fragment>
+      </DialogProvider>
+    </LearningPathProvider>
   );
 }

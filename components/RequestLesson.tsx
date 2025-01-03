@@ -14,12 +14,13 @@ import {
 import { useRouter } from "next/router";
 import styles from "./RequestLesson.module.css";
 import LearningPathCard from "./LearningPathCard";
-import { useDialog } from './DialogContext';
+import { useLearningPath } from "../components/LearningPathContext";
 
 type LearningPathType = 'Single' | 'Intensive' | 'Mastery' | undefined;
 
 const RequestLesson: NextPage = () => {
   const router = useRouter();
+  const { learningPath } = useLearningPath();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -27,7 +28,7 @@ const RequestLesson: NextPage = () => {
     age: "",
     yearsOfPlaying: "",
     countryOfResidence: "",
-    learningPath: "",
+    learningPath: learningPath,
     agreeToTerms: false,
   });
 

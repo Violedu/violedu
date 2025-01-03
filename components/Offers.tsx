@@ -3,9 +3,11 @@ import { animate } from "motion";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "./Offers.module.css";
+import { useLearningPath } from "../components/LearningPathContext";
 
 const Offers: NextPage = () => {
   const router = useRouter();
+  const { setLearningPath } = useLearningPath();
 
   const introTitleRef = useRef<HTMLDivElement>(null);
   const offers1Ref = useRef<HTMLDivElement>(null); // Ref for the offers1 div
@@ -19,14 +21,17 @@ const Offers: NextPage = () => {
   const [hasAnimatedFreeAssessmentSession, setHasAnimatedFreeAssessmentSession] = useState(false);
 
   const onButtonClick = useCallback(() => {
+    setLearningPath("Single");
     router.push("/request");
   }, [router]);
 
   const onButton1Click = useCallback(() => {
+    setLearningPath("Intensive");
     router.push("/request");
   }, [router]);
 
   const onButton2Click = useCallback(() => {
+    setLearningPath("Mastery");
     router.push("/request");
   }, [router]);
 
