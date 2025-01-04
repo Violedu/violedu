@@ -19,6 +19,5 @@
 @media screen and (max-width: 744px) {
   .request {
     padding-top: var(--padding-41xl);
-    padding-bottom: var(--padding-81xl);
   }
 }
