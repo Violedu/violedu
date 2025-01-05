@@ -148,7 +148,7 @@ const TermsContent: NextPage = () => {
           </div>
         </div>
         <div className={styles.paragraph}>
-          <div className={styles.text}>Last Updated: January 1, 2024</div>
+          <div className={styles.text}>Last Updated: January 1, 2025</div>
         </div>
       </div>
     </div>

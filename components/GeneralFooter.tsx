@@ -96,7 +96,7 @@ const GeneralFooter: NextPage = () => {
       </div>
       <div className={styles.bottomInfo}>
         <div className={styles.copyright}>
-          © 2024 — Copyright All Rights reserved
+          © 2025 — Copyright All Rights reserved
         </div>
         <div className={styles.termsAndPrivacy}>
           <a className={styles.terms} onClick={onTermsClick}>
