@@ -167,6 +167,7 @@ const RequestLesson: NextPage = () => {
         </div>
       </div>
       <div className={styles.content} ref={contentRef} style={{ opacity: 0, transform: 'translateY(24px)' }}>
+        <img className={styles.imageIcon} alt="" src="/image@2x.png" />
         <div className={styles.frame}>
           <div className={styles.box}>
             <div className={styles.forms}>
@@ -278,7 +279,9 @@ const RequestLesson: NextPage = () => {
             </button>
           </div>
         </div>
-        <LearningPathCard learningPath={formData.learningPath as LearningPathType} />
+        <div className={styles.learningPathCard}>
+          <LearningPathCard learningPath={formData.learningPath as LearningPathType} />          
+        </div>
       </div>
     </div>
   );

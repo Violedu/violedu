@@ -33,12 +33,12 @@
 .imageIcon {
   position: absolute;
   margin: 0 !important;
-  bottom: 50px;
-  left: calc(50% + 236px);
+  bottom: -30px;
+  left: calc(50% + 56px);
   width: 186px;
   height: 173px;
   object-fit: cover;
-  z-index: 0;
+  z-index: -1;
 }
 .name,
 .personalInformation {
@@ -174,41 +174,6 @@
   padding: var(--padding-53xl) var(--padding-21xl) var(--padding-101xl);
   box-sizing: border-box;
   z-index: 1;
-}
-
-@media screen and (max-width: 744px) {
-  .introTitle {
-    font-size: var(--font-size-29xl);
-  }
-  .title {
-    align-self: stretch;
-    width: auto;
-  }
-  .personalInformation,
-  .submitRequest {
-    font-size: var(--font-size-lg);
-  }
-  .frame {
-    flex: 1;
-  }
-  .requestlesson {
-    gap: var(--gap-21xl);
-  }
-}
-@media screen and (max-width: 430px) {
-  .introTitle {
-    font-size: var(--font-size-15xl);
-    line-height: 40px;
-  }
-  .submitRequest {
-    font-size: var(--font-size-base);
-  }
-}
-@media screen and (max-width: 1024px) {
-  .introTitle {
-    text-align: center;
-    flex: 1;
-  }
 }
 
 .single {
@@ -372,3 +337,48 @@
   padding: var(--padding-3xs);
   font-size: var(--font-size-base);
 }
+
+
+@media screen and (max-width: 744px) {
+  .introTitle {
+    font-size: var(--font-size-29xl);
+  }
+  .title {
+    align-self: stretch;
+    width: auto;
+  }
+  .personalInformation,
+  .submitRequest {
+    font-size: var(--font-size-lg);
+  }
+  .frame {
+    flex: 1;
+    width: 100%;
+  }
+  .requestlesson {
+    gap: var(--gap-21xl);
+  }
+}
+@media screen and (max-width: 430px) {
+  .introTitle {
+    font-size: var(--font-size-15xl);
+    line-height: 40px;
+  }
+  .submitRequest {
+    font-size: var(--font-size-base);
+  }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .learningPathCard {
+    display: none;
+  }
+  .introTitle {
+    text-align: center;
+    flex: 1;
+  }
+}
+
+
