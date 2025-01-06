@@ -102,7 +102,7 @@ const faqData = [
     params: {
       id: "faq-8",
       question: "What are my payment options?",
-      answer: "Payments are securely processed through PayPal and Stripe, and you’ll receive an email receipt immediately after purchase.",
+      answer: "We accept payments via credit and debit cards, PayPal, and Apple Pay for your convenience. You will receive an email receipt immediately after purchase.",
     },
   },
 ];
