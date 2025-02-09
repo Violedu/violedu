@@ -1,8 +1,20 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { parseCookies } from 'nookies'; // Import nookies
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps,
+} from 'next/document';
+import { parseCookies } from 'nookies';
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+// Define a custom interface that extends Next.js' DocumentInitialProps
+interface MyDocumentProps extends DocumentInitialProps {
+  enableGA: boolean;
+}
+
+class MyDocument extends Document<MyDocumentProps> {
+  static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
     const initialProps = await Document.getInitialProps(ctx);
     const { req } = ctx;
     let enableGA = false;
@@ -13,11 +25,11 @@ class MyDocument extends Document {
       enableGA = cookies.cookieAccepted === 'true';
     }
 
-    return { ...initialProps, enableGA };
+    return { ...initialProps, enableGA }; // Properly return the extended props
   }
 
   render() {
-    const { enableGA } = this.props;
+    const { enableGA } = this.props; // No need for type assertion now!
 
     const gtagScript = `https://www.googletagmanager.com/gtag/js?id=G-S7PW6X8LQ1`;
 
@@ -39,7 +51,10 @@ class MyDocument extends Document {
               />
             </>
           )}
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

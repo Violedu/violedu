@@ -40,7 +40,7 @@ const CookieBanner = () => {
 
   const disableGoogleAnalytics = () => {
     // Disable Google Analytics tracking
-    window['ga-disable-G-S7PW6X8LQ1'] = true;
+    (window as any)['ga-disable-G-S7PW6X8LQ1'] = true;
   };
 
   if (!showBanner) {
