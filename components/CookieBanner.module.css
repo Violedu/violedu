@@ -14,6 +14,13 @@
     -webkit-backdrop-filter: blur(5px);
   }
   
+  .cookieBannerWrapper {
+    width: 1170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .cookieText {
     color: var(--color-gray-300); /* Use a gray color for the text */
     font-size: 14px;
@@ -46,7 +53,7 @@
   .declineButton {
     background-color: transparent;
     color: var(--color-gray-300);
-    border: 1px solid var(--color-gray-300);
+    border: 1px solid var(--color-dimgray);
   }
   
   .acceptButton:hover {
@@ -61,17 +68,36 @@
   
   @media (max-width: 768px) {
     .cookieBanner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+    }
+  
+    .cookieBannerWrapper {
+      width: 90%; /* Ensure it scales properly */
+      max-width: 600px; /* Set a max width */
       flex-direction: column;
       gap: 10px;
       align-items: center;
+      text-align: center;
     }
   
     .cookieText {
-      max-width: 90%;
+      max-width: 100%;
     }
   
     .buttons {
-      flex-direction: row;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      align-items: center;
+    }
+  
+    .acceptButton,
+    .declineButton {
+      width: 100%; /* Make buttons full-width */
+      text-align: center;
     }
   }
   
