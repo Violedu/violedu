@@ -1,56 +1,40 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-  DocumentInitialProps,
-} from 'next/document';
-import { parseCookies } from 'nookies';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-// Define a custom interface that extends Next.js' DocumentInitialProps
-interface MyDocumentProps extends DocumentInitialProps {
-  enableGA: boolean;
-}
+const gtag = `https://www.googletagmanager.com/gtag/js?id=G-S7PW6X8LQ1`;
 
-class MyDocument extends Document<MyDocumentProps> {
-  static async getInitialProps(ctx: DocumentContext): Promise<MyDocumentProps> {
-    const initialProps = await Document.getInitialProps(ctx);
-    const { req } = ctx;
-    let enableGA = false;
-
-    if (req) {
-      // Use nookies to parse cookies safely
-      const cookies = parseCookies(ctx);
-      enableGA = cookies.cookieAccepted === 'true';
-    }
-
-    return { ...initialProps, enableGA }; // Properly return the extended props
-  }
-
+export default class MyDocument extends Document {
   render() {
-    const { enableGA } = this.props; // No need for type assertion now!
-
-    const gtagScript = `https://www.googletagmanager.com/gtag/js?id=G-S7PW6X8LQ1`;
-
     return (
       <Html>
         <Head>
-          {enableGA && (
-            <>
-              <script async src={gtagScript} />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-S7PW6X8LQ1');
-                  `,
-                }}
-              />
-            </>
-          )}
+          {/* 1. First set disable flag */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                // Block GA by default until consent
+                window['ga-disable-G-S7PW6X8LQ1'] = true;
+              `,
+            }}
+          />
+          
+          {/* 2. Then load GA script */}
+          <script async src={gtag} />
+          
+          {/* 3. Initialize dataLayer and check cookies */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                
+                // Check cookies AFTER GA script loads
+                if (document.cookie.includes('cookieAccepted=true')) {
+                  window['ga-disable-G-S7PW6X8LQ1'] = false;
+                  gtag('config', 'G-S7PW6X8LQ1');
+                }
+              `,
+            }}
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet"
@@ -64,5 +48,3 @@ class MyDocument extends Document<MyDocumentProps> {
     );
   }
 }
-
-export default MyDocument;
