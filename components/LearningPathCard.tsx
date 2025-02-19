@@ -16,7 +16,7 @@ const LearningPathCard: React.FC<LearningPathCardProps> = ({ learningPath }) => 
             <div className={styles.top}>
               <div className={styles.title1}>Single</div>
               <div className={styles.price1}>
-                $85
+                80€
                 <span className={styles.perSession}>/session</span>
               </div>
             </div>
@@ -74,7 +74,7 @@ const LearningPathCard: React.FC<LearningPathCardProps> = ({ learningPath }) => 
             <div className={styles.top}>
               <div className={styles.title1}>Intensive</div>
               <div className={styles.price1}>
-                $75
+                70€
                 <span className={styles.perSession}>/session</span>
               </div>
             </div>
@@ -150,7 +150,7 @@ const LearningPathCard: React.FC<LearningPathCardProps> = ({ learningPath }) => 
             <div className={styles.top}>
               <div className={styles.title1}>Mastery</div>
               <div className={styles.price1}>
-                $70
+                65€
                 <span className={styles.perSession}>/session</span>
               </div>
             </div>
