@@ -1,12 +1,3 @@
-declare global {
-  interface Calendly {
-    initPopupWidget: (options: { url: string }) => void;
-  }
-  interface Window {
-    Calendly: Calendly;
-  }
-}
-
 import type { NextPage } from "next";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { animate } from "motion";
@@ -82,55 +73,43 @@ const RequestLesson: NextPage = () => {
     return Object.values(newErrors).every((error) => !error);
   };
 
-const onButtonClick = async () => {
-    if (validateForm()) {
-        
-        // This will be used to ensure the Calendly object is available
-        const CALENDLY_URL = "https://calendly.com/violeduinternal/30-minute-meeting";
 
-        try {
-            const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
+  const onButtonClick = async () => {
+    if (validateForm()) {   
+      const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
 
-            const response = await fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: formData.fullName,
-                    email: formData.email,
-                    age: Number(formData.age),
-                    yearsOfPlaying: Number(formData.yearsOfPlaying),
-                    countryOfResidence: formData.countryOfResidence,
-                    learningPath: formData.learningPath,
-                }),
-            });
+      try {
+          const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
 
-            if (response.ok) {
-                // API request succeeded. Now, perform the navigation.
+          const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  name: formData.fullName,
+                  email: formData.email,
+                  age: Number(formData.age),
+                  yearsOfPlaying: Number(formData.yearsOfPlaying),
+                  countryOfResidence: formData.countryOfResidence,
+                  learningPath: formData.learningPath,
+              }),
+          });
 
-                // 1. Navigate to the home page (as you requested)
-                router.push("/");
+          if (response.ok) {              
+              // Navigate to the home page or show a dialog
+              router.push("/");
 
-                // 2. Open the Calendly scheduler using the official widget function
-                // This replaces the problematic window.open()
-                if (window.Calendly) {
-                    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-                } else {
-                    // Fallback in case the script hasn't loaded (less likely)
-                    window.open(CALENDLY_URL, "_blank");
-                }
-                
-            } else {
-                console.error("API request failed:", response.status, response.statusText);
-                // Optional: Show an error message to the user
-            }
-        } catch (error) {
-            console.error("Error during API request:", error);
-            // Optional: Show a network error message to the user
-        }
+              // Bring the Calendly tab into focus if it was opened
+              if (calendlyWindow) calendlyWindow.focus();
+          } else {
+              console.error("API request failed:", response.status, response.statusText);
+          }
+      } catch (error) {
+          console.error("Error during API request:", error);
+      }
     }
-};
+  };
 
   const titleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
