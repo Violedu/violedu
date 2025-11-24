@@ -86,7 +86,7 @@ const onButtonClick = async () => {
     if (validateForm()) {
         
         // This will be used to ensure the Calendly object is available
-        const CALENDLY_URL = "https://calendly.com/contact-violedu/30min";
+        const CALENDLY_URL = "https://calendly.com/violeduinternal/30-minute-meeting";
 
         try {
             const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
