@@ -1,3 +1,12 @@
+declare global {
+  interface Calendly {
+    initPopupWidget: (options: { url: string }) => void;
+  }
+  interface Window {
+    Calendly: Calendly;
+  }
+}
+
 import type { NextPage } from "next";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { animate } from "motion";
