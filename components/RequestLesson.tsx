@@ -18,6 +18,39 @@ import { useLearningPath } from "../components/LearningPathContext";
 
 type LearningPathType = 'Single' | 'Intensive' | 'Mastery' | undefined;
 
+// --- New: List of countries for the dropdown ---
+const COUNTRIES = [
+  "United States",
+  "Austria",
+  "Belgium",
+  "Bulgaria",
+  "Croatia",
+  "Cyprus",
+  "Czechia",
+  "Denmark",
+  "Estonia",
+  "Finland",
+  "France",
+  "Germany",
+  "Greece",
+  "Hungary",
+  "Ireland",
+  "Italy",
+  "Latvia",
+  "Lithuania",
+  "Luxembourg",
+  "Malta",
+  "Netherlands",
+  "Poland",
+  "Portugal",
+  "Romania",
+  "Slovakia",
+  "Slovenia",
+  "Spain",
+  "Sweden",
+];
+// -----------------------------------------------
+
 const RequestLesson: NextPage = () => {
   const router = useRouter();
   const { learningPath } = useLearningPath();
@@ -42,10 +75,10 @@ const RequestLesson: NextPage = () => {
     agreeToTerms: false,
   });
 
-  const onInputChange = (field: string, value: string) => {
+  const onInputChange = (field: string, value: string | boolean) => {
     setFormData((prevData) => ({
       ...prevData,
-      [field]: field === "agreeToTerms" ? !prevData[field] : value,
+      [field]: field === "agreeToTerms" ? value : value,
     }));
     setErrors((prevErrors) => ({
       ...prevErrors,
@@ -64,7 +97,7 @@ const RequestLesson: NextPage = () => {
       yearsOfPlaying:
         formData.yearsOfPlaying === "" || !isInteger(formData.yearsOfPlaying),
       countryOfResidence: formData.countryOfResidence === "",
-      learningPath: formData.learningPath === "",
+      learningPath: formData.learningPath === "" || !formData.learningPath,
       agreeToTerms: !formData.agreeToTerms,
     };
 
@@ -75,38 +108,38 @@ const RequestLesson: NextPage = () => {
 
 
   const onButtonClick = async () => {
-    if (validateForm()) {   
+    if (validateForm()) {
       const calendlyWindow = window.open("https://calendly.com/contact-violedu/30min", "_blank");
 
       try {
-          const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
+        const apiUrl = "https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev";
 
-          const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                  name: formData.fullName,
-                  email: formData.email,
-                  age: Number(formData.age),
-                  yearsOfPlaying: Number(formData.yearsOfPlaying),
-                  countryOfResidence: formData.countryOfResidence,
-                  learningPath: formData.learningPath,
-              }),
-          });
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            age: Number(formData.age),
+            yearsOfPlaying: Number(formData.yearsOfPlaying),
+            countryOfResidence: formData.countryOfResidence,
+            learningPath: formData.learningPath,
+          }),
+        });
 
-          if (response.ok) {              
-              // Navigate to the home page or show a dialog
-              router.push("/");
+        if (response.ok) {
+          // Navigate to the home page or show a dialog
+          router.push("/");
 
-              // Bring the Calendly tab into focus if it was opened
-              if (calendlyWindow) calendlyWindow.focus();
-          } else {
-              console.error("API request failed:", response.status, response.statusText);
-          }
+          // Bring the Calendly tab into focus if it was opened
+          if (calendlyWindow) calendlyWindow.focus();
+        } else {
+          console.error("API request failed:", response.status, response.statusText);
+        }
       } catch (error) {
-          console.error("Error during API request:", error);
+        console.error("Error during API request:", error);
       }
     }
   };
@@ -220,17 +253,39 @@ const RequestLesson: NextPage = () => {
                   error={errors.yearsOfPlaying}
                   helperText={errors.yearsOfPlaying ? "Please enter the number of years you've been playing" : ""}
                 />
-                <TextField
+                
+                {/* --- Replaced TextField with Select for Country of Residence --- */}
+                <FormControl
                   className={`${styles.name} ${errors.countryOfResidence ? styles.error : ""}`}
-                  color="primary"
-                  label="Country of Residence"
-                  required={true}
                   variant="outlined"
-                  value={formData.countryOfResidence}
-                  onChange={(e) => onInputChange("countryOfResidence", e.target.value)}
+                  required={true}
                   error={errors.countryOfResidence}
-                  helperText={errors.countryOfResidence ? "Please enter your country of residence" : ""}
-                />
+                >
+                  <InputLabel color={errors.countryOfResidence ? "error" : "primary"}>
+                    Country of Residence
+                  </InputLabel>
+                  <Select
+                    color="primary"
+                    label="Country of Residence"
+                    value={formData.countryOfResidence}
+                    onChange={(e) => onInputChange("countryOfResidence", e.target.value)}
+                    error={errors.countryOfResidence}
+                  >
+                    <MenuItem value="">
+                        <em>Select Country</em>
+                    </MenuItem>
+                    {COUNTRIES.map((country) => (
+                      <MenuItem key={country} value={country}>
+                        {country}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText>
+                    {errors.countryOfResidence ? "Please select your country of residence" : ""}
+                  </FormHelperText>
+                </FormControl>
+                {/* ------------------------------------------------------------- */}
+
               </div>
               <div className={styles.personalInfo}>
                 <div className={styles.personalInformation}>Learning Path</div>
@@ -267,7 +322,7 @@ const RequestLesson: NextPage = () => {
                   <Checkbox
                     color="primary"
                     checked={formData.agreeToTerms}
-                    onChange={(e) => onInputChange("agreeToTerms", e.target.checked.toString())}
+                    onChange={(e) => onInputChange("agreeToTerms", e.target.checked)}
                   />
                 }
               />
@@ -281,7 +336,7 @@ const RequestLesson: NextPage = () => {
           </div>
         </div>
         <div className={styles.learningPathCard}>
-          <LearningPathCard learningPath={formData.learningPath as LearningPathType} />          
+          <LearningPathCard learningPath={formData.learningPath as LearningPathType} />
         </div>
       </div>
     </div>
