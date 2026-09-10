@@ -3,6 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
+        # The default Amplify (AL2) image ships Node 16; Next.js 14 needs >=18.17.
+        - nvm install 20
+        - nvm use 20
         - npm ci
     build:
       commands:
