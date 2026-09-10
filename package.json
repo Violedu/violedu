@@ -1,31 +1,31 @@
 {
-  "name": "violedu",
+  "name": "violedu-masterclass",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "^5.13.4",
-    "motion": "^10.18.0",
-    "next": "^13.2.4",
-    "nookies": "^2.5.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.2.1"
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.17.0",
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.42",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "eslint": "8.17.0",
-    "eslint-config-next": "13.2.4",
-    "typescript": "4.7.3"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint"
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.40",
+    "puppeteer": "^25.0.4",
+    "tailwindcss": "3.4.7"
   }
 }

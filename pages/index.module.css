@@ -1,8 +1,0 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Ensure padding/margins are included in width */
-}

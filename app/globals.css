@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-dark: #17152f;
+  --background-deep: #121029;
+  --light-70: rgba(255, 255, 255, 0.7);
+  --light-font: #fafafa;
+  --accent: #6f4cff;
+  --accent-violet: #8b5cf6;
+  --peach: #fbd5cf;
+}
+
+html,
+body {
+  background-color: var(--background-dark);
+  color: var(--light-70);
+  font-family: 'Manrope', 'Britti Sans', Inter, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.03rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--light-font);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.9'/></svg>");
+}
+
+/* Soft top fade behind hero text */
+.hero-vignette {
+  background:
+    radial-gradient(80% 60% at 50% 35%, rgba(111, 76, 255, 0.28) 0%, rgba(23, 21, 47, 0) 60%),
+    linear-gradient(to bottom, rgba(23, 21, 47, 0) 0%, rgba(23, 21, 47, 0.85) 80%, #17152f 100%);
+}
+
+.btn-peach {
+  background: var(--peach);
+  color: #161427;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 12px 22px;
+  transition: transform 200ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms;
+}
+.btn-peach:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px -10px rgba(251, 213, 207, 0.45);
+}
+.btn-peach:active { transform: translateY(0); }
+
+.btn-violet {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 12px 22px;
+  transition: transform 200ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms;
+}
+.btn-violet:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px -10px rgba(111, 76, 255, 0.55);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 12px 22px;
+  transition: background 200ms, transform 200ms;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  background: #1a1733;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 12px 22px;
+  transition: background 200ms, transform 200ms;
+}
+.btn-dark:hover {
+  background: #221e3e;
+  transform: translateY(-1px);
+}
+
+.input-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 9999px;
+  outline: none;
+  transition: border-color 200ms, background 200ms;
+}
+.input-dark:focus-visible {
+  border-color: rgba(139, 92, 246, 0.7);
+  background: rgba(255, 255, 255, 0.07);
+}
+.input-dark::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.card-soft {
+  background: linear-gradient(180deg, #20203f 0%, #1c1b3a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.5);
+}
+
+.section-pad {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.container-x {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Subtle star sparkles for certificate area */
+.sparkle {
+  filter: drop-shadow(0 0 6px rgba(168, 139, 255, 0.7));
+}
+
+/* Hide native number input spinners on the booking flow */
+input[type='number'].no-spinner::-webkit-outer-spin-button,
+input[type='number'].no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'].no-spinner {
+  -moz-appearance: textfield;
+}
+
+/* --- Booking questionnaire (/book) -------------------------------------
+   Kept in the global stylesheet (not styled-jsx) so the option cards, CTA
+   and inputs are styled on first paint — otherwise they flash unstyled
+   before styled-jsx injects on the client. */
+@keyframes step-enter {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.step-enter {
+  animation: step-enter 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cta-primary {
+  background: linear-gradient(180deg, #7a55ff 0%, #6440f0 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.005em;
+  border-radius: 14px;
+  padding: 16px 22px;
+  border: 1px solid rgba(196, 181, 253, 0.35);
+  box-shadow: 0 18px 40px -16px rgba(111, 76, 255, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 220ms, filter 200ms;
+}
+.cta-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 24px 50px -14px rgba(111, 76, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.cta-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+.cta-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.45),
+    0 18px 40px -16px rgba(111, 76, 255, 0.65);
+}
+.cta-disabled {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+.option-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(31, 28, 62, 0.55) 0%, rgba(26, 23, 53, 0.55) 100%);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 220ms, background 220ms, transform 200ms,
+    box-shadow 220ms;
+}
+.option-card:hover {
+  border-color: rgba(196, 181, 253, 0.3);
+  background: linear-gradient(180deg, rgba(36, 32, 76, 0.7) 0%, rgba(28, 25, 60, 0.7) 100%);
+}
+.option-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.2);
+}
+.option-selected {
+  border-color: rgba(196, 181, 253, 0.7) !important;
+  background: linear-gradient(160deg, rgba(111, 76, 255, 0.18) 0%, rgba(139, 92, 246, 0.08) 60%, rgba(251, 213, 207, 0.06) 100%) !important;
+  box-shadow: 0 0 0 1px rgba(196, 181, 253, 0.35),
+    0 18px 40px -22px rgba(111, 76, 255, 0.55);
+}
+.option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.option-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: linear-gradient(160deg, #a48bff 0%, #6f4cff 100%);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.18);
+  flex-shrink: 0;
+}
+
+.form-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  outline: none;
+  font-size: 15px;
+  line-height: 1.4;
+  transition: border-color 200ms, background 200ms, box-shadow 200ms;
+}
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.form-input:focus-visible {
+  border-color: rgba(196, 181, 253, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.15);
+}
+.form-input:invalid {
+  box-shadow: none;
+}
+select.form-input option {
+  background: #1a1735;
+  color: #fff;
+}

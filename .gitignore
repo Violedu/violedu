@@ -1,57 +1,37 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Next.js build output
+.next/
+out/
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
-# local env files
-.env*.local
+# Environment
+.env
+.env.*
+!.env.example
 
-# vercel
-.vercel
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
 
-# typescript
-*.tsbuildinfo
+# Claude local settings (keep shared config, ignore per-user)
+.claude/settings.local.json
 
-#amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/mock-api-resources
-amplify/backend/amplify-meta.json
-amplify/backend/.temp
-build/
-dist/
-node_modules/
-aws-exports.js
-awsconfiguration.json
-amplifyconfiguration.json
-amplifyconfiguration.dart
-amplify-build-config.json
-amplify-gradle-config.json
-amplifytools.xcconfig
-.secret-*
-**.sample
-#amplify-do-not-edit-end
+# Project-specific generated assets
+temporary screenshots/
+sections/
+sections_out/
+sections_out2/
+site_screenshot.png
+
+# Utility scripts
+inspect*.mjs
+screenshot-*.mjs

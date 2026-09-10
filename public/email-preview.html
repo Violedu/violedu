@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>violedu — contact form email preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #17152f;
+        --ink-soft: rgba(23, 21, 47, 0.62);
+        --ink-mute: rgba(23, 21, 47, 0.42);
+        --hairline: rgba(23, 21, 47, 0.09);
+        --accent: #6f4cff;
+        --accent-ink: #3a26a8;
+        --accent-soft: rgba(111, 76, 255, 0.07);
+        --canvas: #f3f1ec;
+        --card: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .stage {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 56px 24px 80px;
+      }
+
+      .preview-label {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+
+      .email {
+        background: var(--card);
+        border: 1px solid var(--hairline);
+        border-radius: 4px;
+      }
+
+      .email__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 40px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .email__wordmark {
+        height: 22px;
+        width: auto;
+        display: block;
+      }
+      .email__tag {
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        font-weight: 500;
+      }
+
+      .email__body {
+        padding: 56px 56px 48px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+      .eyebrow::before {
+        content: '';
+        width: 18px;
+        height: 1px;
+        background: var(--accent);
+        display: inline-block;
+      }
+
+      .headline {
+        font-size: 30px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        color: var(--ink);
+        margin: 0 0 18px;
+      }
+
+      .meta {
+        font-size: 15px;
+        color: var(--ink-soft);
+        margin: 0 0 40px;
+        line-height: 1.6;
+      }
+      .meta a {
+        color: var(--accent-ink);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(111, 76, 255, 0.25);
+      }
+      .meta .dot {
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--ink-mute);
+        vertical-align: middle;
+        margin: 0 10px 3px;
+      }
+
+      .section-label {
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        font-weight: 600;
+        margin: 0 0 12px;
+      }
+
+      .message {
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--ink);
+        padding: 4px 0 4px 20px;
+        border-left: 2px solid var(--accent);
+        margin: 0 0 44px;
+        white-space: pre-wrap;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--ink);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 13px 22px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+      }
+      .cta__arrow {
+        font-size: 16px;
+        line-height: 1;
+        transform: translateY(-1px);
+      }
+
+      .email__foot {
+        border-top: 1px solid var(--hairline);
+        padding: 24px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        color: var(--ink-mute);
+      }
+      .email__foot .socials {
+        display: inline-flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .email__foot .socials a {
+        display: inline-flex;
+        opacity: 0.55;
+      }
+      .email__foot .socials img {
+        width: 16px;
+        height: 16px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="preview-label">Email preview · contact form notification</div>
+
+      <article class="email">
+        <header class="email__top">
+          <img
+            class="email__wordmark"
+            src="https://violedu-email.s3.eu-central-1.amazonaws.com/logo_white_bg.png"
+            alt="violedu"
+          />
+          <span class="email__tag">Contact form</span>
+        </header>
+
+        <section class="email__body">
+          <div class="eyebrow">New masterclass inquiry</div>
+          <h1 class="headline">Test</h1>
+          <p class="meta">
+            From <strong style="font-weight:600;color:var(--ink);">Test</strong>
+            <span class="dot"></span>
+            <a href="mailto:ivosgeorgiev@yahoo.de">ivosgeorgiev@yahoo.de</a>
+          </p>
+
+          <div class="section-label">Message</div>
+          <div class="message">This is a test from the help handler.</div>
+
+          <a class="cta" href="mailto:ivosgeorgiev@yahoo.de?subject=Re:%20Test">
+            Reply to Test
+            <span class="cta__arrow">→</span>
+          </a>
+        </section>
+
+        <footer class="email__foot">
+          <span>© 2026 violedu · All rights reserved</span>
+          <span class="socials">
+            <a href="https://www.youtube.com/@Violedu-dm3uk">
+              <img src="https://violedu-email.s3.eu-central-1.amazonaws.com/iconyoutube.png" alt="YouTube" />
+            </a>
+            <a href="https://www.instagram.com/violedugrp/">
+              <img src="https://violedu-email.s3.eu-central-1.amazonaws.com/iconinstagram.png" alt="Instagram" />
+            </a>
+            <a href="https://www.facebook.com">
+              <img src="https://violedu-email.s3.eu-central-1.amazonaws.com/iconfacebook.png" alt="Facebook" />
+            </a>
+          </span>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Violedu — QA Test Checklist</title>
+<style>
+  :root {
+    --violet: #6f4cff;
+    --violet-d: #5a3df0;
+    --peach: #fbd5cf;
+    --ink: #1c1a2e;
+    --dim: #5b5872;
+    --muted: #8a87a0;
+    --line: #e7e5f0;
+    --bg: #f7f6fb;
+    --card: #ffffff;
+    --ok: #16a34a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: linear-gradient(135deg, #7a5bff 0%, #6f4cff 55%, #5a3df0 100%);
+    color: #fff;
+    padding: 20px clamp(16px, 4vw, 40px) 16px;
+    box-shadow: 0 8px 24px -12px rgba(60,30,160,0.45);
+  }
+  header.top h1 { margin: 0 0 4px; font-size: clamp(18px, 3.5vw, 24px); letter-spacing: -0.02em; }
+  header.top p { margin: 0; font-size: 13px; opacity: 0.9; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 clamp(12px, 3vw, 28px) 80px; }
+
+  .toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    margin: 18px 0 6px;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 12.5px; color: var(--dim); }
+  .legend b { color: var(--ink); }
+  .btn {
+    border: 1px solid var(--line); background: var(--card); color: var(--dim);
+    border-radius: 9px; padding: 7px 13px; font-size: 13px; cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .btn:hover { background: #f0eefb; color: var(--ink); border-color: #d9d5ee; }
+  .btn:active { transform: translateY(1px); }
+
+  .progress-wrap { margin: 14px 0 26px; }
+  .bar { height: 10px; border-radius: 99px; background: #e9e6f5; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0;
+    background: linear-gradient(90deg, #8b5cf6, #c4b5fd 55%, var(--peach));
+    transition: width .35s cubic-bezier(.2,.8,.2,1); }
+  .progress-label { font-size: 12.5px; color: var(--dim); margin-top: 7px; }
+  .progress-label b { color: var(--ink); }
+
+  section.group { margin-top: 30px; }
+  section.group > h2 {
+    font-size: 15px; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--violet-d); margin: 0 0 4px; font-weight: 700;
+  }
+  section.group > .sub { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 18px 40px -32px rgba(30,20,80,0.4); }
+
+  .row-head, .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) repeat(3, 58px) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 8px;
+    padding: 11px clamp(12px, 2.5vw, 18px);
+  }
+  .row-head {
+    background: #faf9fe; border-bottom: 1px solid var(--line);
+    font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700;
+  }
+  .row-head .col-c { text-align: center; }
+  .row + .row { border-top: 1px solid var(--line); }
+  .row:nth-child(even) { background: #fcfbff; }
+  .row .label { font-size: 14px; color: var(--ink); }
+  .row .label .tag {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; padding: 1px 7px; border-radius: 99px; margin-left: 6px; vertical-align: middle;
+  }
+  .tag.warn { background: #fff2cc; color: #8a6d00; }
+  .tag.only { background: #ede9fe; color: var(--violet-d); }
+  .row .cell { display: flex; justify-content: center; align-items: center; }
+
+  /* custom checkbox */
+  input[type=checkbox] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .box {
+    width: 22px; height: 22px; border-radius: 6px; border: 1.6px solid #cdc9e2; background: #fff;
+    display: inline-grid; place-items: center; cursor: pointer; transition: background .15s, border-color .15s, transform .1s;
+  }
+  .box svg { width: 13px; height: 13px; opacity: 0; transform: scale(.6); transition: opacity .15s, transform .15s; }
+  input:checked + .box { background: linear-gradient(160deg, #a48bff, var(--violet)); border-color: transparent; }
+  input:checked + .box svg { opacity: 1; transform: scale(1); }
+  input:focus-visible + .box { box-shadow: 0 0 0 3px rgba(111,76,255,.3); }
+  .box:hover { border-color: var(--violet); }
+  .cell.na { color: #cfccdd; font-size: 12px; }
+
+  .note-head { text-align: left; padding-left: 2px; }
+  .note-cell { display: flex; }
+  textarea.note {
+    width: 100%; font-family: inherit; font-size: 12.5px; color: var(--ink);
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 9px; resize: vertical; min-height: 34px; line-height: 1.45;
+    overflow: hidden; transition: border-color .15s, box-shadow .15s;
+  }
+  textarea.note:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(111,76,255,.18); }
+  textarea.note::placeholder { color: #bdbace; }
+  .row.has-note { box-shadow: inset 3px 0 0 var(--peach); }
+
+  /* chapter-level general notes row */
+  .row.gen-row {
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 12px; align-items: start; background: #faf9fe;
+  }
+  .row.gen-row .gen-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--muted); font-weight: 700; padding-top: 8px; white-space: nowrap;
+  }
+
+  footer.foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 40px; }
+
+  @media (max-width: 560px) {
+    .row-head, .row { grid-template-columns: 1fr repeat(3, 44px); gap: 6px 6px; }
+    .row-head { font-size: 10px; }
+    .box { width: 26px; height: 26px; }
+    .row .label { font-size: 13.5px; }
+    .note-head { display: none; }
+    .note-cell { grid-column: 1 / -1; margin-top: 2px; }
+    .row.gen-row { grid-template-columns: 1fr; gap: 6px; }
+    .row.gen-row .gen-label { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Violedu — Site QA Test Checklist</h1>
+  <p>Verify each case on three viewports. Checks auto-save in this browser.</p>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <div class="legend">
+      <span><b>Desktop</b> — full browser (≥1000px)</span>
+      <span><b>Small mobile</b> — ~375px (iPhone SE / mini)</span>
+      <span><b>Big mobile</b> — ~430px (Pro Max / large Android)</span>
+    </div>
+    <button class="btn" id="reset">Reset all</button>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="bar"><span id="barfill"></span></div>
+    <div class="progress-label"><b id="pct">0%</b> complete — <span id="count">0 / 0</span> checks
+      &nbsp;·&nbsp; Desktop <b id="cd">0/0</b> · Small <b id="csm">0/0</b> · Big <b id="cbm">0/0</b></div>
+  </div>
+
+  <div id="app"></div>
+
+  <footer class="foot">Generated for violedu.com · items marked <span class="tag warn" style="font-size:10px">verify</span> are code-level things worth confirming first.</footer>
+</div>
+
+<script>
+// device keys: d = desktop, sm = small mobile, bm = big mobile
+const ALL = ['d','sm','bm'];
+const DATA = [
+  { g: 'Pre-flight — code-level flags to confirm', sub: 'Things I spotted in the source that are worth verifying before the walkthrough.', items: [
+    { t: 'Booking API points at the PROD endpoint (not the /dev stage) in the deployed build', warn: 1, only: ['d'] },
+    { t: 'A real booking submission actually lands in DynamoDB + sends you the email (submit failures are silent)', warn: 1 },
+    { t: 'Calendly opens on submit even with a popup blocker; a fallback exists if blocked', warn: 1, only: ['sm','bm'] },
+    { t: 'Resource "Video"/"Course" format filters showing empty state is intentional', warn: 1, only: ['d'] },
+    { t: '"Download For Free" button (scrolls to top, no direct download) — copy is acceptable', warn: 1 },
+    { t: 'Hardcoded scarcity/dates are current: "October intake — 5 spots · 2 filled", "week of October 5th"', warn: 1, only: ['d'] },
+  ]},
+  { g: 'A · Navigation & header', items: [
+    { t: 'Logo click → returns to / (smooth-scrolls to top if already on /)' },
+    { t: 'Nav: "Free Resources" → /free-resources, "About" → /about' },
+    { t: '"Book Free 30-Min Call" button (header) → /book' },
+    { t: 'Header goes transparent → blurred after scrolling 24px' },
+    { t: 'Hamburger opens/closes menu; body scroll locks while open; Escape closes it', only: ['sm','bm'] },
+    { t: 'Each mobile menu link + Book button work and close the menu', only: ['sm','bm'] },
+    { t: 'Resize desktop browser below 1000px → nav collapses to hamburger', only: ['d'] },
+  ]},
+  { g: 'B · Booking flow (/book) — the money path', items: [
+    { t: 'Step through all 7 steps (level, years, target, repertoire, stuck-on, source, personal info)' },
+    { t: '"Continue" stays disabled until each step is valid; multi-select requires ≥1' },
+    { t: 'Number field rejects non-digits, respects 0–80; Enter advances' },
+    { t: '"Back" on step 1 leaves the questionnaire (browser back or /)' },
+    { t: 'Progress bar fills correctly per step' },
+    { t: 'Final validation: empty name / invalid email / empty age / no country / unchecked terms each error' },
+    { t: 'Terms & Privacy links open in a new tab' },
+    { t: 'Submit → Calendly opens in new tab AND booking recorded in backend + notification email arrives' },
+    { t: 'Correct keyboards appear (numeric for age/years, email keyboard for email)', only: ['sm','bm'] },
+  ]},
+  { g: 'C · Help chat widget (every page)', items: [
+    { t: 'Launcher (bottom-right) opens/closes panel; Escape closes; close arrow works' },
+    { t: 'Submit name/subject/email/message → success state, auto-closes; contact email arrives' },
+    { t: 'Required-field enforcement; invalid email blocked' },
+    { t: 'Error state appears if the request fails (test offline)' },
+    { t: 'Widget doesn’t overlap other CTAs; panel fits; keyboard doesn’t cover Send button', only: ['sm','bm'] },
+  ]},
+  { g: 'D · Newsletter signup (footer, every page)', items: [
+    { t: 'Valid email → "You’re subscribed" success + welcome email arrives (check promotions tab)' },
+    { t: 'Invalid email → inline validation error' },
+    { t: 'Network failure → error message with contact fallback' },
+    { t: 'Duplicate signup behaves gracefully' },
+  ]},
+  { g: 'E · Free resources', items: [
+    { t: '/free-resources lists 3 resources; "Showing N resources" count correct' },
+    { t: 'Category filter (Technique/Practice) works; Performance/Repertoire → empty state' },
+    { t: 'Format checkboxes (PDF works; Video/Course → empty state); "Clear Filters" resets' },
+    { t: 'Each card → correct detail page (sound-like-a-pro, learn-music-faster, master-your-vibrato)' },
+    { t: 'Detail: "Send To My Inbox" with valid name/email → success + worksheet email delivered' },
+    { t: 'Detail form validation (empty name, bad email); error state on network failure' },
+    { t: 'Breadcrumb "Back to all resources" works; "Download For Free" scrolls to top' },
+    { t: 'Bad slug (/free-resources/nonsense) → 404 / notFound' },
+  ]},
+  { g: 'F · Unsubscribe', items: [
+    { t: '/unsubscribe?email=you@example.com → success state + backend removes the record' },
+    { t: '/unsubscribe with no email param → "noemail" state' },
+    { t: 'Invalid/failed request → error state' },
+  ]},
+  { g: 'G · Media & content', items: [
+    { t: 'Hero background video autoplays (or poster shows if blocked); check mobile-data behavior' },
+    { t: 'Trailer video: play overlay → inline playback with controls; no unexpected fullscreen' },
+    { t: 'Testimonial video: same play behavior' },
+    { t: 'Instructor section: Instagram + YouTube links open in new tab (kalinageorgieva_violinist / @kalinamiteva5965)' },
+    { t: 'Footer YouTube icon + mailto:contact@violedu.com work' },
+    { t: 'All in-page "Book Your Free 30-Min Call →" CTAs (pricing, guarantees, FAQ, final band) → /book' },
+    { t: 'FAQ accordion expands / collapses' },
+  ]},
+  { g: 'H · Cookie consent & analytics', items: [
+    { t: 'Banner appears on first visit; Accept/Reject persists across reloads' },
+    { t: 'Analytics only fires after consent (check GA network calls before/after accepting)' },
+  ]},
+  { g: 'I · Cross-cutting', items: [
+    { t: 'Scroll-reveal animations fire; prefers-reduced-motion disables them' },
+    { t: 'Keyboard-only: tab through header, forms, chat — visible focus rings everywhere' },
+    { t: 'No horizontal scroll / overflow (check 375px and 430px)', only: ['sm','bm'] },
+    { t: 'Forms: rapid double-click / double-submit doesn’t double-fire' },
+    { t: 'Offline: each backend-backed form shows its error state, not a silent hang' },
+  ]},
+];
+
+const KEY = 'violedu-qa-v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { state = {}; }
+
+const app = document.getElementById('app');
+const check = '<svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function autoGrow(ta) { ta.style.height = 'auto'; ta.style.height = Math.min(ta.scrollHeight, 180) + 'px'; }
+
+DATA.forEach((grp, gi) => {
+  const sec = document.createElement('section');
+  sec.className = 'group';
+  let html = '<h2>' + grp.g + '</h2>';
+  if (grp.sub) html += '<p class="sub">' + grp.sub + '</p>';
+  html += '<div class="card">';
+  html += '<div class="row-head"><div>Check</div><div class="col-c">Desktop</div><div class="col-c">Small</div><div class="col-c">Big</div><div class="note-head">Notes</div></div>';
+  grp.items.forEach((it, ii) => {
+    const only = it.only || ALL;
+    const id = 'g' + gi + 'i' + ii;
+    let label = it.t;
+    if (it.warn) label += ' <span class="tag warn">verify</span>';
+    if (it.only && it.only.length < 3) {
+      const lbl = it.only.includes('d') ? 'desktop only' : 'mobile only';
+      label += ' <span class="tag only">' + lbl + '</span>';
+    }
+    const nk = id + '-note';
+    const nv = state[nk] || '';
+    const hasNote = nv ? ' has-note' : '';
+    html += '<div class="row' + hasNote + '"><div class="label">' + label + '</div>';
+    ALL.forEach((dev) => {
+      if (only.includes(dev)) {
+        const k = id + '-' + dev;
+        const chk = state[k] ? 'checked' : '';
+        html += '<div class="cell"><label><input type="checkbox" data-k="' + k + '" ' + chk + '><span class="box">' + check + '</span></label></div>';
+      } else {
+        html += '<div class="cell na">—</div>';
+      }
+    });
+    html += '<div class="note-cell"><textarea class="note" rows="1" data-k="' + nk + '" placeholder="Notes…">' + esc(nv) + '</textarea></div>';
+    html += '</div>';
+  });
+  const gk = 'g' + gi + '-gen-note';
+  const gv = state[gk] || '';
+  const gHasNote = gv ? ' has-note' : '';
+  html += '<div class="row gen-row' + gHasNote + '"><div class="label gen-label">Additional notes</div>';
+  html += '<div class="note-cell"><textarea class="note" rows="1" data-k="' + gk + '" placeholder="Chapter notes…">' + esc(gv) + '</textarea></div></div>';
+  html += '</div>';
+  sec.innerHTML = html;
+  app.appendChild(sec);
+});
+
+function totals() {
+  let total = {d:0, sm:0, bm:0}, done = {d:0, sm:0, bm:0};
+  DATA.forEach((grp, gi) => grp.items.forEach((it, ii) => {
+    const only = it.only || ALL;
+    only.forEach((dev) => {
+      total[dev]++;
+      if (state['g' + gi + 'i' + ii + '-' + dev]) done[dev]++;
+    });
+  }));
+  return {total, done};
+}
+
+function refresh() {
+  const {total, done} = totals();
+  const t = total.d + total.sm + total.bm;
+  const d = done.d + done.sm + done.bm;
+  const pct = t ? Math.round(d / t * 100) : 0;
+  document.getElementById('barfill').style.width = pct + '%';
+  document.getElementById('pct').textContent = pct + '%';
+  document.getElementById('count').textContent = d + ' / ' + t;
+  document.getElementById('cd').textContent = done.d + '/' + total.d;
+  document.getElementById('csm').textContent = done.sm + '/' + total.sm;
+  document.getElementById('cbm').textContent = done.bm + '/' + total.bm;
+}
+
+app.addEventListener('change', (e) => {
+  const cb = e.target.closest('input[type=checkbox]');
+  if (!cb) return;
+  const k = cb.getAttribute('data-k');
+  if (cb.checked) state[k] = 1; else delete state[k];
+  localStorage.setItem(KEY, JSON.stringify(state));
+  refresh();
+});
+
+app.addEventListener('input', (e) => {
+  const ta = e.target.closest('textarea.note');
+  if (!ta) return;
+  const k = ta.getAttribute('data-k');
+  const v = ta.value;
+  if (v.trim()) state[k] = v; else delete state[k];
+  localStorage.setItem(KEY, JSON.stringify(state));
+  ta.closest('.row').classList.toggle('has-note', !!v.trim());
+  autoGrow(ta);
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  if (!confirm('Clear all checks?')) return;
+  state = {};
+  localStorage.removeItem(KEY);
+  document.querySelectorAll('input[type=checkbox]').forEach((c) => c.checked = false);
+  document.querySelectorAll('textarea.note').forEach((t) => { t.value = ''; t.style.height = 'auto'; });
+  document.querySelectorAll('.row.has-note').forEach((r) => r.classList.remove('has-note'));
+  refresh();
+});
+
+document.querySelectorAll('textarea.note').forEach((t) => { if (t.value) autoGrow(t); });
+refresh();
+</script>
+</body>
+</html>
