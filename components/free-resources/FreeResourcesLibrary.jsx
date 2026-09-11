@@ -21,20 +21,6 @@ const RESOURCES = [
     accentTo: 'rgba(20,120,110,0.05)',
   },
   {
-    id: 'worksheet-memory',
-    href: '/free-resources/learn-music-faster',
-    image: '/worksheet_memory_cover.png',
-    badge: 'Handbook',
-    format: 'PDF',
-    category: 'Practice',
-    title: 'Learn Music Faster',
-    description:
-      'Memorize concert repertoire the way conservatory players do — four memory anchors, written out as a practical, repeatable system.',
-    cta: 'Download The Handbook',
-    accentFrom: 'rgba(251,213,207,0.45)',
-    accentTo: 'rgba(139,92,246,0.05)',
-  },
-  {
     id: 'worksheet-sound',
     href: '/free-resources/sound-like-a-pro',
     image: '/worksheet_cover.png',
@@ -47,6 +33,20 @@ const RESOURCES = [
     cta: 'Download The Worksheet',
     accentFrom: 'rgba(139,92,246,0.55)',
     accentTo: 'rgba(76,29,149,0.05)',
+  },
+  {
+    id: 'worksheet-memory',
+    href: '/free-resources/learn-music-faster',
+    image: '/worksheet_memory_cover.png',
+    badge: 'Handbook',
+    format: 'PDF',
+    category: 'Practice',
+    title: 'Learn Music Faster',
+    description:
+      'Memorize concert repertoire the way conservatory players do — four memory anchors, written out as a practical, repeatable system.',
+    cta: 'Download The Handbook',
+    accentFrom: 'rgba(251,213,207,0.45)',
+    accentTo: 'rgba(139,92,246,0.05)',
   },
 ];
 
