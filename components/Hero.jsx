@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 
+const WEBM_SRC = 'https://d2cvlhxoblnid8.cloudfront.net/hero_bg_video_1.webm';
+const MP4_SRC = 'https://d2cvlhxoblnid8.cloudfront.net/hero_bg_video_1.mp4';
+
 export default function Hero() {
   const videoRef = useRef(null);
 
@@ -17,6 +20,18 @@ export default function Hero() {
       v.pause();
       return;
     }
+
+    // Pick the source in JS rather than relying on <source> order. Modern
+    // browsers (desktop/Android) keep the smaller WebM; Safari — which can't
+    // decode WebM — gets the MP4 chosen explicitly. This avoids an old-Safari
+    // bug (e.g. iPhone SE, iOS 15) where inline autoplay never advances past
+    // an unsupported first <source>, leaving only the poster on screen.
+    const canWebm = v.canPlayType('video/webm') !== '';
+    v.src = canWebm ? WEBM_SRC : MP4_SRC;
+
+    // Force old Safari to (re)evaluate the source and start buffering. With the
+    // element left at preload="none", inline autoplay sometimes never armed.
+    v.load();
     v.play()?.catch(() => {});
   }, []);
 
@@ -34,16 +49,13 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
           controlsList="nodownload"
           disablePictureInPicture
           onContextMenu={(e) => e.preventDefault()}
           poster="https://d2cvlhxoblnid8.cloudfront.net/hero_bg_poster_1.jpg"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://d2cvlhxoblnid8.cloudfront.net/hero_bg_video_1.webm" type="video/webm" />
-          <source src="https://d2cvlhxoblnid8.cloudfront.net/hero_bg_video_1.mp4" type="video/mp4" />
-        </video>
+        />
 
         {/* 3. Dark tint — even darkening so the headline pops; strongest at the
             top behind the nav, eased through the middle. */}
