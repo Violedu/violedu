@@ -4,12 +4,11 @@ import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 const CALENDLY_URL = 'https://calendly.com/contact-violedu/30min';
-// Points at the masterclass-booking lambda (writes to the `masterclassBookings`
-// table + emails contact@violedu.com). Set NEXT_PUBLIC_BOOKING_API_URL to the new
-// API Gateway endpoint once deployed; the old endpoint is kept only as a fallback.
+// New HTTP API Gateway endpoint for the masterclass-booking Lambda (writes to the
+// `masterclassBookings` table + emails contact@violedu.com; no user-facing email —
+// Calendly sends the invite). Keep this in sync with aws/masterclass-booking-lambda.
 const API_URL =
-  process.env.NEXT_PUBLIC_BOOKING_API_URL ||
-  'https://2h5s5qc43i.execute-api.eu-central-1.amazonaws.com/dev';
+  'https://ko1bd1gnz7.execute-api.eu-central-1.amazonaws.com';
 
 const COUNTRIES = [
   'United States', 'United Kingdom', 'Canada', 'Australia', 'New Zealand',
