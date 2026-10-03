@@ -1,20 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Reveal from '../Reveal';
 
-const CHAPTERS = [
-  { id: 'one-technique', label: "Vibrato Isn't One Technique" },
-  { id: 'types', label: 'The Three Types of Vibrato' },
-  { id: 'intonation', label: 'Vibrato & Intonation' },
-  { id: 'dynamics', label: 'Vibrato & Dynamics' },
-  { id: 'style', label: 'Vibrato & Style' },
-];
-
-// The three worksheets shown in "More free resources" at the foot of the article.
-const MORE_RESOURCES = [
+// The worksheets shown in "More free resources" at the foot of every article.
+// Keep the newest three here; a video can override via `video.moreResources`.
+const DEFAULT_MORE_RESOURCES = [
   {
     href: '/free-resources/master-your-vibrato',
     image: '/worksheet_vibrato_cover.png',
@@ -41,7 +34,13 @@ const MORE_RESOURCES = [
   },
 ];
 
-export default function VideoArticle({ video }) {
+// Reusable shell for a video article. `video` supplies the metadata (title,
+// player, chapters, optional worksheet CTA); `children` is the per-video article
+// body composed from ./articleKit primitives.
+export default function VideoArticle({ video, children }) {
+  const chapters = video.chapters || [];
+  const moreResources = video.moreResources || DEFAULT_MORE_RESOURCES;
+
   return (
     <>
       {/* ---------------------------------------------------------------- Hero */}
@@ -99,7 +98,7 @@ export default function VideoArticle({ video }) {
                 style={{ border: '1px solid rgba(255,255,255,0.14)' }}
               >
                 <Image
-                  src="/profile_kalina.png"
+                  src={video.authorAvatar || '/profile_kalina.png'}
                   alt={video.author}
                   fill
                   sizes="44px"
@@ -111,7 +110,8 @@ export default function VideoArticle({ video }) {
                   {video.author}
                 </p>
                 <p className="text-ink-muted text-[12.5px] leading-tight mt-0.5">
-                  {video.date} &middot; {video.readTime}
+                  {video.date}
+                  {video.readTime ? ` · ${video.readTime}` : ''}
                 </p>
               </div>
             </div>
@@ -143,261 +143,64 @@ export default function VideoArticle({ video }) {
       <section className="relative pb-20 md:pb-28">
         <div className="container-x">
           <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
-            {/* Sidebar — chapter nav */}
-            <ChapterNav />
+            {/* Sidebar — chapter nav (desktop) */}
+            <ChapterNav chapters={chapters} />
 
             {/* Article */}
             <article className="max-w-[720px]">
               {/* Chapter nav — mobile only (collapsible) */}
-              <MobileChapterNav />
+              <MobileChapterNav chapters={chapters} />
 
-              {/* Intro */}
-              <ArticleSection id="one-technique">
-                <Reveal>
-                  <p className="article-lead">
-                    <span className="dropcap">M</span>ost players treat vibrato as
-                    a single trick — one shake of the hand they switch on and hope
-                    for the best. That belief is exactly what keeps their playing
-                    sounding like a student. Vibrato isn&rsquo;t one technique.
-                    It&rsquo;s a coordinated process, and it&rsquo;s the single
-                    biggest contributor to the sound people recognise as{' '}
-                    <em>yours</em>. When one part of it is off, the whole thing
-                    collapses.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    For this masterclass I went back to what the great pedagogues
-                    — Carl Flesch, Leopold Auer, Ivan Galamian — actually taught,
-                    and studied how today&rsquo;s soloists shape their signature
-                    sound. It comes down to four elements. Master them and vibrato
-                    stops being a nervous wobble and starts being a voice.
-                  </p>
-                </Reveal>
-              </ArticleSection>
+              {children}
 
-              {/* Types */}
-              <ArticleSection id="types">
-                <Reveal>
-                  <h2 className="article-h2">The Three Types of Vibrato</h2>
-                </Reveal>
-                <Reveal delay={40}>
-                  <p className="article-p">
-                    Relying on one type of vibrato is like painting with a single
-                    brush. You can cover the canvas, but you can&rsquo;t shade,
-                    blend, or create detail. Arm, hand, and finger vibrato each
-                    give you a different colour — and the point is to choose that
-                    colour on purpose.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    <strong className="article-strong">Arm vibrato</strong> starts
-                    in the forearm, the impulse travelling toward your face like a
-                    small shift. It&rsquo;s your power source — the one you reach
-                    for in double stops, high positions, and anywhere the sound
-                    has to carry over an orchestra. To feel it in isolation, lock
-                    the wrist toward the scroll and swing the arm in an even
-                    rhythm: two, three, four, then six pulses per beat.
-                  </p>
-                </Reveal>
-                <Reveal delay={40}>
-                  <SheetFigure
-                    src="/vibrato_arm_swings.png"
-                    caption="Even swings — practise in twos, threes, fours, and sixes per beat, first without a metronome."
-                    ratio="650 / 220"
-                  />
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    <strong className="article-strong">Hand vibrato</strong> swings
-                    from a still arm, the hand dropping back from the wrist while
-                    the fingertip keeps its place. This is the singing one — the
-                    lyrical, vocal quality that carries a long melodic line.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    <strong className="article-strong">Finger vibrato</strong> is
-                    the smallest, driven from the base knuckle while the hand stays
-                    almost passive. It&rsquo;s what creates the illusion of vibrato
-                    in fast passages where a wider motion simply isn&rsquo;t
-                    possible.
-                  </p>
-                </Reveal>
-              </ArticleSection>
-
-              {/* Intonation */}
-              <ArticleSection id="intonation">
-                <Reveal>
-                  <h2 className="article-h2">Vibrato &amp; Intonation</h2>
-                </Reveal>
-                <Reveal delay={40}>
-                  <p className="article-p">
-                    You&rsquo;ve been told vibrato fixes intonation. It
-                    doesn&rsquo;t. Vibrato can save your pitch or quietly destroy
-                    it — and the difference is whether you know what pitch your
-                    vibrato is actually creating.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    The clearest model is to place the note perfectly in tune
-                    first, then roll the finger backward toward the flat side so
-                    the pitch always returns home to the note. The listener hears
-                    exactly where you mean to be.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    None of that works without an ear that refuses to accept
-                    out-of-tune. Flesch called the practice behind it the{' '}
-                    <em>attack of desperation</em>: play scales and études slowly,
-                    without vibrato, checking every note against open strings until
-                    inaccuracy genuinely bothers you. It feels worse before it
-                    feels better — that discomfort is you finally hearing what you
-                    used to ignore.
-                  </p>
-                </Reveal>
-                <Reveal delay={40}>
-                  <Callout kicker="Key insight">
-                    Picture the fingertip glued to the string by a single tiny dot
-                    — not the whole pad. That dot keeps the pitch anchored while
-                    the hand stays free to move.
-                  </Callout>
-                </Reveal>
-              </ArticleSection>
-
-              {/* Dynamics */}
-              <ArticleSection id="dynamics">
-                <Reveal>
-                  <h2 className="article-h2">Vibrato &amp; Dynamics</h2>
-                </Reveal>
-                <Reveal delay={40}>
-                  <p className="article-p">
-                    Here&rsquo;s where most sounds fall apart: the moment the music
-                    gets loud, the tone hardens; the moment it gets soft, it drains
-                    away. That happens when you treat volume and vibrato as
-                    separate jobs — bow for one, hand for the other.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    They&rsquo;re not separate. They&rsquo;re two halves of a
-                    single expressive unit, split between your two arms. As the
-                    dynamic grows, vibrato grows with it — wider, faster, more
-                    intense. As it softens, vibrato narrows, slows, and holds back.
-                    If your vibrato is weak the bow compensates by pressing, and
-                    the sound gets crushed. A strong vibrato keeps the bow elastic.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    Even your bow stroke shapes it. A <em>martelé</em> stroke is
-                    urgent, and the left hand matches that urgency automatically. A
-                    clean <em>portato</em> invites motion, and the vibrato opens up
-                    on its own.
-                  </p>
-                </Reveal>
-                <Reveal delay={40}>
-                  <div className="grid sm:grid-cols-2 gap-4 mt-7">
-                    <SheetFigure
-                      src="/vibrato_martele_example.png"
-                      caption="Martelé — urgent, accented strokes pull a faster vibrato from the hand."
-                      ratio="520 / 150"
-                      inGrid
-                    />
-                    <SheetFigure
-                      src="/vibrato_portato_example.png"
-                      caption="Portato — a soft, singing stroke invites a gentle, continuous vibrato."
-                      ratio="520 / 150"
-                      inGrid
-                    />
-                  </div>
-                </Reveal>
-              </ArticleSection>
-
-              {/* Style */}
-              <ArticleSection id="style">
-                <Reveal>
-                  <h2 className="article-h2">Vibrato &amp; Style</h2>
-                </Reveal>
-                <Reveal delay={40}>
-                  <p className="article-p">
-                    The last mistake is the most common: vibrato on every note,
-                    all the time. Used that way it isn&rsquo;t expression —
-                    it&rsquo;s a habit, and it flattens the music. Think of vibrato
-                    as a volume knob for emotion, not an on/off switch.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    In Mozart, clarity is everything: a narrow vibrato and a clean
-                    tone keep the texture transparent. Brahms wants the opposite —
-                    a wide, deep vibrato to carry a dense, singing tone. Beethoven
-                    lives on contrast, and a passage marked to fade and dissolve is
-                    ruined by a standard melodic wobble. In Bach, vibrato
-                    isn&rsquo;t a rule at all; it&rsquo;s a decision about whether
-                    it clarifies the counterpoint or clouds it.
-                  </p>
-                </Reveal>
-                <Reveal delay={60}>
-                  <p className="article-p">
-                    Same player, different composer, and the colour changes
-                    completely — while the voice underneath stays unmistakably
-                    yours. That&rsquo;s the whole point. When you stop treating
-                    vibrato as constant, style finally has room to speak.
-                  </p>
-                </Reveal>
-              </ArticleSection>
-
-              {/* Worksheet CTA */}
-              <Reveal delay={0}>
-                <div
-                  className="mt-12 rounded-[20px] border border-white/8 p-7 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6"
-                  style={{
-                    background:
-                      'linear-gradient(135deg, rgba(111,76,255,0.18) 0%, rgba(31,28,62,0.9) 55%, rgba(26,23,53,0.95) 100%)',
-                    boxShadow:
-                      '0 1px 0 rgba(255,255,255,0.05) inset, 0 30px 60px -32px rgba(0,0,0,0.55)',
-                  }}
-                >
-                  <div className="flex-1">
-                    <p className="text-[#fbd5cf] text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">
-                      Free Companion Worksheet
-                    </p>
-                    <h3 className="text-white font-display text-[21px] md:text-[23px] font-semibold tracking-[-0.01em] leading-[1.25]">
-                      Want the full method on paper?
-                    </h3>
-                    <p className="text-ink-dim text-[14.5px] leading-[1.6] mt-2">
-                      The entire masterclass is also a free 16-page vibrato
-                      worksheet — every exercise written out, step by step.
-                    </p>
-                  </div>
-                  <Link
-                    href={video.relatedWorksheet}
-                    className="shrink-0 inline-flex items-center justify-center gap-2 rounded-[14px] px-6 py-[14px] text-[14.5px] font-semibold transition duration-300 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+              {/* Companion worksheet CTA */}
+              {video.worksheet && (
+                <Reveal delay={0}>
+                  <div
+                    className="mt-12 rounded-[20px] border border-white/8 p-7 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6"
                     style={{
-                      background: '#fbd5cf',
-                      color: '#161427',
+                      background:
+                        'linear-gradient(135deg, rgba(111,76,255,0.18) 0%, rgba(31,28,62,0.9) 55%, rgba(26,23,53,0.95) 100%)',
                       boxShadow:
-                        '0 12px 30px -14px rgba(251,213,207,0.55), 0 1px 0 rgba(255,255,255,0.4) inset',
-                      transitionTimingFunction: 'cubic-bezier(0.2,0.8,0.2,1)',
+                        '0 1px 0 rgba(255,255,255,0.05) inset, 0 30px 60px -32px rgba(0,0,0,0.55)',
                     }}
                   >
-                    Get the free worksheet
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <path
-                        d="M5 12h14m0 0l-6-6m6 6l-6 6"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-              </Reveal>
+                    <div className="flex-1">
+                      <p className="text-[#fbd5cf] text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">
+                        {video.worksheet.eyebrow || 'Free Companion Worksheet'}
+                      </p>
+                      <h3 className="text-white font-display text-[21px] md:text-[23px] font-semibold tracking-[-0.01em] leading-[1.25]">
+                        {video.worksheet.title}
+                      </h3>
+                      <p className="text-ink-dim text-[14.5px] leading-[1.6] mt-2">
+                        {video.worksheet.text}
+                      </p>
+                    </div>
+                    <Link
+                      href={video.worksheet.href}
+                      className="shrink-0 inline-flex items-center justify-center gap-2 rounded-[14px] px-6 py-[14px] text-[14.5px] font-semibold transition duration-300 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+                      style={{
+                        background: '#fbd5cf',
+                        color: '#161427',
+                        boxShadow:
+                          '0 12px 30px -14px rgba(251,213,207,0.55), 0 1px 0 rgba(255,255,255,0.4) inset',
+                        transitionTimingFunction: 'cubic-bezier(0.2,0.8,0.2,1)',
+                      }}
+                    >
+                      {video.worksheet.cta || 'Get the free worksheet'}
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+                        <path
+                          d="M5 12h14m0 0l-6-6m6 6l-6 6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
+                </Reveal>
+              )}
             </article>
           </div>
         </div>
@@ -437,7 +240,7 @@ export default function VideoArticle({ video }) {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 mt-12">
-            {MORE_RESOURCES.map((r, i) => (
+            {moreResources.map((r, i) => (
               <Reveal key={r.href} delay={i * 120}>
                 <MoreCard resource={r} />
               </Reveal>
@@ -505,21 +308,13 @@ export default function VideoArticle({ video }) {
 
 /* ------------------------------------------------------------------ pieces */
 
-function ArticleSection({ id, children }) {
-  return (
-    <section id={id} style={{ scrollMarginTop: '120px' }} className="article-block">
-      {children}
-    </section>
-  );
-}
-
-function useActiveChapter() {
-  const [active, setActive] = useState(CHAPTERS[0].id);
+function useActiveChapter(chapters) {
+  const [active, setActive] = useState(chapters[0]?.id);
 
   useEffect(() => {
-    const sections = CHAPTERS.map((c) => document.getElementById(c.id)).filter(
-      Boolean,
-    );
+    const sections = chapters
+      .map((c) => document.getElementById(c.id))
+      .filter(Boolean);
     if (!sections.length) return;
 
     const observer = new IntersectionObserver(
@@ -535,7 +330,7 @@ function useActiveChapter() {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [chapters]);
 
   const goTo = (e, id) => {
     const el = document.getElementById(id);
@@ -549,10 +344,12 @@ function useActiveChapter() {
   return { active, goTo };
 }
 
-function MobileChapterNav() {
-  const { active, goTo } = useActiveChapter();
+function MobileChapterNav({ chapters }) {
+  const { active, goTo } = useActiveChapter(chapters);
   const [open, setOpen] = useState(true);
-  const current = CHAPTERS.find((c) => c.id === active) || CHAPTERS[0];
+  const current = chapters.find((c) => c.id === active) || chapters[0];
+
+  if (!chapters.length) return null;
 
   return (
     <div
@@ -570,7 +367,7 @@ function MobileChapterNav() {
             In this article
           </span>
           <span className="block text-white text-[14.5px] font-semibold truncate mt-0.5">
-            {current.label}
+            {current?.label}
           </span>
         </span>
         <svg
@@ -596,7 +393,7 @@ function MobileChapterNav() {
         style={{ maxHeight: open ? '340px' : '0px', opacity: open ? 1 : 0 }}
       >
         <ul className="px-3 pb-3 pt-1 space-y-0.5 border-t border-white/[0.06]">
-          {CHAPTERS.map((c) => {
+          {chapters.map((c) => {
             const isActive = active === c.id;
             return (
               <li key={c.id}>
@@ -620,8 +417,10 @@ function MobileChapterNav() {
   );
 }
 
-function ChapterNav() {
-  const { active, goTo } = useActiveChapter();
+function ChapterNav({ chapters }) {
+  const { active, goTo } = useActiveChapter(chapters);
+
+  if (!chapters.length) return null;
 
   return (
     <aside className="hidden lg:block lg:sticky lg:top-[120px]">
@@ -630,7 +429,7 @@ function ChapterNav() {
       </p>
       <nav>
         <ul className="space-y-1">
-          {CHAPTERS.map((c) => {
+          {chapters.map((c) => {
             const isActive = active === c.id;
             return (
               <li key={c.id} className="relative">
@@ -735,59 +534,6 @@ function YouTubeFacade({ id, start = 0, poster, title }) {
           </span>
         </button>
       )}
-    </div>
-  );
-}
-
-// A sheet-music figure sits on a warm "paper" panel so the black notation
-// reads against the dark page.
-function SheetFigure({ src, caption, ratio = '650 / 220', inGrid = false }) {
-  return (
-    <figure className={inGrid ? '' : 'my-8'}>
-      <div
-        className="rounded-[14px] p-4 md:p-5"
-        style={{
-          background: 'linear-gradient(180deg, #f7f3ec 0%, #efe8dc 100%)',
-          boxShadow:
-            '0 20px 40px -24px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.5) inset',
-        }}
-      >
-        <div className="relative w-full" style={{ aspectRatio: ratio }}>
-          <Image
-            src={src}
-            alt={caption}
-            fill
-            sizes="(min-width: 768px) 700px, 100vw"
-            className="object-contain"
-          />
-        </div>
-      </div>
-      <figcaption className="text-ink-muted text-[12.5px] leading-[1.5] mt-3 italic">
-        {caption}
-      </figcaption>
-    </figure>
-  );
-}
-
-function Callout({ kicker, children }) {
-  return (
-    <div
-      className="my-9 rounded-[16px] p-6 md:p-7"
-      style={{
-        background:
-          'linear-gradient(135deg, rgba(196,181,253,0.14) 0%, rgba(111,76,255,0.07) 100%)',
-        borderLeft: '2px solid rgba(196,181,253,0.7)',
-      }}
-    >
-      <p className="text-[#fbd5cf] text-[11px] font-semibold tracking-[0.22em] uppercase mb-2.5">
-        {kicker}
-      </p>
-      <p
-        className="text-white/90 text-[17px] md:text-[18px] leading-[1.6]"
-        style={{ fontFamily: "'Newsreader', Georgia, serif" }}
-      >
-        {children}
-      </p>
     </div>
   );
 }
