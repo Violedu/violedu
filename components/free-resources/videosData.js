@@ -33,4 +33,35 @@ export const videosData = {
       cta: 'Get the free worksheet',
     },
   },
+  'why-you-dont-sound-like-a-pro-violinist': {
+    slug: 'why-you-dont-sound-like-a-pro-violinist',
+    metaTitle: "Why You Don't Sound Like a Pro Violinist (Yet) — Violedu",
+    metaDescription:
+      'Three things separate professional violinists from everyone else — the sounding point, resonant intonation, and bow articulation. Watch the masterclass and read the breakdown.',
+    // YouTube video id + start time (seconds) — https://www.youtube.com/watch?v=TJuDHk05Krk&t=10s
+    youtubeId: 'TJuDHk05Krk',
+    start: 10,
+    eyebrow: 'Video Masterclass · Technique',
+    title: "Why You Don't Sound Like a Pro Violinist (Yet!)",
+    author: 'Kalina',
+    authorRole: 'DMA · Soloist & Chamber Musician',
+    authorAvatar: '/profile_kalina.png',
+    date: 'October 2026',
+    readTime: '6 min read',
+    cover: '/video_sound_cover.png',
+    // Sidebar chapters — each id must match an <ArticleSection id> in the body.
+    chapters: [
+      { id: 'make-it-speak', label: 'Make Your Violin Speak' },
+      { id: 'sounding-point', label: 'The Sounding Point' },
+      { id: 'intonation', label: 'Intonation' },
+      { id: 'articulation', label: 'Bow Articulation' },
+    ],
+    worksheet: {
+      href: '/free-resources/sound-like-a-pro',
+      eyebrow: 'Free Companion Worksheet',
+      title: 'Get the full method on paper.',
+      text: 'This masterclass is also a free worksheet — the five sounding points, the three intonation steps, and articulation drills, all written out with exercises.',
+      cta: 'Get the free worksheet',
+    },
+  },
 };

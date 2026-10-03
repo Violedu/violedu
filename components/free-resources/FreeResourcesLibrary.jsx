@@ -36,6 +36,22 @@ const RESOURCES = [
     accentTo: 'rgba(20,120,110,0.05)',
   },
   {
+    id: 'video-sound',
+    href: '/videos/why-you-dont-sound-like-a-pro-violinist',
+    image: '/video_sound_cover.png',
+    badge: 'Video',
+    format: 'Video',
+    category: 'Technique',
+    title: "Why You Don't Sound Like a Pro Violinist (Yet!)",
+    description:
+      'The three things that separate pros from everyone else — the sounding point, resonant intonation, and bow articulation like a language. Watch the full masterclass, free.',
+    cta: 'Watch',
+    isVideo: true,
+    imagePosition: 'left',
+    accentFrom: 'rgba(80,168,222,0.5)',
+    accentTo: 'rgba(37,99,235,0.05)',
+  },
+  {
     id: 'worksheet-sound',
     href: '/free-resources/sound-like-a-pro',
     image: '/worksheet_cover.png',
@@ -305,7 +321,7 @@ function ResourceCard({ resource }) {
               className="object-cover"
               style={
                 resource.isVideo
-                  ? { objectPosition: 'center' }
+                  ? { objectPosition: resource.imagePosition || 'center' }
                   : { objectPosition: 'center 42%', transform: 'scale(0.95)' }
               }
             />
