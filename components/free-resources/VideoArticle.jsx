@@ -4,42 +4,14 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Reveal from '../Reveal';
-
-// The worksheets shown in "More free resources" at the foot of every article.
-// Keep the newest three here; a video can override via `video.moreResources`.
-const DEFAULT_MORE_RESOURCES = [
-  {
-    href: '/free-resources/master-your-vibrato',
-    image: '/worksheet_vibrato_cover.png',
-    category: 'Technique',
-    title: 'Master Your Vibrato',
-    description:
-      'The four elements of an expressive vibrato — written out as a 16-page worksheet with exercises you can start today.',
-  },
-  {
-    href: '/free-resources/sound-like-a-pro',
-    image: '/worksheet_cover.png',
-    category: 'Technique',
-    title: 'Sound Like A Pro Violinist',
-    description:
-      'The bow-arm checks and tone exercises that separate students from professionals.',
-  },
-  {
-    href: '/free-resources/learn-music-faster',
-    image: '/worksheet_memory_cover.png',
-    category: 'Practice',
-    title: 'Learn Music Faster',
-    description:
-      'Memorize concert repertoire the way conservatory players do — four practical memory anchors.',
-  },
-];
+import MoreResources from './MoreResources';
+import AuditionCta from './AuditionCta';
 
 // Reusable shell for a video article. `video` supplies the metadata (title,
 // player, chapters, optional worksheet CTA); `children` is the per-video article
 // body composed from ./articleKit primitives.
 export default function VideoArticle({ video, children }) {
   const chapters = video.chapters || [];
-  const moreResources = video.moreResources || DEFAULT_MORE_RESOURCES;
 
   return (
     <>
@@ -154,100 +126,17 @@ export default function VideoArticle({ video, children }) {
               {children}
 
               {/* Companion worksheet CTA */}
-              {video.worksheet && (
-                <Reveal delay={0}>
-                  <div
-                    className="mt-12 rounded-[20px] border border-white/8 p-7 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6"
-                    style={{
-                      background:
-                        'linear-gradient(135deg, rgba(111,76,255,0.18) 0%, rgba(31,28,62,0.9) 55%, rgba(26,23,53,0.95) 100%)',
-                      boxShadow:
-                        '0 1px 0 rgba(255,255,255,0.05) inset, 0 30px 60px -32px rgba(0,0,0,0.55)',
-                    }}
-                  >
-                    <div className="flex-1">
-                      <p className="text-[#fbd5cf] text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">
-                        {video.worksheet.eyebrow || 'Free Companion Worksheet'}
-                      </p>
-                      <h3 className="text-white font-display text-[21px] md:text-[23px] font-semibold tracking-[-0.01em] leading-[1.25]">
-                        {video.worksheet.title}
-                      </h3>
-                      <p className="text-ink-dim text-[14.5px] leading-[1.6] mt-2">
-                        {video.worksheet.text}
-                      </p>
-                    </div>
-                    <Link
-                      href={video.worksheet.href}
-                      className="shrink-0 inline-flex items-center justify-center gap-2 rounded-[14px] px-6 py-[14px] text-[14.5px] font-semibold transition duration-300 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
-                      style={{
-                        background: '#fbd5cf',
-                        color: '#161427',
-                        boxShadow:
-                          '0 12px 30px -14px rgba(251,213,207,0.55), 0 1px 0 rgba(255,255,255,0.4) inset',
-                        transitionTimingFunction: 'cubic-bezier(0.2,0.8,0.2,1)',
-                      }}
-                    >
-                      {video.worksheet.cta || 'Get the free worksheet'}
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
-                        <path
-                          d="M5 12h14m0 0l-6-6m6 6l-6 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
-                </Reveal>
-              )}
+              {/* Down-funnel CTA — book the free audition readiness check */}
+              <Reveal delay={0}>
+                <AuditionCta />
+              </Reveal>
             </article>
           </div>
         </div>
       </section>
 
-      {/* ---------------------------------------------------- More resources */}
-      <section className="relative pb-24 md:pb-32 pt-16 md:pt-20 border-t border-white/[0.06]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{
-            background:
-              'radial-gradient(50% 50% at 50% 30%, rgba(111,76,255,0.12) 0%, rgba(23,21,47,0) 70%)',
-          }}
-        />
-        <div className="container-x">
-          <Reveal
-            as="p"
-            className="text-[#fbd5cf] text-[12px] font-semibold tracking-[0.26em] uppercase text-center mb-4"
-          >
-            Keep practising
-          </Reveal>
-          <Reveal
-            as="h2"
-            delay={60}
-            className="font-display text-white text-center text-[30px] sm:text-[38px] md:text-[46px] font-semibold tracking-[-0.02em] leading-[1.1]"
-          >
-            More free resources
-          </Reveal>
-          <Reveal
-            as="p"
-            delay={120}
-            className="text-ink-dim text-center text-[15px] mt-4 max-w-[560px] mx-auto leading-[1.6]"
-          >
-            Worksheets and handbooks built to turn these ideas into daily
-            practice.
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 mt-12">
-            {moreResources.map((r, i) => (
-              <Reveal key={r.href} delay={i * 120}>
-                <MoreCard resource={r} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ------------------------------------------------- More resources */}
+      <MoreResources currentHref={`/videos/${video.slug}`} />
 
       <style jsx global>{`
         .article-lead {
@@ -538,57 +427,3 @@ function YouTubeFacade({ id, start = 0, poster, title }) {
   );
 }
 
-function MoreCard({ resource }) {
-  return (
-    <Link href={resource.href} className="group block h-full focus-visible:outline-none">
-      <article
-        className="relative h-full flex flex-col rounded-[18px] border border-white/8 overflow-hidden transition duration-300 group-hover:-translate-y-1 group-hover:border-white/15 group-focus-visible:ring-2 group-focus-visible:ring-accent/60"
-        style={{
-          background: 'linear-gradient(180deg, #1f1c3e 0%, #1a1735 100%)',
-          boxShadow:
-            '0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 60px -28px rgba(0,0,0,0.55)',
-          transitionTimingFunction: 'cubic-bezier(0.2,0.8,0.2,1)',
-        }}
-      >
-        <div className="relative aspect-[5/3] overflow-hidden border-b border-white/[0.06] bg-[#1a1735]">
-          <div
-            className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.05]"
-            style={{ transitionTimingFunction: 'cubic-bezier(0.2,0.8,0.2,1)' }}
-          >
-            <Image
-              src={resource.image}
-              alt={resource.title}
-              fill
-              sizes="(min-width: 768px) 360px, 100vw"
-              className="object-cover"
-              style={{ objectPosition: 'center 42%', transform: 'scale(0.95)' }}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col flex-1 p-6">
-          <p className="text-[#fbd5cf] text-[10.5px] font-semibold tracking-[0.22em] uppercase mb-2.5">
-            Worksheet &middot; {resource.category}
-          </p>
-          <h3 className="text-white font-display text-[19px] font-semibold tracking-[-0.01em] leading-[1.25]">
-            {resource.title}
-          </h3>
-          <p className="text-ink-dim text-[13.5px] leading-[1.6] mt-2.5 flex-1">
-            {resource.description}
-          </p>
-          <span className="mt-5 inline-flex items-center gap-1.5 text-white text-[12px] font-semibold tracking-[0.14em] uppercase group-hover:gap-2.5 transition-all duration-300">
-            Download free
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path
-                d="M5 12h14m0 0l-6-6m6 6l-6 6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </div>
-      </article>
-    </Link>
-  );
-}

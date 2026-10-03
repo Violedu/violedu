@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Reveal from '../Reveal';
+import MoreResources from './MoreResources';
+import AuditionCta from './AuditionCta';
 
 // New HTTP API Gateway endpoint for worksheet delivery (set after deploying the
 // resource-delivery Lambda). Keep this in sync with aws/resource-delivery-lambda.
@@ -344,6 +346,20 @@ export default function ResourceDetail({ resource }) {
           </Reveal>
         </div>
       </section>
+
+      {/* Down-funnel CTA — book the free audition readiness check */}
+      <section className="relative pb-24 md:pb-28">
+        <div className="container-x">
+          <div className="max-w-[720px] mx-auto">
+            <Reveal>
+              <AuditionCta />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* More free resources */}
+      <MoreResources currentHref={`/free-resources/${resource.slug}`} />
     </>
   );
 }
