@@ -7,6 +7,21 @@ import Reveal from '../Reveal';
 
 const RESOURCES = [
   {
+    id: 'video-vibrato',
+    href: '/videos/why-your-vibrato-isnt-sounding-pro',
+    image: '/video_vibrato_cover.png',
+    badge: 'Video',
+    format: 'Video',
+    category: 'Technique',
+    title: "Why Your Vibrato Isn't Sounding Pro (Yet!)",
+    description:
+      'A full masterclass on the four elements that build a signature vibrato — the three vibrato types, intonation, dynamics, and style. Watch now, free.',
+    cta: 'Watch',
+    isVideo: true,
+    accentFrom: 'rgba(80,168,222,0.5)',
+    accentTo: 'rgba(37,99,235,0.05)',
+  },
+  {
     id: 'worksheet-vibrato',
     href: '/free-resources/master-your-vibrato',
     image: '/worksheet_vibrato_cover.png',
@@ -288,12 +303,45 @@ function ResourceCard({ resource }) {
               fill
               sizes="(min-width: 1024px) 440px, (min-width: 768px) 50vw, 100vw"
               className="object-cover"
-              style={{
-                objectPosition: 'center 42%',
-                transform: 'scale(0.95)',
-              }}
+              style={
+                resource.isVideo
+                  ? { objectPosition: 'center' }
+                  : { objectPosition: 'center 42%', transform: 'scale(0.95)' }
+              }
             />
           </div>
+
+          {/* Video play overlay */}
+          {resource.isVideo && (
+            <>
+              <span
+                aria-hidden
+                className="absolute inset-0 z-[5] transition-opacity duration-300 group-hover:opacity-80"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(11,10,29,0) 45%, rgba(11,10,29,0.28) 100%)',
+                }}
+              />
+              <span className="absolute inset-0 z-[6] grid place-items-center">
+                <span
+                  className="grid place-items-center w-[56px] h-[56px] rounded-full backdrop-blur-sm transition-transform duration-300 ease-out group-hover:scale-110"
+                  style={{
+                    background: 'rgba(16,14,34,0.5)',
+                    border: '1px solid rgba(255,255,255,0.45)',
+                    boxShadow: '0 10px 28px -8px rgba(0,0,0,0.6)',
+                    transitionTimingFunction: 'cubic-bezier(0.2,0.8,0.2,1)',
+                  }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden className="translate-x-[2px]">
+                    <path
+                      d="M8 5.5v13a1 1 0 0 0 1.55.83l10.2-6.5a1 1 0 0 0 0-1.66L9.55 4.67A1 1 0 0 0 8 5.5z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </>
+          )}
           {/* Format chip */}
           <span
             className="absolute top-4 left-4 z-10 text-[10.5px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-full text-white/90"
@@ -305,17 +353,19 @@ function ResourceCard({ resource }) {
           >
             {resource.badge}
           </span>
-          {/* Format tag right */}
-          <span
-            className="absolute top-4 right-4 z-10 text-[10.5px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-full text-white/85"
-            style={{
-              background: 'rgba(15,12,40,0.45)',
-              backdropFilter: 'blur(6px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-            }}
-          >
-            {resource.format}
-          </span>
+          {/* Format tag right (hidden for video — the play overlay + badge already read as video) */}
+          {!resource.isVideo && (
+            <span
+              className="absolute top-4 right-4 z-10 text-[10.5px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-full text-white/85"
+              style={{
+                background: 'rgba(15,12,40,0.45)',
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}
+            >
+              {resource.format}
+            </span>
+          )}
         </div>
 
         {/* Body */}
@@ -340,7 +390,15 @@ function ResourceCard({ resource }) {
               transitionTimingFunction: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
             }}
           >
-            <span className="transition group-hover:-translate-y-px inline-block">
+            <span className="transition group-hover:-translate-y-px inline-flex items-center justify-center gap-2">
+              {resource.isVideo && (
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path
+                    d="M8 5.5v13a1 1 0 0 0 1.55.83l10.2-6.5a1 1 0 0 0 0-1.66L9.55 4.67A1 1 0 0 0 8 5.5z"
+                    fill="currentColor"
+                  />
+                </svg>
+              )}
               {resource.cta}
             </span>
           </div>
