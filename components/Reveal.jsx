@@ -11,6 +11,7 @@ export default function Reveal({
   duration = 1100,
   threshold = 0.12,
   rootMargin = '0px 0px -8% 0px',
+  immediate = false,
   className = '',
   style,
   as: Tag = 'div',
@@ -32,6 +33,21 @@ export default function Reveal({
       return;
     }
 
+    // Immediate mode: play on mount regardless of scroll position. Used for
+    // above-the-fold load sequences (e.g. the hero) where an element may sit
+    // below the fold on tall screens and would otherwise never intersect. Two
+    // rAFs let the initial opacity:0 frame paint before the transition flips on.
+    if (immediate) {
+      let raf2;
+      const raf1 = requestAnimationFrame(() => {
+        raf2 = requestAnimationFrame(() => setVisible(true));
+      });
+      return () => {
+        cancelAnimationFrame(raf1);
+        if (raf2) cancelAnimationFrame(raf2);
+      };
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -46,7 +62,7 @@ export default function Reveal({
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, [threshold, rootMargin, immediate]);
 
   return (
     <Tag

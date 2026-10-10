@@ -10,11 +10,21 @@ const INITIAL_FORM = { name: '', subject: '', email: '', message: '' };
 
 export default function HelpWidget() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState(INITIAL_FORM);
   const panelRef = useRef(null);
+
+  // Keep the launcher hidden over the hero and reveal it once the visitor
+  // starts scrolling, so it never competes with the opening animation.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -58,6 +68,10 @@ export default function HelpWidget() {
       setSubmitting(false);
     }
   };
+
+  // Reveal once scrolled; stay visible while the panel is open even if the
+  // visitor scrolls back up to the hero.
+  const visible = scrolled || open;
 
   return (
     <>
@@ -199,16 +213,23 @@ export default function HelpWidget() {
         style={{
           bottom: 'max(1.5rem, env(safe-area-inset-bottom))',
           right: 'max(1.5rem, env(safe-area-inset-right))',
-          transform: 'translateZ(0)',
-          willChange: 'transform',
+          transform: visible ? 'translateZ(0) translateY(0)' : 'translateZ(0) translateY(16px)',
+          opacity: visible ? 1 : 0,
+          transition:
+            'opacity 320ms cubic-bezier(.2,.8,.2,1), transform 320ms cubic-bezier(.2,.8,.2,1)',
+          willChange: 'transform, opacity',
         }}
       >
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-hidden={!visible}
+        tabIndex={visible ? 0 : -1}
         aria-label={open ? 'Close help' : 'Open help'}
-        className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-[#6f4cff] hover:bg-[#5e3eef] active:bg-[#5435de] text-white px-4 h-11 text-[13.5px] font-semibold shadow-[0_14px_40px_-10px_rgba(111,76,255,0.65)] transition-[transform,background-color] duration-200 ease-[cubic-bezier(.2,.8,.2,1)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a48bff]/60"
+        className={`${
+          visible ? 'pointer-events-auto' : 'pointer-events-none'
+        } inline-flex items-center gap-2 rounded-full bg-[#6f4cff] hover:bg-[#5e3eef] active:bg-[#5435de] text-white px-4 h-11 text-[13.5px] font-semibold shadow-[0_14px_40px_-10px_rgba(111,76,255,0.65)] transition-[transform,background-color] duration-200 ease-[cubic-bezier(.2,.8,.2,1)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a48bff]/60`}
       >
         <svg
           width="14"

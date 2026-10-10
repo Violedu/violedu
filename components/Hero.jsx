@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Reveal from './Reveal';
 
 const WEBM_SRC = 'https://d2cvlhxoblnid8.cloudfront.net/hero_bg_video_1.webm';
 const MP4_SRC = 'https://d2cvlhxoblnid8.cloudfront.net/hero_bg_video_1.mp4';
@@ -87,21 +88,27 @@ export default function Hero() {
             className="font-serif text-white text-[56px] sm:text-[70px] md:text-[84px] lg:text-[96px] xl:text-[108px] 2xl:text-[122px] leading-[1.1] tracking-[-0.025em] max-w-[1000px] xl:max-w-[1200px] 2xl:max-w-[1360px] mx-auto"
             style={{ fontWeight: 450, fontVariationSettings: '"opsz" 40' }}
           >
-            Six Weeks To<br /><span className="italic text-[#f2b9ad]">Audition-Ready</span>
+            <Reveal as="span" immediate delay={100} className="inline-block">Six</Reveal>{' '}
+            <Reveal as="span" immediate delay={240} className="inline-block">Weeks</Reveal>{' '}
+            <Reveal as="span" immediate delay={380} className="inline-block">To</Reveal>
+            <br />
+            <Reveal as="span" immediate delay={520} className="inline-block italic text-[#f2b9ad]">
+              Audition-Ready
+            </Reveal>
           </h1>
 
-          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 px-2">
+          <Reveal immediate delay={760} className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 px-2">
             <a
               href="/book"
               className="btn-peach whitespace-nowrap text-[16px] xl:text-[17px] !py-[14px] !px-[25px]"
             >
               Book Free 30-Min Call
             </a>
-          </div>
+          </Reveal>
         </div>
 
         {/* Stats, distributed evenly along the bottom edge */}
-        <div className="mt-10 grid grid-cols-3 gap-4 max-w-[860px] mx-auto w-full">
+        <Reveal immediate delay={900} className="mt-10 grid grid-cols-3 gap-4 max-w-[860px] mx-auto w-full">
           {[
             { value: '10+', label: 'Years Coaching' },
             { value: '65K+', label: 'Violinists Worldwide' },
@@ -116,7 +123,7 @@ export default function Hero() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
 
       {/* Spacer below the fold — the video keeps running here and blends into
