@@ -39,11 +39,11 @@ export default function StillQuestions() {
             }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#fbd5cf] animate-pulse" />
-            October intake — 5 spots · 2 filled
+            October intake — 5 spots
           </p>
 
           <h2 className="relative text-white font-display text-[30px] sm:text-[40px] md:text-[52px] lg:text-[60px] leading-[1.05] font-semibold tracking-[-0.025em] max-w-[900px] mx-auto">
-            The next intake starts the week of <span className="italic text-[#fbd5cf]">October 5th</span>.
+            The next intake starts the week of <span className="italic text-[#fbd5cf]">October 26th</span>.
           </h2>
 
           <p className="relative text-ink-dim mt-6 max-w-[680px] mx-auto text-[15px] md:text-[17px] leading-[1.65]">
