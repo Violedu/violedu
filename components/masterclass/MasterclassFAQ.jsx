@@ -25,6 +25,11 @@ const faqs = [
     a: 'Book the call anyway. We\'ll talk through whether the timeline is workable or whether a different approach makes more sense. Sometimes a compressed version with extra sessions is possible; other times I\'ll tell you honestly the timeline is too tight, and we\'ll prioritize what matters most for this cycle while planning the next.',
   },
   {
+    q: 'Is there a custom plan?',
+    a: 'Yes. The 6-Week Intensive is the core program and what I recommend when you have an audition or exam on the calendar. But if you\'d rather go at your own pace — booking 1-on-1 sessions one at a time instead of committing to the full six weeks — there\'s a flexible, pay-as-you-go plan. You still get the same 45-minute sessions, between-session video feedback, and email/WhatsApp support; you give up the personalized roadmap, the bonuses, and the guarantee.',
+    link: { href: '/custom-plan', label: 'See the flexible plan →' },
+  },
+  {
     q: 'Online lessons versus in-person — am I losing something?',
     a: 'At this level the limiting factor isn\'t proximity — it\'s feedback frequency. Here you get two sessions a week plus between-session video feedback: three expert touchpoints a week. Most in-person teachers offer one weekly lesson with no structured support between.',
   },
@@ -89,6 +94,7 @@ export default function MasterclassFAQ() {
                 key={i}
                 question={item.q}
                 answer={item.a}
+                link={item.link}
                 open={openIndex === i}
                 onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
               />
@@ -107,7 +113,7 @@ export default function MasterclassFAQ() {
   );
 }
 
-function FAQItem({ question, answer, open, onToggle }) {
+function FAQItem({ question, answer, link, open, onToggle }) {
   return (
     <li
       className="rounded-[18px] border border-white/8 overflow-hidden transition-[border-color] duration-300"
@@ -152,6 +158,14 @@ function FAQItem({ question, answer, open, onToggle }) {
           <div className="px-6 md:px-8 pb-6 md:pb-7">
             <div className="h-px w-full mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />
             <p className="text-ink-dim text-[14px] md:text-[15px] leading-[1.7]">{answer}</p>
+            {link && (
+              <a
+                href={link.href}
+                className="inline-flex items-center gap-1 mt-4 text-[#fbd5cf] text-[14px] md:text-[15px] font-semibold underline-offset-4 hover:underline focus-visible:outline-none focus-visible:underline transition"
+              >
+                {link.label}
+              </a>
+            )}
           </div>
         </div>
       </div>
