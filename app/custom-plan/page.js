@@ -12,7 +12,7 @@ import CustomPlanCTA from '@/components/custom-plan/CustomPlanCTA';
 export const metadata = {
   title: 'Flexible 1-on-1 Coaching — Violedu',
   description:
-    'Pay-as-you-go violin coaching. Book 45-minute 1-on-1 sessions one at a time — as many as you need, on your own schedule. €80 per session.',
+    'Pay-as-you-go violin coaching. Book 45-minute 1-on-1 sessions one at a time — as many as you need, on your own schedule. €90 per session.',
   robots: { index: false, follow: false },
 };
 

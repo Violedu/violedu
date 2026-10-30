@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: 'What is the 1-Week Sprint?',
-    a: 'It\'s a shorter way in: two 45-minute 1-on-1 sessions in one week, focused entirely on one audition excerpt, for €200 — with video feedback on your recordings and WhatsApp/email support across the week. It\'s built for players who have an audition coming up fast, have one passage holding them back, or just want to try the coaching before committing to the full six weeks. If you go on to the 6-Week Intensive, your full €200 comes off the price.',
+    a: 'It\'s a shorter way in: two 45-minute 1-on-1 sessions in one week, focused entirely on one audition excerpt, for €170 — with video feedback on your recordings and WhatsApp/email support across the week. It\'s built for players who have an audition coming up fast, have one passage holding them back, or just want to try the coaching before committing to the full six weeks. If you go on to the 6-Week Intensive, your full €170 comes off the price.',
   },
   {
     q: 'Is there a custom plan?',

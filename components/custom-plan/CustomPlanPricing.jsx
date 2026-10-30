@@ -56,7 +56,7 @@ export default function CustomPlanPricing() {
               />
 
               <p className="relative text-white font-display text-[72px] md:text-[88px] font-semibold leading-none tracking-[-0.03em]">
-                €80
+                €90
               </p>
               <p className="relative text-[#fbd5cf] text-[14px] md:text-[15px] mt-3 tracking-[0.02em]">
                 per 45-minute session

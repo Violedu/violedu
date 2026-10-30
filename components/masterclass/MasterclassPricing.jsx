@@ -4,8 +4,8 @@ import Reveal from '../Reveal';
 const program = {
   scarcity: 'November intake',
   name: 'The 6-Week Audition Intensive',
-  price: '€1200',
-  payment: 'Or 3 Payments Of €450',
+  price: '€1040',
+  payment: 'Or 3 Payments Of €370',
   includes: [
     { strong: '12× 45-min 1-on-1 video sessions', rest: ' — 2 per week for 6 weeks, on your audition program' },
     { strong: 'The Audition Roadmap', rest: ' — personalized 6-week plan, by week, passage, and target tempo' },
@@ -26,7 +26,7 @@ const program = {
 const sprint = {
   badge: 'Start this week',
   name: 'The 1-Week Audition Sprint',
-  price: '€200',
+  price: '€170',
   sub: 'Counts toward the intensive',
   includes: [
     { strong: '2× 45-min 1-on-1 sessions', rest: ' in one week' },
@@ -38,12 +38,12 @@ const sprint = {
     'One excerpt or passage is holding you back',
     'You want to try the coaching before the full intensive',
   ],
-  footer: 'Continue into the intensive and your full €200 comes off the price.',
+  footer: 'Continue into the intensive and your full €170 comes off the price.',
 };
 
 /* Value-stacked breakdown for the table below the card */
 const coreValueRows = [
-  { label: '12× 45-min 1-on-1 sessions', note: '€80/session — standard 1-on-1 rate', value: 960 },
+  { label: '12× 45-min 1-on-1 sessions', note: '€90/session — standard 1-on-1 rate', value: 1080 },
   { label: 'The Audition Roadmap', note: 'personalized 6-week plan, mapped passage by passage', value: 150 },
   { label: 'Between-session video feedback', note: '48h turnaround, 12 reviews across the program', value: 300 },
   { label: 'Week-5 audition simulation + written report', note: 'a full dress run before it counts', value: 150 },
@@ -167,10 +167,10 @@ export default function MasterclassPricing() {
                 Your investment
               </p>
               <p className="text-white font-display text-[44px] md:text-[56px] font-semibold leading-none tracking-[-0.02em]">
-                €1200
+                €1040
               </p>
               <p className="text-white/75 text-[13px] md:text-[14px] mt-2">
-                Or split into 3 monthly payments of <span className="text-white font-semibold">€450</span>{' '}
+                Or split into 3 monthly payments of <span className="text-white font-semibold">€370</span>{' '}
                 — begin now, pay as you progress.
               </p>
             </div>
@@ -313,8 +313,8 @@ function ProgramCard({ program }) {
   );
 }
 
-/* The Sprint card — deliberately muted so the €1200 intensive stays the anchor.
-   Flat border, no glow, ghost CTA; the one accent is the peach "€200 comes off" promise. */
+/* The Sprint card — deliberately muted so the €1040 intensive stays the anchor.
+   Flat border, no glow, ghost CTA; the one accent is the peach "€170 comes off" promise. */
 function SprintCard({ sprint }) {
   return (
     <article
