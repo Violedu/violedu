@@ -2,7 +2,7 @@ import Reveal from '../Reveal';
 
 /* The 6-Week Audition Intensive — the single audition/exam preparation program. */
 const program = {
-  scarcity: 'October intake — 5 spots · 2 filled',
+  scarcity: 'November intake',
   name: 'The 6-Week Audition Intensive',
   price: '€1200',
   payment: 'Or 3 Payments Of €450',
@@ -20,6 +20,25 @@ const program = {
     'The Personalized Daily Warm-Up Sheet',
     'The Post-Audition Debrief Session',
   ],
+};
+
+/* The 1-Week Audition Sprint — the low-commitment entry point, credited toward the intensive. */
+const sprint = {
+  badge: 'Start this week',
+  name: 'The 1-Week Audition Sprint',
+  price: '€200',
+  sub: 'Counts toward the intensive',
+  includes: [
+    { strong: '2× 45-min 1-on-1 sessions', rest: ' in one week' },
+    { strong: 'Between-session video feedback', rest: ' on your recordings (48h turnaround)' },
+    { strong: '1-week WhatsApp / email support', rest: '' },
+  ],
+  whoFor: [
+    'You have an audition or exam coming up fast',
+    'One excerpt or passage is holding you back',
+    'You want to try the coaching before the full intensive',
+  ],
+  footer: 'Continue into the intensive and your full €200 comes off the price.',
 };
 
 /* Value-stacked breakdown for the table below the card */
@@ -64,7 +83,7 @@ export default function MasterclassPricing() {
             delay={0}
             className="text-[#fbd5cf] text-[20px] md:text-[22px] mb-4 font-semibold tracking-[0.01em]"
           >
-            The Investment
+            Two ways to start
           </Reveal>
           <Reveal
             as="h2"
@@ -79,12 +98,14 @@ export default function MasterclassPricing() {
           </Reveal>
         </div>
 
-        {/* Single program card, centered */}
-        <div className="mt-14 max-w-[560px] mx-auto">
-          <Reveal delay={300} className="h-full">
+        {/* Sprint (secondary, left) + Intensive (primary, right). Equal height via row subgrid
+            so both dividers and the CTAs line up across cards; stacks intensive-first on mobile. */}
+        <Reveal delay={300} className="mt-14 max-w-[980px] mx-auto">
+          <div className="grid gap-5 md:gap-x-6 md:gap-y-0 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:grid-rows-[auto_auto_auto_auto]">
             <ProgramCard program={program} />
-          </Reveal>
-        </div>
+            <SprintCard sprint={sprint} />
+          </div>
+        </Reveal>
 
         {/* Value-stacked table */}
         <Reveal
@@ -212,7 +233,7 @@ function SubtotalRow({ label, value }) {
 function ProgramCard({ program }) {
   return (
     <article
-      className="relative h-full flex flex-col rounded-[22px] border border-accent/45 p-7 md:p-9 overflow-hidden"
+      className="relative flex flex-col md:grid md:grid-rows-subgrid md:row-start-1 md:row-end-5 md:col-start-2 rounded-[22px] border border-accent/45 p-7 md:p-8 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #2a1f5a 0%, #1c1737 65%, #1a1735 100%)',
         boxShadow:
@@ -228,8 +249,8 @@ function ProgramCard({ program }) {
         }}
       />
 
-      {/* Header */}
-      <div className="relative text-center">
+      {/* 1 · Header */}
+      <div className="relative text-center pb-7">
         <div className="mb-3 flex flex-col items-center gap-2">
           <span
             className="inline-flex items-center gap-1.5 md:gap-2 whitespace-nowrap text-[10px] font-semibold tracking-[0.08em] md:tracking-[0.18em] uppercase text-[#fbd5cf] px-3 py-1.5 rounded-full"
@@ -253,22 +274,21 @@ function ProgramCard({ program }) {
         </p>
       </div>
 
-      {/* divider */}
-      <div className="relative mt-7 border-t border-white/[0.08]" />
+      {/* 2 · Includes */}
+      <div className="relative border-t border-white/[0.08] pt-7 pb-7">
+        <p className="text-white font-semibold text-[15px] mb-4">Includes:</p>
+        <ul className="space-y-3">
+          {program.includes.map((f, i) => (
+            <FeatureRow key={i}>
+              <span className="text-white font-semibold">{f.strong}</span>
+              {f.rest}
+            </FeatureRow>
+          ))}
+        </ul>
+      </div>
 
-      {/* Includes */}
-      <p className="relative mt-7 text-white font-semibold text-[15px] mb-4">Includes:</p>
-      <ul className="space-y-3 relative">
-        {program.includes.map((f, i) => (
-          <FeatureRow key={i}>
-            <span className="text-white font-semibold">{f.strong}</span>
-            {f.rest}
-          </FeatureRow>
-        ))}
-      </ul>
-
-      {/* Bonuses */}
-      <div className="mt-7 pt-6 border-t border-white/[0.08] relative">
+      {/* 3 · Bonuses */}
+      <div className="relative border-t border-white/[0.08] pt-7 pb-8">
         <p className="text-[#fbd5cf] text-[12px] font-semibold tracking-[0.18em] uppercase mb-3">
           Plus 5 bonuses
         </p>
@@ -282,11 +302,86 @@ function ProgramCard({ program }) {
         </ul>
       </div>
 
-      {/* CTA */}
+      {/* 4 · CTA */}
       <a
         href="/book"
-        className="btn-peach text-[14px] block w-full text-center mt-8 relative"
+        className="btn-peach text-[14px] block w-full text-center relative md:self-end"
       >
+        Book Your Free 30-Min Call →
+      </a>
+    </article>
+  );
+}
+
+/* The Sprint card — deliberately muted so the €1200 intensive stays the anchor.
+   Flat border, no glow, ghost CTA; the one accent is the peach "€200 comes off" promise. */
+function SprintCard({ sprint }) {
+  return (
+    <article
+      className="relative flex flex-col md:grid md:grid-rows-subgrid md:row-start-1 md:row-end-5 md:col-start-1 rounded-[22px] border border-white/10 p-7 md:p-8 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #211e42 0%, #1a1735 100%)',
+        boxShadow: '0 30px 60px -30px rgba(0,0,0,0.55)',
+      }}
+    >
+      {/* 1 · Header */}
+      <div className="text-center pb-7">
+        <div className="mb-3 flex justify-center">
+          <span
+            className="inline-flex items-center gap-1.5 md:gap-2 whitespace-nowrap text-[10px] font-semibold tracking-[0.08em] md:tracking-[0.18em] uppercase text-[#fbd5cf] px-3 py-1.5 rounded-full"
+            style={{
+              background: 'rgba(251,213,207,0.08)',
+              border: '1px solid rgba(251,213,207,0.30)',
+            }}
+          >
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#fbd5cf] animate-pulse" />
+            {sprint.badge}
+          </span>
+        </div>
+        <h3 className="text-white font-display text-[24px] md:text-[28px] font-semibold tracking-[-0.01em] leading-[1.2]">
+          {sprint.name}
+        </h3>
+        <p className="text-white font-display text-[48px] md:text-[60px] font-semibold tracking-[-0.02em] leading-[1.05] mt-3">
+          {sprint.price}
+        </p>
+        <p className="text-[#fbd5cf] italic mt-3 text-[13px] md:text-[14px] leading-[1.5]">
+          {sprint.sub}
+        </p>
+      </div>
+
+      {/* 2 · Includes */}
+      <div className="border-t border-white/[0.08] pt-7 pb-7">
+        <p className="text-white font-semibold text-[15px] mb-4">Includes:</p>
+        <ul className="space-y-3">
+          {sprint.includes.map((f, i) => (
+            <FeatureRow key={i}>
+              <span className="text-white font-semibold">{f.strong}</span>
+              {f.rest}
+            </FeatureRow>
+          ))}
+        </ul>
+      </div>
+
+      {/* 3 · Who it's for + the credit note — mirrors the intensive's bonus block */}
+      <div className="border-t border-white/[0.08] pt-7 pb-8">
+        <p className="text-[#fbd5cf] text-[12px] font-semibold tracking-[0.18em] uppercase mb-3">
+          Who is it for
+        </p>
+        <ul className="space-y-2">
+          {sprint.whoFor.map((w, i) => (
+            <li key={i} className="text-ink-dim text-[13.5px] leading-[1.55] flex items-start gap-2">
+              <span className="text-[#fbd5cf] mt-[7px] inline-block w-1 h-1 rounded-full bg-[#fbd5cf]" />
+              {w}
+            </li>
+          ))}
+        </ul>
+        <p className="text-ink-dim text-[13px] leading-[1.55] mt-5">
+          {sprint.footer}
+        </p>
+      </div>
+
+      {/* 4 · CTA */}
+      <a href="/book" className="btn-peach text-[14px] block w-full text-center md:self-end">
         Book Your Free 30-Min Call →
       </a>
     </article>

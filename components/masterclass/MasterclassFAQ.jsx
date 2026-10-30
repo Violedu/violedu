@@ -25,6 +25,10 @@ const faqs = [
     a: 'Book the call anyway. We\'ll talk through whether the timeline is workable or whether a different approach makes more sense. Sometimes a compressed version with extra sessions is possible; other times I\'ll tell you honestly the timeline is too tight, and we\'ll prioritize what matters most for this cycle while planning the next.',
   },
   {
+    q: 'What is the 1-Week Sprint?',
+    a: 'It\'s a shorter way in: two 45-minute 1-on-1 sessions in one week, focused entirely on one audition excerpt, for €200 — with video feedback on your recordings and WhatsApp/email support across the week. It\'s built for players who have an audition coming up fast, have one passage holding them back, or just want to try the coaching before committing to the full six weeks. If you go on to the 6-Week Intensive, your full €200 comes off the price.',
+  },
+  {
     q: 'Is there a custom plan?',
     a: 'Yes. The 6-Week Intensive is the core program and what I recommend when you have an audition or exam on the calendar. But if you\'d rather go at your own pace — booking 1-on-1 sessions one at a time instead of committing to the full six weeks — there\'s a flexible, pay-as-you-go plan. You still get the same 45-minute sessions, between-session video feedback, and email/WhatsApp support; you give up the personalized roadmap, the bonuses, and the guarantee.',
     link: { href: '/custom-plan', label: 'See the flexible plan →' },
